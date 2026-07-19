@@ -6,7 +6,7 @@
 
 | Путь | Назначение |
 |------|------------|
-| [`content/small-business-space-ru/`](content/small-business-space-ru/) | Рабочая копия **Small Business Space v.1.0 [RU]** (markdown + csv). Можно открыть как Obsidian vault (`content/`). |
+| [`content/small-business-space-ru/`](content/small-business-space-ru/) | Рабочая копия **Small Business Space v.1.0 [RU]** (markdown + csv). Старт: [`00-index.md`](content/small-business-space-ru/00-index.md), оглавление: [`INDEX.md`](content/small-business-space-ru/INDEX.md). |
 | [`docs/structure.md`](docs/structure.md) | Карта модулей |
 | [`import/SwaimProdFromNotion.zip`](import/SwaimProdFromNotion.zip) | Исходный экспорт Notion |
 

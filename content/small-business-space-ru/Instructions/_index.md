@@ -43,7 +43,7 @@
 
 - Show example image.
     
-    ![Group 416.jpg](Instructions/Group_416.jpg)
+    ![Group 416.jpg](Group_416.jpg)
     
 </aside>
 
@@ -52,7 +52,7 @@
 
 - Show example image.
     
-    ![Group 415.jpg](Instructions/Group_415.jpg)
+    ![Group 415.jpg](Group_415.jpg)
     
 </aside>
 

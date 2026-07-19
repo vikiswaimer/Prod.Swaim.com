@@ -16,6 +16,11 @@
 - **Маркетинг/** — 19 md, 13 csv
 - **Финансы/** — 12 md, 14 csv
 
+## Навигация
+
+- [`00-index.md`](../content/small-business-space-ru/00-index.md) — домашняя
+- [`INDEX.md`](../content/small-business-space-ru/INDEX.md) — полное оглавление с рабочими ссылками
+
 ## Корень
 
 - `small-business-space-ru/00-index.md` — главная страница пространства
