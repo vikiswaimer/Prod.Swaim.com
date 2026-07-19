@@ -1,0 +1,3 @@
+# Affiliate
+
+An affiliate is a type of inter-company relationship where one firm sells other merchants’ products on his own website. An affiliate can be termed as a commercial partner of the merchant who promotes the merchant’s products and services on his website by means of different visual tools. In return an affiliate is paid commission by the merchant if the customer comes to his website and makes a purchase of the merchant’s goods. An affiliate is determined by the degree of ownership a parent company holds in another company.

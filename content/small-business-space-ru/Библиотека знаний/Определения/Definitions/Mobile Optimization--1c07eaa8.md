@@ -1,0 +1,4 @@
+# Mobile Optimization
+
+It is a practice of ensuring that your visitors who are accessing the website through mobile devices have a brilliant user experience, both practically and visually. This is achieved by optimizing the website content in such a manner that the visitors can accomplish what they want to do on their mobile devices.
+Mobile optimization involves reformatting the website by keeping larger navigation buttons, only having purpose rich content and optimized images that fits well on any handheld devices. This helps larger mobile audiences to remain engaged while making the key buying decision.

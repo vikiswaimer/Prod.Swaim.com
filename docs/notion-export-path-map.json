@@ -1,0 +1,207 @@
+{
+  "extracted": 548,
+  "errors": [],
+  "mapping_sample": [
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU] 9c82449a756c4042ba8befa741632b67.md",
+      "to": "Small Business Space v 1 0 [RU]--9c82449a.md"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Маркетинг 0d6198c021664873a52a848945611d14.csv",
+      "to": "Small Business Space v 1 0 [RU]/Маркетинг--0d6198c0.csv"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Бизнес d4f8f42c515b492ca87908675224ab8f.csv",
+      "to": "Small Business Space v 1 0 [RU]/Бизнес--d4f8f42c.csv"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Брэнд be8249750bee4d0388b2250d769803be.csv",
+      "to": "Small Business Space v 1 0 [RU]/Брэнд--be824975.csv"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Активность d34bf1f42a7c41398e651124dba2748d.csv",
+      "to": "Small Business Space v 1 0 [RU]/Активность--d34bf1f4.csv"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Other d2ab6b95cc6c4e0e823db9e2691d84ca.csv",
+      "to": "Small Business Space v 1 0 [RU]/Other--d2ab6b95.csv"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Быстрый старт b9e0272ff703440284781ce4ae4dfff3.csv",
+      "to": "Small Business Space v 1 0 [RU]/Быстрый старт--b9e0272f.csv"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Библиотека знаний 3ff7eaab97a74fe180c15b58e2ba1034.csv",
+      "to": "Small Business Space v 1 0 [RU]/Библиотека знаний--3ff7eaab.csv"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Финансы 9c663a57e5d541b582f5ebf134fa0ecb.csv",
+      "to": "Small Business Space v 1 0 [RU]/Финансы--9c663a57.csv"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Маркетинг 0d6198c021664873a52a848945611d14_all.csv",
+      "to": "Small Business Space v 1 0 [RU]/Маркетинг 0d6198c021664873a52a848945611d14_all.csv"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Бизнес d4f8f42c515b492ca87908675224ab8f_all.csv",
+      "to": "Small Business Space v 1 0 [RU]/Бизнес d4f8f42c515b492ca87908675224ab8f_all.csv"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Брэнд be8249750bee4d0388b2250d769803be_all.csv",
+      "to": "Small Business Space v 1 0 [RU]/Брэнд be8249750bee4d0388b2250d769803be_all.csv"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Активность d34bf1f42a7c41398e651124dba2748d_all.csv",
+      "to": "Small Business Space v 1 0 [RU]/Активность d34bf1f42a7c41398e651124dba2748d_all.csv"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Other d2ab6b95cc6c4e0e823db9e2691d84ca_all.csv",
+      "to": "Small Business Space v 1 0 [RU]/Other d2ab6b95cc6c4e0e823db9e2691d84ca_all.csv"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Быстрый старт b9e0272ff703440284781ce4ae4dfff3_all.csv",
+      "to": "Small Business Space v 1 0 [RU]/Быстрый старт b9e0272ff703440284781ce4ae4dfff3_all.csv"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Библиотека знаний 3ff7eaab97a74fe180c15b58e2ba1034_all.csv",
+      "to": "Small Business Space v 1 0 [RU]/Библиотека знаний 3ff7eaab97a74fe180c15b58e2ba1034_all.csv"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Финансы 9c663a57e5d541b582f5ebf134fa0ecb_all.csv",
+      "to": "Small Business Space v 1 0 [RU]/Финансы 9c663a57e5d541b582f5ebf134fa0ecb_all.csv"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Instructions 688821c5ce6440ddbe78107b2c058ac0.md",
+      "to": "Small Business Space v 1 0 [RU]/Instructions--688821c5.md"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Instructions/paper.png",
+      "to": "Small Business Space v 1 0 [RU]/Instructions/paper.png"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Instructions/Thunder.png",
+      "to": "Small Business Space v 1 0 [RU]/Instructions/Thunder.png"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Instructions/Folder.png",
+      "to": "Small Business Space v 1 0 [RU]/Instructions/Folder.png"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Instructions/archive.png",
+      "to": "Small Business Space v 1 0 [RU]/Instructions/archive.png"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Instructions/Group_416.jpg",
+      "to": "Small Business Space v 1 0 [RU]/Instructions/Group_416.jpg"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Instructions/Group_415.jpg",
+      "to": "Small Business Space v 1 0 [RU]/Instructions/Group_415.jpg"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Брэнд/Позиционирование 13f72f851bfe4cacb707e17f85bdcc21.md",
+      "to": "Small Business Space v 1 0 [RU]/Брэнд/Позиционирование--13f72f85.md"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Брэнд/Style Guide 9afe5892ce7344e396e8f1500e4b1da2.md",
+      "to": "Small Business Space v 1 0 [RU]/Брэнд/Style Guide--9afe5892.md"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Брэнд/Style Guide/Styleguide 1a5ff89e09754a1b81231ac482cddae7.csv",
+      "to": "Small Business Space v 1 0 [RU]/Брэнд/Style Guide/Styleguide--1a5ff89e.csv"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Брэнд/Style Guide/Styleguide 1a5ff89e09754a1b81231ac482cddae7_all.csv",
+      "to": "Small Business Space v 1 0 [RU]/Брэнд/Style Guide/Styleguide 1a5ff89e09754a1b81231ac482cddae7_all.csv"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Маркетинг/Лид-магниты 432ef6448dd1410fb8205f23517e3702.md",
+      "to": "Small Business Space v 1 0 [RU]/Маркетинг/Лид-магниты--432ef644.md"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Маркетинг/Лид-магниты/Lead Magnets 8038957c9e394141868731aeb749ab05.csv",
+      "to": "Small Business Space v 1 0 [RU]/Маркетинг/Лид-магниты/Lead Magnets--8038957c.csv"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Маркетинг/Лид-магниты/Lead Magnets 8038957c9e394141868731aeb749ab05_all.csv",
+      "to": "Small Business Space v 1 0 [RU]/Маркетинг/Лид-магниты/Lead Magnets 8038957c9e394141868731aeb749ab05_all.csv"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Маркетинг/Список Email-ов 44541fd7f6c847bdaa67891f009e17e6.md",
+      "to": "Small Business Space v 1 0 [RU]/Маркетинг/Список Email-ов--44541fd7.md"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Маркетинг/Планировщик Рассылок 6155a243abaa4170a85c85dca1d50f11.md",
+      "to": "Small Business Space v 1 0 [RU]/Маркетинг/Планировщик Рассылок--6155a243.md"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Маркетинг/Планировщик Рассылок/Frame_13.svg",
+      "to": "Small Business Space v 1 0 [RU]/Маркетинг/Планировщик Рассылок/Frame_13.svg"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Маркетинг/Планировщик Рассылок/Email рассылки d7b879cc6c6d4d6a848c1c5d518aeda3_all.csv",
+      "to": "Small Business Space v 1 0 [RU]/Маркетинг/Планировщик Рассылок/Email рассылки d7b879cc6c6d4d6a848c1c5d518aeda3_all.csv"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Маркетинг/Планировщик статей 78cd9b034e2c4e5e8cf713157cf19310.md",
+      "to": "Small Business Space v 1 0 [RU]/Маркетинг/Планировщик статей--78cd9b03.md"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Маркетинг/Планировщик статей/Статьи 16a188dea0284e9d8e177335d13398d3.csv",
+      "to": "Small Business Space v 1 0 [RU]/Маркетинг/Планировщик статей/Статьи--16a188de.csv"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Маркетинг/Планировщик статей/Статьи 16a188dea0284e9d8e177335d13398d3_all.csv",
+      "to": "Small Business Space v 1 0 [RU]/Маркетинг/Планировщик статей/Статьи 16a188dea0284e9d8e177335d13398d3_all.csv"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Маркетинг/Планировщик кампаний 7f27373bf301425b930d8541cf612303.md",
+      "to": "Small Business Space v 1 0 [RU]/Маркетинг/Планировщик кампаний--7f27373b.md"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Маркетинг/Планировщик Социальных Медиа a8d43e61db4c4232b99f078e3a5d26a8.md",
+      "to": "Small Business Space v 1 0 [RU]/Маркетинг/Планировщик Социальных Медиа--a8d43e61.md"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Маркетинг/Планировщик Социальных Медиа/Frame_13.svg",
+      "to": "Small Business Space v 1 0 [RU]/Маркетинг/Планировщик Социальных Медиа/Frame_13.svg"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Быстрый старт/Старт своего бизнеса 66c3ee00ba024bcb959b8389a393ea39.md",
+      "to": "Small Business Space v 1 0 [RU]/Быстрый старт/Старт своего бизнеса--66c3ee00.md"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Быстрый старт/Развитие своего бизнеса d23a7834155645a39f7a4d30937976cd.md",
+      "to": "Small Business Space v 1 0 [RU]/Быстрый старт/Развитие своего бизнеса--d23a7834.md"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Активность/Календарь 76077d3c492e4f7cbaf7a8a3ff70c805.md",
+      "to": "Small Business Space v 1 0 [RU]/Активность/Календарь--76077d3c.md"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Активность/Заметки 85250681b6d9440f94035e2d37540100.md",
+      "to": "Small Business Space v 1 0 [RU]/Активность/Заметки--85250681.md"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Активность/Цели 864823f3d18541feb53be0131634e61d.md",
+      "to": "Small Business Space v 1 0 [RU]/Активность/Цели--864823f3.md"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Активность/Цели/Цели 4f0e936db616491ea65fb3f1e61a181d.csv",
+      "to": "Small Business Space v 1 0 [RU]/Активность/Цели/Цели--4f0e936d.csv"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Активность/Цели/Цели 4f0e936db616491ea65fb3f1e61a181d_all.csv",
+      "to": "Small Business Space v 1 0 [RU]/Активность/Цели/Цели 4f0e936db616491ea65fb3f1e61a181d_all.csv"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Активность/Рефлексия 8b9172f7176d4a1ea09a9a28af97933a.md",
+      "to": "Small Business Space v 1 0 [RU]/Активность/Рефлексия--8b9172f7.md"
+    },
+    {
+      "from": "Private & Shared/Small Business Space v 1 0 [RU]/Активность/Рефлексия/Reflection 6b6029ac32b54872a4da61ecd2b303fa.csv",
+      "to": "Small Business Space v 1 0 [RU]/Активность/Рефлексия/Reflection--6b6029ac.csv"
+    }
+  ],
+  "mapping_count": 548
+}

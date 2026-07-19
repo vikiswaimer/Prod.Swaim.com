@@ -1,0 +1,3 @@
+# Point-of-sale (POS) system
+
+POS is software that lets an online store accept transactions, manage inventory, add products, process payments, and send receipts digitally. For physical stores, this can also be a piece of machinery that has a register, till, and card reader.POS is software that lets an online store accept transactions, manage inventory, add products, process payments, and send receipts digitally. For physical stores, this can also be a piece of machinery that has a register, till, and card reader.

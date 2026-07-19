@@ -1,0 +1,4 @@
+# Comma Separated Values (CSV)
+
+A CSV or a comma-separated file is a file-type that stores data in a tabular form. They look like a general spreadsheet but have a .csv extension.
+These files are extremely important to export or import large amounts of data, which, in the case of your online store, could be information regarding customers, products, inventory and more. The CSV file format makes it easy to export, import and convert, and can be used to co-ordinate among different arms of your business. For instance, receiving data from the manufacturing unit to send to the finance division of your company.
