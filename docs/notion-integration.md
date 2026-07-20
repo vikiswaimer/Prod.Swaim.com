@@ -111,6 +111,16 @@ python3 scripts/notion_smoke.py
 
 ## Пилот sync (после появления токена в env)
 
+Живая копия в workspace **"Swaim" - GeoNotes app** (integration `CursorAgent`):
+
+| Страница | page_id |
+|----------|---------|
+| Small Business Space v.1.0 [RU] (корень) | `dcf207ca-d379-82b8-9fa8-013434ecd77f` |
+| Instructions | `e45207ca-d379-83cb-af54-01ada6afeab0` |
+| Твой продукт | `569207ca-d379-82e0-8734-816a22514351` |
+| Старт своего бизнеса | `9b0207ca-d379-8305-9d71-013fc7eb2fd7` |
+| Развитие своего бизнеса | `329207ca-d379-837b-9966-81eee8afa61d` |
+
 ```bash
 # 1) токен виден?
 python3 scripts/notion_smoke.py
@@ -121,7 +131,7 @@ python3 scripts/notion_inspect.py --page-id <ID> --dump /tmp/notion-page.json --
 
 # 3) dry-run обновления Instructions из Git (callout + картинки)
 python3 scripts/notion_sync_pilot.py \
-  --page-id <ID_Instructions> \
+  --page-id e45207ca-d379-83cb-af54-01ada6afeab0 \
   --md content/small-business-space-ru/Instructions/_index.md \
   --assets-dir content/small-business-space-ru/Instructions
 
@@ -130,7 +140,12 @@ python3 scripts/notion_sync_pilot.py ... --apply
 ```
 
 Скрипты: `scripts/notion_client.py`, `notion_inspect.py`, `notion_sync_pilot.py`.
-Формат: headings / lists / quote / divider / **callout** (вместо HTML aside) + image blocks через File Upload API.
+Формат: headings / lists / quote / divider / **to_do** / **callout** (вместо HTML aside) + image как **children** callout через File Upload API.
+
+Снимок формата live-страницы до sync: [`docs/reports/notion-instructions-block-format.json`](reports/notion-instructions-block-format.json).  
+Отчёт пилота: [`docs/reports/notion-api-pilot.md`](reports/notion-api-pilot.md).
+
+> API **не** ставит custom file-icon на callout (только emoji / external / custom_emoji). Иконки `paper.png` и т.п. кладём картинкой внутрь callout.
 
 ---
 
@@ -142,4 +157,4 @@ python3 scripts/notion_sync_pilot.py ... --apply
 | «Хочу, чтобы Cloud Agent сам дописывал страницы и картинки» | Способ B (`NOTION_TOKEN` в secrets + share страниц) |
 | «Вернуть всё пространство одним ZIP» | Не используем |
 
-После того как токен или MCP появятся в окружении — напишите в чат: можно начать с одной страницы (например Instructions или «Твой продукт») как пилота.
+Пилот Git→API выполнен для Instructions (+картинки), «Твой продукт», треков «Старт» / «Развитие». Дальше — точечно по чеклисту пакетов A–C / D.

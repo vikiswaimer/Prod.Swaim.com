@@ -228,14 +228,26 @@ def divider() -> dict:
     return {"object": "block", "type": "divider", "divider": {}}
 
 
-def callout(text: str, emoji: str = "💡") -> dict:
+def callout(
+    text: str,
+    emoji: str = "💡",
+    *,
+    children: list[dict] | None = None,
+) -> dict:
+    payload: dict[str, Any] = {
+        "rich_text": rich(text),
+        "icon": {"type": "emoji", "emoji": emoji},
+    }
+    if children:
+        payload["children"] = children
+    return {"object": "block", "type": "callout", "callout": payload}
+
+
+def to_do(text: str, *, checked: bool = False) -> dict:
     return {
         "object": "block",
-        "type": "callout",
-        "callout": {
-            "rich_text": rich(text),
-            "icon": {"type": "emoji", "emoji": emoji},
-        },
+        "type": "to_do",
+        "to_do": {"rich_text": rich(text), "checked": checked},
     }
 
 
@@ -281,19 +293,29 @@ def summarize_blocks(blocks: list[dict], *, depth: int = 0) -> list[str]:
     pad = "  " * depth
     for b in blocks:
         t = b.get("type")
-        plain = ""
         payload = b.get(t) or {}
         rts = payload.get("rich_text") or []
-        plain = "".join(x.get("plain_text", "") for x in rts)[:80]
+        parts: list[str] = []
+        for x in rts:
+            parts.append(x.get("plain_text") or (x.get("text") or {}).get("content") or "")
+        plain = "".join(parts)[:80]
         extra = ""
         if t == "image":
             img = payload
             extra = f" {img.get('type')}"
         if t == "callout":
-            icon = (payload.get("icon") or {}).get("emoji", "")
-            extra = f" icon={icon}"
+            icon = payload.get("icon") or {}
+            if icon.get("type") == "emoji":
+                extra = f" icon={icon.get('emoji', '')}"
+            else:
+                extra = f" icon_type={icon.get('type')}"
+            kids = payload.get("children") or []
+            if kids:
+                extra += f" children={len(kids)}"
+        if t == "to_do":
+            extra = f" checked={payload.get('checked')}"
         lines.append(f"{pad}{t}{extra}: {plain}")
-        if b.get("has_children") and depth < 2:
-            # children fetched separately by caller if needed
-            pass
+        kids = payload.get("children") or []
+        if kids and depth < 2:
+            lines.extend(summarize_blocks(kids, depth=depth + 1))
     return lines

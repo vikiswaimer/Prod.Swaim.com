@@ -21,10 +21,10 @@ ASIDE_RE = re.compile(r"<aside>(.*?)</aside>", re.S | re.I)
 IMG_HTML_RE = re.compile(r'<img[^>]+src=["\']([^"\']+)["\'][^>]*>', re.I)
 MD_IMG_RE = re.compile(r"!\[([^\]]*)\]\(([^)]+)\)")
 HEADING_RE = re.compile(r"^(#{1,3})\s+(.*)$")
+TODO_RE = re.compile(r"^[-*]\s+\[([ xX])\]\s+(.*)$")
 BULLET_RE = re.compile(r"^[-*]\s+(.*)$")
 NUM_RE = re.compile(r"^(\d+)\.\s+(.*)$")
 QUOTE_RE = re.compile(r"^>\s?(.*)$")
-BOLD_CODE_RE = re.compile(r"`([^`]+)`")
 LINK_RE = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
 
 
@@ -32,21 +32,27 @@ def strip_md_inline(text: str) -> str:
     text = LINK_RE.sub(r"\1", text)
     text = text.replace("**", "")
     text = text.replace("_", "")
+    text = text.replace("`", "")
     return text.strip()
 
 
-def parse_aside(inner: str) -> tuple[str | None, str, str]:
-    """return (image_src_or_None, emoji_hint, text)."""
-    img = None
-    m = IMG_HTML_RE.search(inner)
-    if m:
-        img = m.group(1).strip()
-        inner = IMG_HTML_RE.sub("", inner)
-    m2 = MD_IMG_RE.search(inner)
-    if m2 and not img:
-        img = m2.group(2).strip()
-        inner = MD_IMG_RE.sub("", inner)
-    text = re.sub(r"\s+", " ", inner).strip()
+def parse_aside(inner: str) -> tuple[list[str], str, str]:
+    """return (image_srcs, emoji_hint, text).
+
+    Live Notion format (captured): Pages indications = callout + custom icon image;
+    API cannot set file icons on callouts → emoji callout + image as *child*.
+    Columns indications = emoji callout; example screenshots as children.
+    """
+    imgs: list[str] = []
+    for m in IMG_HTML_RE.finditer(inner):
+        imgs.append(m.group(1).strip())
+    inner = IMG_HTML_RE.sub("", inner)
+    for m in MD_IMG_RE.finditer(inner):
+        imgs.append(m.group(2).strip())
+    inner = MD_IMG_RE.sub("", inner)
+    # drop leftover "Пример:" bullets noise → keep short callout text
+    text = re.sub(r"(?im)^\s*[-*]\s*Пример:?\s*$", "", inner)
+    text = re.sub(r"\s+", " ", text).strip()
     text = strip_md_inline(text)
     emoji = "📌"
     if "⛔" in text or "Not editable" in text:
@@ -61,7 +67,7 @@ def parse_aside(inner: str) -> tuple[str | None, str, str]:
         emoji = "📁"
     elif "Archive" in text:
         emoji = "📦"
-    return img, emoji, text
+    return imgs, emoji, text
 
 
 def md_to_blocks(
@@ -79,7 +85,7 @@ def md_to_blocks(
 
     blocks: list[dict] = []
     # extract asides first, replace with placeholders
-    asides: list[tuple[str | None, str, str]] = []
+    asides: list[tuple[list[str], str, str]] = []
 
     def aside_sub(m: re.Match[str]) -> str:
         asides.append(parse_aside(m.group(1)))
@@ -126,14 +132,17 @@ def md_to_blocks(
         m_aside = re.match(r"@@ASIDE_(\d+)@@$", line.strip())
         if m_aside:
             flush_para()
-            img, emoji, atext = asides[int(m_aside.group(1))]
-            # Prefer callout with text; image as following block (matches Notion style)
-            if atext:
-                blocks.append(nc.callout(atext, emoji))
-            if img:
+            imgs, emoji, atext = asides[int(m_aside.group(1))]
+            children: list[dict] = []
+            for img in imgs:
                 ib = resolve_image(img)
                 if ib:
-                    blocks.append(ib)
+                    children.append(ib)
+            # API: file icons on callouts unsupported → emoji + images as children
+            if atext:
+                blocks.append(nc.callout(atext, emoji, children=children or None))
+            else:
+                blocks.extend(children)
             continue
 
         m_img = MD_IMG_RE.fullmatch(line.strip())
@@ -161,13 +170,18 @@ def md_to_blocks(
             blocks.append(nc.divider())
             continue
 
+        m_todo = TODO_RE.match(line)
+        if m_todo:
+            flush_para()
+            checked = m_todo.group(1).lower() == "x"
+            blocks.append(nc.to_do(strip_md_inline(m_todo.group(2)), checked=checked))
+            continue
+
         m_b = BULLET_RE.match(line)
         if m_b:
             flush_para()
-            item = strip_md_inline(m_b.group(1))
-            italic = item.startswith("_") or "Напишите" in item or item.startswith("2–")
-            # placeholders like _text_ already stripped; detect by original
             orig = m_b.group(1)
+            item = strip_md_inline(orig)
             italic = orig.strip().startswith("_")
             blocks.append(nc.bulleted(item, italic=italic))
             continue
@@ -213,31 +227,34 @@ def main() -> int:
     )
     md = re.sub(r"\[пример\]\([^)]+\)", "пример в Git: examples/", md)
 
-    blocks = md_to_blocks(
-        md,
-        assets_dir=args.assets_dir,
-        token=token,
-        upload=not args.dry_run,
-    )
-    print(f"blocks prepared: {len(blocks)}")
-    for line in nc.summarize_blocks(blocks)[:40]:
-        print(line)
-    if len(blocks) > 40:
-        print(f"... +{len(blocks)-40} more")
-
     if args.dry_run:
+        blocks = md_to_blocks(
+            md,
+            assets_dir=args.assets_dir,
+            token=token,
+            upload=False,
+        )
+        print(f"blocks prepared: {len(blocks)}")
+        for line in nc.summarize_blocks(blocks)[:50]:
+            print(line)
+        if len(blocks) > 50:
+            print(f"... +{len(blocks)-50} more")
         print("DRY-RUN: ничего не записано. Добавьте --apply для записи.")
         return 0
 
     page = nc.get_page(token, args.page_id)
     print(f"updating {nc.page_title(page)!r} {page.get('url')}")
-    # re-build with real uploads
     blocks = md_to_blocks(
         md,
         assets_dir=args.assets_dir,
         token=token,
         upload=True,
     )
+    print(f"blocks prepared: {len(blocks)}")
+    for line in nc.summarize_blocks(blocks)[:50]:
+        print(line)
+    if len(blocks) > 50:
+        print(f"... +{len(blocks)-50} more")
     n = nc.clear_page_blocks(token, args.page_id)
     print(f"cleared {n} old blocks")
     nc.append_children(token, args.page_id, blocks)

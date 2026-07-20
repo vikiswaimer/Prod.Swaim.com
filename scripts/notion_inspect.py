@@ -43,9 +43,15 @@ def main() -> int:
                     item["_children"] = nc.get_block_children(token, b["id"])
                 enriched.append(item)
             blocks = enriched
-        for line in nc.summarize_blocks(
-            [{k: v for k, v in b.items() if k != "_children"} for b in blocks]
-        ):
+        # merge fetched _children into payload.children for summarize
+        for b in blocks:
+            kids = b.pop("_children", None)
+            if kids is not None:
+                t = b.get("type")
+                if t and isinstance(b.get(t), dict):
+                    b[t] = dict(b[t])
+                    b[t]["children"] = kids
+        for line in nc.summarize_blocks(blocks):
             print(line)
         if args.dump:
             args.dump.write_text(json.dumps(blocks, ensure_ascii=False, indent=2), encoding="utf-8")
