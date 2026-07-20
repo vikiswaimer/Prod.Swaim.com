@@ -358,21 +358,21 @@ def main() -> int:
     print(f"page map: {args.page_map} ({len(pages)} pages, root-scoped)")
 
     md = args.md.read_text(encoding="utf-8")
+    # Пакет D: не тащить в Notion ссылки на docs/Git/examples
     md = re.sub(
         r"Подробнее: \[позиционирование\]\([^)]+\)[^\n]*\n?",
-        "Подробнее о позиционировании — в Git-копии docs/positioning.md.\n",
+        "",
         md,
     )
     md = re.sub(
         r"\[примером заполнения\]\([^)]+\)",
-        "примером заполнения (в Git: examples/)",
+        "примером заполнения",
         md,
     )
-    md = re.sub(r"\[пример\]\([^)]+\)", "пример в Git: examples/", md)
-    # methodology path in Instructions → plain
+    md = re.sub(r"\[пример\]\([^)]+\)", "примером", md)
     md = re.sub(
         r"Канон для агента: `docs/methodology\.md` в Git\.",
-        "Канон для агента — docs/methodology.md в Git-копии.",
+        "",
         md,
     )
 

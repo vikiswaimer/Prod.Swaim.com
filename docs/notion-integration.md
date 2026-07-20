@@ -157,4 +157,5 @@ python3 scripts/notion_sync_pilot.py ... --apply
 | «Хочу, чтобы Cloud Agent сам дописывал страницы и картинки» | Способ B (`NOTION_TOKEN` в secrets + share страниц) |
 | «Вернуть всё пространство одним ZIP» | Не используем |
 
-Пилот Git→API выполнен для Instructions (+картинки), «Твой продукт», треков «Старт» / «Развитие». Дальше — точечно по чеклисту пакетов A–C / D.
+Пилот Git→API выполнен для Instructions (+картинки), «Твой продукт», треков «Старт» / «Развитие».  
+Пакет D синхронизирован: [`docs/reports/notion-sync-pack-d.md`](reports/notion-sync-pack-d.md) · `scripts/notion_sync_pack_d.py`.
