@@ -115,7 +115,7 @@ Obsidian vault: открывать `content/` или `content/small-business-spa
 - **A** ✅ issue #1 — позиционирование + очистка «Твой продукт» + Instructions. Отчёт: `docs/reports/pack-a.md`.
 - **B** ✅ issue #2 — треки Старт vs Развитие. Отчёт: `docs/reports/pack-b.md`.
 - **C** ✅ issue #3 — язык/глоссарий/дубль маркетинга. Отчёт: `docs/reports/pack-c.md`.
-- **D** — пароли в шаблоне, налог 30% зашит, Untitled/демо-шум.
+- **D** ✅ issue #8 — пароли, налоги %, Untitled; Instructions без GitHub-отсылок. Отчёт: `docs/reports/pack-d.md`.
 
 ## Быстрый старт агента в новом чате
 
