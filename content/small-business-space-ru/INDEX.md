@@ -1,8 +1,8 @@
 # Small Business Space v.1.0 [RU]
 
-> Рабочая копия для Git / Obsidian / Cursor. Оригинал: [Notion](https://swaim.notion.site/Small-Business-Space-v-1-0-RU-22a207cad37981ddbd72d4d9f0ed54c3).
+> Рабочая копия шаблона для Git / Obsidian / агента. Основной UX для людей — Notion.
 
-Стартовая страница: [00-index.md](00-index.md) · Позиционирование: [docs/positioning.md](../../docs/positioning.md)
+Стартовая страница: [00-index.md](00-index.md) · [Instructions](Instructions/_index.md)
 
 ## Старт
 

@@ -2,15 +2,7 @@
 
 Готовое пространство для управления и развития **цифрового продукта**: структура, чеклисты и рабочие разделы. Можно вести самостоятельно или **в паре с ИИ** — без сборки фреймворка с нуля.
 
-Позиционирование: [docs/positioning.md](../../docs/positioning.md) · Методология: [docs/methodology.md](../../docs/methodology.md) · Глоссарий: [docs/glossary.md](../../docs/glossary.md) · Оглавление: [INDEX.md](INDEX.md)
-
-Публичный Notion: https://swaim.notion.site/Small-Business-Space-v-1-0-RU-22a207cad37981ddbd72d4d9f0ed54c3
-
----
-
-Прежде чем приступить → [Instructions](Instructions/_index.md)
-
-Пример заполнения «Твой продукт» → [examples/твой-продукт-пример.md](examples/твой-продукт-пример.md)
+Сначала → [Instructions](Instructions/_index.md) · Оглавление → [INDEX.md](INDEX.md) · Пример «Твой продукт» → [examples/твой-продукт-пример.md](examples/твой-продукт-пример.md)
 
 ---
 
@@ -100,7 +92,7 @@
 - [Email шаблоны](Other/Email%20шаблоны--facf40e0.md)
 - [Text Snippets](Other/Text%20Snippets--1dbd68f8.md)
 - [Отзывы](Other/Отзывы--593380ce.md)
-- [Пароли](Other/Пароли--ab1df728.md) _(опционально; см. пакет D)_
+- [Пароли](Other/Пароли--ab1df728.md) _(не ядро; лучше внешний менеджер)_
 - [Ссылки](Other/Ссылки--82a24257.md)
 - [Таблица раздела (CSV)](Other/Other--d2ab6b95.csv)
 - Подробнее в [INDEX.md](INDEX.md)
