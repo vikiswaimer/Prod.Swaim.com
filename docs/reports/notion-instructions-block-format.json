@@ -1,0 +1,180 @@
+{
+  "page": "Instructions",
+  "page_id": "e45207ca-d379-83cb-af54-01ada6afeab0",
+  "workspace_root": "Small Business Space v.1.0 [RU]",
+  "root_page_id": "dcf207ca-d379-82b8-9fa8-013434ecd77f",
+  "captured_from": "live Notion before Git→API sync pilot",
+  "notes": [
+    "Pages indications callouts use custom FILE icons (paper/Thunder/Folder/archive), not emoji",
+    "Columns indications use emoji ⛔/✏️",
+    "No top-level image blocks on live page at capture time",
+    "Content still pre-pack-A (to be replaced from Git)"
+  ],
+  "related_ids": {
+    "Твой продукт": "569207ca-d379-82e0-8734-816a22514351",
+    "Старт своего бизнеса": "9b0207ca-d379-8305-9d71-013fc7eb2fd7",
+    "Развитие своего бизнеса": "329207ca-d379-837b-9966-81eee8afa61d"
+  },
+  "block_count": 23,
+  "blocks": [
+    {
+      "type": "paragraph",
+      "has_children": false,
+      "color": "default",
+      "text": "Каждый малый бизнес отличается. Не перегружайте себя, если вы обнаружите, что одна или две вещи просто не работают для в"
+    },
+    {
+      "type": "paragraph",
+      "has_children": false,
+      "color": "default",
+      "text": "Отрегулируйте по своим требованиям и сделайте его своим бизнес-домом."
+    },
+    {
+      "type": "paragraph",
+      "has_children": false,
+      "color": "default",
+      "text": "А я в свою очередь всегда остаюсь рядом с вами, подпишитесь на рассылку и получайте дальнейшие лайфхаки по развитию бизн"
+    },
+    {
+      "type": "paragraph",
+      "has_children": false,
+      "color": "default",
+      "text": ""
+    },
+    {
+      "type": "paragraph",
+      "has_children": false,
+      "color": "default",
+      "text": "Вот несколько доп советов:"
+    },
+    {
+      "type": "divider",
+      "has_children": false,
+      "color": null
+    },
+    {
+      "type": "bulleted_list_item",
+      "has_children": false,
+      "color": "default",
+      "text": "Любимые страницы, которые вы используете чаще всего - добавьте в закладки браузера либо ярлыком на рабочий стол компьюте"
+    },
+    {
+      "type": "bulleted_list_item",
+      "has_children": false,
+      "color": "default",
+      "text": "Удаляйте страницы, которые не представляют ценности для вашего бизнеса."
+    },
+    {
+      "type": "bulleted_list_item",
+      "has_children": false,
+      "color": "default",
+      "text": "Настройте шаблон под свои нужды."
+    },
+    {
+      "type": "paragraph",
+      "has_children": false,
+      "color": "default",
+      "text": ""
+    },
+    {
+      "type": "paragraph",
+      "has_children": false,
+      "color": "default",
+      "text": "Pages indications:"
+    },
+    {
+      "type": "callout",
+      "has_children": false,
+      "color": "default",
+      "icon_type": "file",
+      "icon_file_name": "paper.png",
+      "text": "Document  Вам необходимо заполнить эту страницу информацией о своем бизнесе.",
+      "children_types": []
+    },
+    {
+      "type": "callout",
+      "has_children": false,
+      "color": "default",
+      "icon_type": "file",
+      "icon_file_name": "Thunder.png",
+      "text": "Activity  Используется для таких страниц, как заметки, задачи, календарь и т.д.",
+      "children_types": []
+    },
+    {
+      "type": "callout",
+      "has_children": false,
+      "color": "default",
+      "icon_type": "file",
+      "icon_file_name": "Folder.png",
+      "text": "Database  Используется для управления контентом, расходами и т.д.",
+      "children_types": []
+    },
+    {
+      "type": "callout",
+      "has_children": false,
+      "color": "default",
+      "icon_type": "file",
+      "icon_file_name": "archive.png",
+      "text": "Archive  Дополнительная информация, не имеющая отношения к Вашему бизнесу.",
+      "children_types": []
+    },
+    {
+      "type": "paragraph",
+      "has_children": false,
+      "color": "default",
+      "text": ""
+    },
+    {
+      "type": "paragraph",
+      "has_children": false,
+      "color": "default",
+      "text": "Columns indications:"
+    },
+    {
+      "type": "callout",
+      "has_children": true,
+      "color": "default",
+      "icon_type": "emoji",
+      "emoji": "⛔",
+      "text": "Not editable  Mostly used in formulas to calculate or combine fields.",
+      "children_types": [
+        "toggle"
+      ]
+    },
+    {
+      "type": "callout",
+      "has_children": true,
+      "color": "default",
+      "icon_type": "emoji",
+      "emoji": "✏️",
+      "text": "Editable  Make sure to edit formulas on your own needs.",
+      "children_types": [
+        "toggle"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "has_children": false,
+      "color": "default",
+      "text": ""
+    },
+    {
+      "type": "paragraph",
+      "has_children": false,
+      "color": "default",
+      "text": "Templates indications:"
+    },
+    {
+      "type": "paragraph",
+      "has_children": false,
+      "color": "default",
+      "text": ""
+    },
+    {
+      "type": "paragraph",
+      "has_children": false,
+      "color": "default",
+      "text": ""
+    }
+  ]
+}

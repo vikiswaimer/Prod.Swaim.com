@@ -41,7 +41,7 @@ https://swaim.notion.site/Small-Business-Space-v-1-0-RU-22a207cad37981ddbd72d4d9
 | GitHub Issues | Тикеты на существенные изменения |
 | Лендинг / маркетинг-стратегия | **Отдельные** чаты и issues — не смешивать сюда без явного запроса |
 
-Агент **не пишет в Notion напрямую** (нет Integration в бесплатном контуре). После merge правок в Git — чеклист «перенести в Notion» вручную владельцу.
+Агент **не пишет в Notion напрямую**, пока нет подключения (MCP или Internal Integration). Как включить: [`docs/notion-integration.md`](docs/notion-integration.md). ZIP-импорт целого пространства — **не** используем (лимит ~5 MB, ломается разметка/картинки). После правок в Git без Integration — чеклист «перенести в Notion» вручную.
 
 ## Карта репозитория
 
@@ -66,13 +66,18 @@ docs/
   positioning.md          — позиционирование продукта
   methodology.md          — Каган / Рис / Mom Test / Спринт / Olsen MVP
   agent-context.md        — детальный бэклог логики и правила работы
+  notion-integration.md   — подключение агента к Notion (MCP / NOTION_TOKEN)
+  notion-reimport.md      — ZIP-эксперимент (не рекомендуем)
   reports/                — отчёты по пакетам
   notion-export-path-map*.json — карта укороченных имён после экспорта
 import/
- SwaimProdFromNotion.zip — исходный экспорт Notion (не распаковывать в корень зря)
- ProdSwaim-Notion-import*.zip — пакеты Git→Notion (см. docs/notion-reimport.md)
+  SwaimProdFromNotion.zip — исходный экспорт Notion (не распаковывать в корень зря)
+  ProdSwaim-Notion-import*.zip — архив ZIP-эксперимента
 scripts/
- pack-notion-import.py — сборка ZIP для импорта в Notion с картинками
+  pack-notion-import.py   — сборка ZIP (legacy)
+  notion_smoke.py         — проверка NOTION_TOKEN
+.cursor/
+  mcp.json                — шаблон Notion MCP (OAuth в Desktop)
 ```
 
 Obsidian vault: открывать `content/` или `content/small-business-space-ru/`.
