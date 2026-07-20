@@ -69,8 +69,9 @@
 
 - Владелец создаёт issue на существенные изменения.
 - Агент правит Git; по договорённости — `main` или ветка `cursor/<name>-ffef` + PR.
-- В конце ответа агента: список файлов + что руками перенести в Notion.
+- В конце ответа агента: список файлов + что руками перенести в Notion (или что уже записано через Integration/MCP).
 - Посадочная страница и маркетинг-стратегия — **другие** чаты/issues.
+- Подключение к Notion: [`notion-integration.md`](notion-integration.md). Без токена/MCP агент в Notion не пишет.
 
 ## История setup (чтобы не повторять)
 
@@ -79,7 +80,7 @@
 3. Распаковка с укорочением путей → `content/small-business-space-ru/` (548 файлов).
 4. Починены битые ссылки; добавлены `00-index.md`, `INDEX.md`.
 5. Пакеты A→C через Issues; D — в бэклоге.
-6. Обратный импорт Git→Notion: [`notion-reimport.md`](notion-reimport.md), скрипт `scripts/pack-notion-import.py`, ZIP в `import/ProdSwaim-Notion-import*.zip` (картинки едут вместе; сначала мини-проба Instructions).
+6. Обратный импорт ZIP Git→Notion — **эксперимент отклонён** (лимит 5 MB, разметка/картинки). Актуальный путь: [`notion-integration.md`](notion-integration.md) (Notion MCP и/или `NOTION_TOKEN`).
 
 ## Полезные команды проверки ссылок
 
