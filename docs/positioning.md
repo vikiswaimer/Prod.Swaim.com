@@ -23,8 +23,13 @@
 
 Готовые решения под типовые ситуации; набор постепенно расширяется. Можно вести без ИИ или с ИИ как с напарником.
 
+## Методологический фундамент
+
+Контент и советы агента строятся на: Cagan (Inspired), Ries (Lean Startup), Fitzpatrick (Mom Test), Knapp (Sprint), Olsen/владелец (MVP = полезный платящий срез). Детали: [`methodology.md`](methodology.md).
+
 ## Где отражено в репо
 
 - [`content/.../00-index.md`](../content/small-business-space-ru/00-index.md)
 - [`content/.../Instructions/_index.md`](../content/small-business-space-ru/Instructions/_index.md)
 - [`AGENTS.md`](../AGENTS.md)
+- [`docs/methodology.md`](methodology.md)
