@@ -69,7 +69,10 @@ docs/
   reports/                — отчёты по пакетам
   notion-export-path-map*.json — карта укороченных имён после экспорта
 import/
-  SwaimProdFromNotion.zip — исходный экспорт Notion (не распаковывать в корень зря)
+ SwaimProdFromNotion.zip — исходный экспорт Notion (не распаковывать в корень зря)
+ ProdSwaim-Notion-import*.zip — пакеты Git→Notion (см. docs/notion-reimport.md)
+scripts/
+ pack-notion-import.py — сборка ZIP для импорта в Notion с картинками
 ```
 
 Obsidian vault: открывать `content/` или `content/small-business-space-ru/`.
