@@ -2,11 +2,12 @@
 
 > Рабочая копия для Git / Obsidian / Cursor. Оригинал: [Notion](https://swaim.notion.site/Small-Business-Space-v-1-0-RU-22a207cad37981ddbd72d4d9f0ed54c3).
 
-Стартовая страница: [00-index.md](00-index.md)
+Стартовая страница: [00-index.md](00-index.md) · Позиционирование: [docs/positioning.md](../../docs/positioning.md)
 
 ## Старт
 
 - [Instructions](Instructions/_index.md)
+- [Пример: Твой продукт](examples/%D1%82%D0%B2%D0%BE%D0%B9-%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82-%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80.md)
 - **Быстрый старт**
   - [Развитие своего бизнеса](%D0%91%D1%8B%D1%81%D1%82%D1%80%D1%8B%D0%B9%20%D1%81%D1%82%D0%B0%D1%80%D1%82/%D0%A0%D0%B0%D0%B7%D0%B2%D0%B8%D1%82%D0%B8%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0--d23a7834.md)
   - [Старт своего бизнеса](%D0%91%D1%8B%D1%81%D1%82%D1%80%D1%8B%D0%B9%20%D1%81%D1%82%D0%B0%D1%80%D1%82/%D0%A1%D1%82%D0%B0%D1%80%D1%82%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0--66c3ee00.md)
