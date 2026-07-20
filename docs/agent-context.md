@@ -78,7 +78,8 @@
 2. Экспорт Notion `Markdown & CSV` → `import/SwaimProdFromNotion.zip` (внутри ещё один zip Part-1).
 3. Распаковка с укорочением путей → `content/small-business-space-ru/` (548 файлов).
 4. Починены битые ссылки; добавлены `00-index.md`, `INDEX.md`.
-5. Следующий фокус: пакеты A→D через Issues.
+5. Пакеты A→C через Issues; D — в бэклоге.
+6. Обратный импорт Git→Notion: [`notion-reimport.md`](notion-reimport.md), скрипт `scripts/pack-notion-import.py`, ZIP в `import/ProdSwaim-Notion-import*.zip` (картинки едут вместе; сначала мини-проба Instructions).
 
 ## Полезные команды проверки ссылок
 
