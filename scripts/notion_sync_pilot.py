@@ -1,0 +1,250 @@
+#!/usr/bin/env python3
+"""Пилот: обновить одну страницу Notion из markdown (формат callout + image).
+
+Сначала смотрим живую копию (notion_inspect), затем:
+  python3 scripts/notion_sync_pilot.py --page-id <id> --md content/.../Instructions/_index.md \\
+      --assets-dir content/.../Instructions --dry-run
+  python3 scripts/notion_sync_pilot.py --page-id <id> --md ... --assets-dir ... --apply
+"""
+
+from __future__ import annotations
+
+import argparse
+import re
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import notion_client as nc  # noqa: E402
+
+ASIDE_RE = re.compile(r"<aside>(.*?)</aside>", re.S | re.I)
+IMG_HTML_RE = re.compile(r'<img[^>]+src=["\']([^"\']+)["\'][^>]*>', re.I)
+MD_IMG_RE = re.compile(r"!\[([^\]]*)\]\(([^)]+)\)")
+HEADING_RE = re.compile(r"^(#{1,3})\s+(.*)$")
+BULLET_RE = re.compile(r"^[-*]\s+(.*)$")
+NUM_RE = re.compile(r"^(\d+)\.\s+(.*)$")
+QUOTE_RE = re.compile(r"^>\s?(.*)$")
+BOLD_CODE_RE = re.compile(r"`([^`]+)`")
+LINK_RE = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
+
+
+def strip_md_inline(text: str) -> str:
+    text = LINK_RE.sub(r"\1", text)
+    text = text.replace("**", "")
+    text = text.replace("_", "")
+    return text.strip()
+
+
+def parse_aside(inner: str) -> tuple[str | None, str, str]:
+    """return (image_src_or_None, emoji_hint, text)."""
+    img = None
+    m = IMG_HTML_RE.search(inner)
+    if m:
+        img = m.group(1).strip()
+        inner = IMG_HTML_RE.sub("", inner)
+    m2 = MD_IMG_RE.search(inner)
+    if m2 and not img:
+        img = m2.group(2).strip()
+        inner = MD_IMG_RE.sub("", inner)
+    text = re.sub(r"\s+", " ", inner).strip()
+    text = strip_md_inline(text)
+    emoji = "📌"
+    if "⛔" in text or "Not editable" in text:
+        emoji = "⛔"
+    elif "✏️" in text or "Editable" in text:
+        emoji = "✏️"
+    elif "Document" in text:
+        emoji = "📄"
+    elif "Activity" in text:
+        emoji = "⚡"
+    elif "Database" in text:
+        emoji = "📁"
+    elif "Archive" in text:
+        emoji = "📦"
+    return img, emoji, text
+
+
+def md_to_blocks(
+    md: str,
+    *,
+    assets_dir: Path | None,
+    token: str | None,
+    upload: bool,
+) -> list[dict]:
+    # drop leading H1 (page title already in Notion)
+    lines = md.splitlines()
+    if lines and lines[0].startswith("# "):
+        lines = lines[1:]
+    text = "\n".join(lines).strip() + "\n"
+
+    blocks: list[dict] = []
+    # extract asides first, replace with placeholders
+    asides: list[tuple[str | None, str, str]] = []
+
+    def aside_sub(m: re.Match[str]) -> str:
+        asides.append(parse_aside(m.group(1)))
+        return f"\n@@ASIDE_{len(asides)-1}@@\n"
+
+    text = ASIDE_RE.sub(aside_sub, text)
+
+    def resolve_image(src: str) -> dict | None:
+        if src.startswith("http"):
+            return nc.image_external(src)
+        if not assets_dir:
+            return None
+        # strip folder prefix Instructions/
+        name = Path(src).name
+        path = assets_dir / name
+        if not path.exists():
+            path = assets_dir / src
+        if not path.exists():
+            print(f"WARN missing asset {src}", file=sys.stderr)
+            return None
+        if upload and token:
+            uid = nc.upload_local_file(token, path)
+            return nc.image_file_upload(uid)
+        # dry-run placeholder as callout
+        return nc.callout(f"[image: {path.name}]", "🖼️")
+
+    buf_para: list[str] = []
+
+    def flush_para() -> None:
+        nonlocal buf_para
+        if not buf_para:
+            return
+        para = strip_md_inline(" ".join(buf_para))
+        if para:
+            blocks.append(nc.paragraph(para))
+        buf_para = []
+
+    for raw in text.splitlines():
+        line = raw.rstrip()
+        if not line.strip():
+            flush_para()
+            continue
+
+        m_aside = re.match(r"@@ASIDE_(\d+)@@$", line.strip())
+        if m_aside:
+            flush_para()
+            img, emoji, atext = asides[int(m_aside.group(1))]
+            # Prefer callout with text; image as following block (matches Notion style)
+            if atext:
+                blocks.append(nc.callout(atext, emoji))
+            if img:
+                ib = resolve_image(img)
+                if ib:
+                    blocks.append(ib)
+            continue
+
+        m_img = MD_IMG_RE.fullmatch(line.strip())
+        if m_img:
+            flush_para()
+            ib = resolve_image(m_img.group(2).strip())
+            if ib:
+                blocks.append(ib)
+            continue
+
+        m_h = HEADING_RE.match(line)
+        if m_h:
+            flush_para()
+            blocks.append(nc.heading(len(m_h.group(1)), strip_md_inline(m_h.group(2))))
+            continue
+
+        m_q = QUOTE_RE.match(line)
+        if m_q:
+            flush_para()
+            blocks.append(nc.quote(strip_md_inline(m_q.group(1))))
+            continue
+
+        if line.strip() == "---":
+            flush_para()
+            blocks.append(nc.divider())
+            continue
+
+        m_b = BULLET_RE.match(line)
+        if m_b:
+            flush_para()
+            item = strip_md_inline(m_b.group(1))
+            italic = item.startswith("_") or "Напишите" in item or item.startswith("2–")
+            # placeholders like _text_ already stripped; detect by original
+            orig = m_b.group(1)
+            italic = orig.strip().startswith("_")
+            blocks.append(nc.bulleted(item, italic=italic))
+            continue
+
+        m_n = NUM_RE.match(line)
+        if m_n:
+            flush_para()
+            orig = m_n.group(2)
+            item = strip_md_inline(orig)
+            italic = orig.strip().startswith("_")
+            blocks.append(nc.numbered(item, italic=italic))
+            continue
+
+        buf_para.append(line)
+
+    flush_para()
+    return blocks
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--page-id", required=True)
+    ap.add_argument("--md", type=Path, required=True)
+    ap.add_argument("--assets-dir", type=Path, default=None)
+    ap.add_argument("--dry-run", action="store_true", default=True)
+    ap.add_argument("--apply", action="store_true", help="Реально очистить страницу и записать блоки")
+    args = ap.parse_args()
+    if args.apply:
+        args.dry_run = False
+
+    token = nc.get_token()
+    md = args.md.read_text(encoding="utf-8")
+    # skip git-only docs link noise for Notion
+    md = re.sub(
+        r"Подробнее: \[позиционирование\]\([^)]+\)[^\n]*\n?",
+        "Подробнее о позиционировании — в Git-копии docs/positioning.md.\n",
+        md,
+    )
+    md = re.sub(
+        r"\[примером заполнения\]\([^)]+\)",
+        "примером заполнения (в Git: examples/)",
+        md,
+    )
+    md = re.sub(r"\[пример\]\([^)]+\)", "пример в Git: examples/", md)
+
+    blocks = md_to_blocks(
+        md,
+        assets_dir=args.assets_dir,
+        token=token,
+        upload=not args.dry_run,
+    )
+    print(f"blocks prepared: {len(blocks)}")
+    for line in nc.summarize_blocks(blocks)[:40]:
+        print(line)
+    if len(blocks) > 40:
+        print(f"... +{len(blocks)-40} more")
+
+    if args.dry_run:
+        print("DRY-RUN: ничего не записано. Добавьте --apply для записи.")
+        return 0
+
+    page = nc.get_page(token, args.page_id)
+    print(f"updating {nc.page_title(page)!r} {page.get('url')}")
+    # re-build with real uploads
+    blocks = md_to_blocks(
+        md,
+        assets_dir=args.assets_dir,
+        token=token,
+        upload=True,
+    )
+    n = nc.clear_page_blocks(token, args.page_id)
+    print(f"cleared {n} old blocks")
+    nc.append_children(token, args.page_id, blocks)
+    print(f"appended {len(blocks)} blocks OK")
+    print(page.get("url"))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

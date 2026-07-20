@@ -32,13 +32,19 @@ def request(method: str, path: str, token: str) -> dict:
 
 
 def main() -> int:
-    token = os.environ.get("NOTION_TOKEN", "").strip()
+    token = ""
+    for key in ("NOTION_TOKEN", "NotionToken", "NOTION_API_KEY", "NOTION_SECRET"):
+        token = os.environ.get(key, "").strip()
+        if token:
+            print(f"using env {key}")
+            break
     if not token:
         print(
-            "NOTION_TOKEN не задан.\n"
+            "NOTION_TOKEN не задан (также ищем NotionToken).\n"
             "1) Создайте Internal Integration: https://www.notion.so/my-integrations\n"
             "2) Подключите её к корневой странице шаблона (⋯ → Connections)\n"
-            "3) Добавьте секрет в Cursor Cloud secrets / env как NOTION_TOKEN\n"
+            "3) Добавьте секрет в Cursor Cloud secrets как NOTION_TOKEN\n"
+            "4) Откройте НОВЫЙ Cloud Agent — этот run секреты часто не видит\n"
             "Подробности: docs/notion-integration.md"
         )
         return 2
