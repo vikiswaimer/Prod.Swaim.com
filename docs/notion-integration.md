@@ -109,6 +109,31 @@ python3 scripts/notion_smoke.py
 
 ---
 
+## Пилот sync (после появления токена в env)
+
+```bash
+# 1) токен виден?
+python3 scripts/notion_smoke.py
+
+# 2) найти копию продукта / страницы
+python3 scripts/notion_inspect.py --query "Small Business"
+python3 scripts/notion_inspect.py --page-id <ID> --dump /tmp/notion-page.json --depth-children
+
+# 3) dry-run обновления Instructions из Git (callout + картинки)
+python3 scripts/notion_sync_pilot.py \
+  --page-id <ID_Instructions> \
+  --md content/small-business-space-ru/Instructions/_index.md \
+  --assets-dir content/small-business-space-ru/Instructions
+
+# 4) запись
+python3 scripts/notion_sync_pilot.py ... --apply
+```
+
+Скрипты: `scripts/notion_client.py`, `notion_inspect.py`, `notion_sync_pilot.py`.
+Формат: headings / lists / quote / divider / **callout** (вместо HTML aside) + image blocks через File Upload API.
+
+---
+
 ## Что выбрать прямо сейчас
 
 | Ваша цель | Действие |
