@@ -12,6 +12,7 @@
 | [`docs/agent-context.md`](docs/agent-context.md) | Бэклог логики, пакеты A–D, правила правок |
 | [`docs/positioning.md`](docs/positioning.md) | Позиционирование продукта (пакет A) |
 | [`docs/methodology.md`](docs/methodology.md) | Методология: Cagan / Ries / Mom Test / Sprint / MVP |
+| [`docs/glossary.md`](docs/glossary.md) | Глоссарий терминов (пакет C) |
 | [`docs/reports/`](docs/reports/) | Отчёты по пакетам изменений |
 | [`content/small-business-space-ru/`](content/small-business-space-ru/) | Рабочая копия **Small Business Space v.1.0 [RU]** (markdown + csv). Старт: [`00-index.md`](content/small-business-space-ru/00-index.md), оглавление: [`INDEX.md`](content/small-business-space-ru/INDEX.md). |
 | [`docs/structure.md`](docs/structure.md) | Карта модулей |
