@@ -165,63 +165,113 @@ def page_title(page: dict) -> str:
     return ""
 
 
-def rich(text: str, *, bold: bool = False, italic: bool = False, code: bool = False) -> list[dict]:
+def rich(
+    text: str,
+    *,
+    bold: bool = False,
+    italic: bool = False,
+    code: bool = False,
+    link: str | None = None,
+) -> list[dict]:
     if not text:
         return []
     # Notion rich_text item limit ~2000 chars
     chunks: list[dict] = []
     for i in range(0, len(text), 1900):
-        ann: dict[str, Any] = {}
-        if bold:
-            ann["bold"] = True
-        if italic:
-            ann["italic"] = True
-        if code:
-            ann["code"] = True
-        chunks.append(
-            {
-                "type": "text",
-                "text": {"content": text[i : i + 1900]},
-                "annotations": ann or {
-                    "bold": False,
-                    "italic": False,
-                    "strikethrough": False,
-                    "underline": False,
-                    "code": False,
-                    "color": "default",
-                },
-            }
-        )
+        ann: dict[str, Any] = {
+            "bold": bool(bold),
+            "italic": bool(italic),
+            "strikethrough": False,
+            "underline": False,
+            "code": bool(code),
+            "color": "default",
+        }
+        item: dict[str, Any] = {
+            "type": "text",
+            "text": {"content": text[i : i + 1900]},
+            "annotations": ann,
+        }
+        if link:
+            item["text"]["link"] = {"url": link}
+        chunks.append(item)
     return chunks
 
 
-def paragraph(text: str, **ann) -> dict:
-    return {"object": "block", "type": "paragraph", "paragraph": {"rich_text": rich(text, **ann)}}
+def rich_page_mention(page_id: str) -> dict:
+    return {
+        "type": "mention",
+        "mention": {"type": "page", "page": {"id": page_id}},
+        "annotations": {
+            "bold": False,
+            "italic": False,
+            "strikethrough": False,
+            "underline": False,
+            "code": False,
+            "color": "default",
+        },
+    }
 
 
-def heading(level: int, text: str) -> dict:
+def notion_page_url(page_id: str) -> str:
+    compact = page_id.replace("-", "")
+    return f"https://www.notion.so/{compact}"
+
+
+def paragraph_rt(rich_text: list[dict]) -> dict:
+    return {"object": "block", "type": "paragraph", "paragraph": {"rich_text": rich_text}}
+
+
+def heading_rt(level: int, rich_text: list[dict]) -> dict:
     key = {1: "heading_1", 2: "heading_2", 3: "heading_3"}[level]
-    return {"object": "block", "type": key, key: {"rich_text": rich(text)}}
+    return {"object": "block", "type": key, key: {"rich_text": rich_text}}
 
 
-def bulleted(text: str, *, italic: bool = False) -> dict:
+def bulleted_rt(rich_text: list[dict]) -> dict:
     return {
         "object": "block",
         "type": "bulleted_list_item",
-        "bulleted_list_item": {"rich_text": rich(text, italic=italic)},
+        "bulleted_list_item": {"rich_text": rich_text},
     }
 
 
-def numbered(text: str, *, italic: bool = False) -> dict:
+def numbered_rt(rich_text: list[dict]) -> dict:
     return {
         "object": "block",
         "type": "numbered_list_item",
-        "numbered_list_item": {"rich_text": rich(text, italic=italic)},
+        "numbered_list_item": {"rich_text": rich_text},
     }
 
 
+def quote_rt(rich_text: list[dict]) -> dict:
+    return {"object": "block", "type": "quote", "quote": {"rich_text": rich_text}}
+
+
+def to_do_rt(rich_text: list[dict], *, checked: bool = False) -> dict:
+    return {
+        "object": "block",
+        "type": "to_do",
+        "to_do": {"rich_text": rich_text, "checked": checked},
+    }
+
+
+def paragraph(text: str, **ann) -> dict:
+    return paragraph_rt(rich(text, **ann))
+
+
+def heading(level: int, text: str) -> dict:
+    return heading_rt(level, rich(text))
+
+
+def bulleted(text: str, *, italic: bool = False) -> dict:
+    return bulleted_rt(rich(text, italic=italic))
+
+
+def numbered(text: str, *, italic: bool = False) -> dict:
+    return numbered_rt(rich(text, italic=italic))
+
+
 def quote(text: str) -> dict:
-    return {"object": "block", "type": "quote", "quote": {"rich_text": rich(text)}}
+    return quote_rt(rich(text))
 
 
 def divider() -> dict:
@@ -233,9 +283,10 @@ def callout(
     emoji: str = "💡",
     *,
     children: list[dict] | None = None,
+    rich_text: list[dict] | None = None,
 ) -> dict:
     payload: dict[str, Any] = {
-        "rich_text": rich(text),
+        "rich_text": rich_text if rich_text is not None else rich(text),
         "icon": {"type": "emoji", "emoji": emoji},
     }
     if children:
@@ -244,11 +295,7 @@ def callout(
 
 
 def to_do(text: str, *, checked: bool = False) -> dict:
-    return {
-        "object": "block",
-        "type": "to_do",
-        "to_do": {"rich_text": rich(text), "checked": checked},
-    }
+    return to_do_rt(rich(text), checked=checked)
 
 
 def image_external(url: str) -> dict:
@@ -300,20 +347,23 @@ def summarize_blocks(blocks: list[dict], *, depth: int = 0) -> list[str]:
             parts.append(x.get("plain_text") or (x.get("text") or {}).get("content") or "")
         plain = "".join(parts)[:80]
         extra = ""
+        link_n = sum(1 for x in rts if (x.get("text") or {}).get("link"))
+        if link_n:
+            extra += f" links={link_n}"
         if t == "image":
             img = payload
-            extra = f" {img.get('type')}"
+            extra += f" {img.get('type')}"
         if t == "callout":
             icon = payload.get("icon") or {}
             if icon.get("type") == "emoji":
-                extra = f" icon={icon.get('emoji', '')}"
+                extra += f" icon={icon.get('emoji', '')}"
             else:
-                extra = f" icon_type={icon.get('type')}"
+                extra += f" icon_type={icon.get('type')}"
             kids = payload.get("children") or []
             if kids:
                 extra += f" children={len(kids)}"
         if t == "to_do":
-            extra = f" checked={payload.get('checked')}"
+            extra += f" checked={payload.get('checked')}"
         lines.append(f"{pad}{t}{extra}: {plain}")
         kids = payload.get("children") or []
         if kids and depth < 2:
