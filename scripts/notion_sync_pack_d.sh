@@ -29,7 +29,8 @@ sync e45207ca-d379-83cb-af54-01ada6afeab0 \
   content/small-business-space-ru/Instructions
 
 sync a9f207ca-d379-831a-9185-0192f489348b \
-  "content/small-business-space-ru/Other/Пароли--ab1df728.md"
+  "content/small-business-space-ru/Other/Цифровая безопасность--ab1df728.md" \
+  "content/small-business-space-ru/Other/Цифровая безопасность"
 
 sync 1a2207ca-d379-8379-b2c9-010d04bba86a \
   "content/small-business-space-ru/Финансы/Финансовый отчет--c1992c57.md"
