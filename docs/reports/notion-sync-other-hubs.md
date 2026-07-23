@@ -39,6 +39,6 @@ python3 scripts/notion_sync_other_hubs.py --apply --only snippets
 
 ## Руками в UI (по желанию)
 
-- В sidebar/таблице Other подпись Text Snippets → «Текстовые заготовки» (title страницы уже обновлён).
-- Descriptions в родительской таблице Other — из Git CSV.
-- Переименовать DB `Feedback` / `Email Snippets` / `Snippets` на RU — по желанию.
+- ~~Descriptions в родительской таблице Other~~ — обновлены через API 2026-07-23 (вкл. исправление «Управление паролями» → принципы безопасности; тела страниц Ссылки/Безопасность не переписывались).
+- Переименовать DB `Feedback` / `Email Snippets` / `Snippets` / `Links` на RU — по желанию.
+- Views/иконки — по вкусу.
