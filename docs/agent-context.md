@@ -53,6 +53,7 @@
 - Пароли / налоги / Untitled; отчёт `docs/reports/pack-d.md`.
 - Пользовательский контент без GitHub/`docs/`-отсылок; блок ИИ в Instructions.
 - **Цифровая безопасность** (issue #10): раздел «Пароли» заменён на принципы/понятия/рекомендации; демо-пароли убраны. Отчёт: `docs/reports/digital-security.md`.
+- **Дополнительно / мини-гайды + Интервью** (issue [#17](https://github.com/vikiswaimer/Prod.Swaim.com/issues/17), PR #15): хабы Other, Notion sync, блок Интервью. Отчёты: `docs/reports/other-mini-guides.md`, `other-interviews.md`.
 
 ## Правила правок контента
 
