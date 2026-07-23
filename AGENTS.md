@@ -106,22 +106,17 @@ Obsidian vault: открывать `content/` или `content/small-business-spa
 
 Повторный импорт из zip затирает правки в `content/` — делать только осознанно и в отдельной ветке.
 
-## Известные логические проблемы (бэклог)
+## Бэклог контента
 
-Подробности: [`docs/agent-context.md`](docs/agent-context.md).
+Актуальный план: [`docs/roadmap-v2.md`](docs/roadmap-v2.md) (пакеты **E→J** поверх [`docs/methodology.md`](docs/methodology.md)).  
+Детали и история A–D: [`docs/agent-context.md`](docs/agent-context.md).
 
-Пакеты (порядок по умолчанию A→B→C→D):
-
-- **A** ✅ issue #1 — позиционирование + очистка «Твой продукт» + Instructions. Отчёт: `docs/reports/pack-a.md`.
-- **B** ✅ issue #2 — треки Старт vs Развитие. Отчёт: `docs/reports/pack-b.md`.
-- **C** ✅ issue #3 — язык/глоссарий/дубль маркетинга. Отчёт: `docs/reports/pack-c.md`.
-- **D** ✅ issue #8 — пароли, налоги %, Untitled; Instructions без GitHub-отсылок. Отчёт: `docs/reports/pack-d.md`.
-- **Цифровая безопасность** — issue #10: раздел «Пароли» → принципы/понятия/рекомендации. Отчёт: `docs/reports/digital-security.md`.
+Foundation A–D ✅ (отчёты в `docs/reports/`). Дальше по умолчанию: **E** Mom Test → **F** lean Activity → **G** MVP/оффер → **H** sprint launches → **I** позиционирование/конкуренты; **J** язык/INDEX (можно частично после E).
 
 ## Быстрый старт агента в новом чате
 
-1. Прочитать `AGENTS.md` + **`docs/methodology.md`** + `docs/agent-context.md`.
-2. Открыть активный GitHub Issue (если есть) или спросить номер.
+1. Прочитать `AGENTS.md` + **`docs/methodology.md`** + `docs/agent-context.md` + актуальный план [`docs/roadmap-v2.md`](docs/roadmap-v2.md).
+2. Открыть активный GitHub Issue (если есть) или спросить номер / пакет E–J.
 3. Смотреть затронутые файлы через `00-index.md` / `INDEX.md`, не через «сырой» zip.
 4. Править контент в духе методологии (outcomes, гипотезы, Mom Test, быстрые циклы обучения, MVP как ценный срез).
 5. Делать минимальный diff под issue; не рефакторить всю библиотеку знаний без запроса.
