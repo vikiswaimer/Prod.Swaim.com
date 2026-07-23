@@ -205,22 +205,24 @@
     - [Automate your email marketing](%D0%91%D0%B8%D0%B1%D0%BB%D0%B8%D0%BE%D1%82%D0%B5%D0%BA%D0%B0%20%D0%B7%D0%BD%D0%B0%D0%BD%D0%B8%D0%B9/%D0%A1%D0%BE%D0%B2%D0%B5%D1%82%D1%8B/Tips/Automate%20your%20email%20marketing--20564973.md)
     - … и ещё 47 в `Библиотека знаний/Советы/Tips/`
 
-### Other
+### Other / Дополнительно
 
-- [Email шаблоны](Other/Email%20%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD%D1%8B--facf40e0.md)
-- [Text Snippets](Other/Text%20Snippets--1dbd68f8.md)
+Мини-гайды + базы (как «Цифровая безопасность»).
+
 - [Отзывы](Other/%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B--593380ce.md)
-- [Цифровая безопасность](Other/%D0%A6%D0%B8%D1%84%D1%80%D0%BE%D0%B2%D0%B0%D1%8F%20%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D1%8C--ab1df728.md)
+- [Email шаблоны](Other/Email%20%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD%D1%8B--facf40e0.md)
+- [Текстовые заготовки](Other/Text%20Snippets--1dbd68f8.md) _(файл `Text Snippets`, в текстах — «Текстовые заготовки»)_
 - [Ссылки](Other/%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B8--82a24257.md)
+- [Цифровая безопасность](Other/%D0%A6%D0%B8%D1%84%D1%80%D0%BE%D0%B2%D0%B0%D1%8F%20%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D1%8C--ab1df728.md)
 - **Email шаблоны/**
   - _Email Snippets_
-    - [Thank you for your purchase](Other/Email%20%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD%D1%8B/Email%20Snippets/Thank%20you%20for%20your%20purchase--13e50e84.md)
-- **Text Snippets/**
+    - [Спасибо за покупку (демо)](Other/Email%20%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD%D1%8B/Email%20Snippets/Thank%20you%20for%20your%20purchase--13e50e84.md)
+- **Текстовые заготовки/**
   - _Snippets_
-    - [Thanks for reaching out](Other/Text%20Snippets/Snippets/Thanks%20for%20reaching%20out--a336704c.md)
+    - [Спасибо, что написали (демо)](Other/Text%20Snippets/Snippets/Thanks%20for%20reaching%20out--a336704c.md)
 - **Отзывы/**
   - _Feedback_
-    - [Alice](Other/%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B/Feedback/Alice--62984f63.md)
+    - [Alice (демо)](Other/%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B/Feedback/Alice--62984f63.md)
 - **Цифровая безопасность/**
   - _Понятия_
     - [Секрет](Other/%D0%A6%D0%B8%D1%84%D1%80%D0%BE%D0%B2%D0%B0%D1%8F%20%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D1%8C/%D0%9F%D0%BE%D0%BD%D1%8F%D1%82%D0%B8%D1%8F/%D0%A1%D0%B5%D0%BA%D1%80%D0%B5%D1%82--77cf10ad.md)
