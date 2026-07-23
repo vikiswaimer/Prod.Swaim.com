@@ -4,6 +4,9 @@
 Дополнительно: мини-гайды + Интервью + Notion sync
 ```
 
+**Issue:** https://github.com/vikiswaimer/Prod.Swaim.com/issues/17  
+**Статус:** создан 2026-07-23 (работа чата Other / мини-гайды)
+
 ---
 
 ## Цель
