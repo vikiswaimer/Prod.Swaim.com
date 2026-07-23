@@ -49,6 +49,9 @@
 
 ## Notion
 
-Страница «Ссылки» залита 2026-07-23: [`notion-sync-links.md`](notion-sync-links.md).
+- «Ссылки» — [`notion-sync-links.md`](notion-sync-links.md)
+- Отзывы / Email / Текстовые заготовки — [`notion-sync-other-hubs.md`](notion-sync-other-hubs.md)  
+  (Ссылки и Цифровая безопасность в том прогоне **не** менялись.)
+
 
 
