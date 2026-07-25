@@ -5,7 +5,7 @@
 
 | Файл | Title для Issue | Порядок |
 |------|-----------------|--------|
-| [pack-e-mom-test.md](pack-e-mom-test.md) | Пакет E: Mom Test — клиенты, интервью, отзывы | 1 |
+| [pack-e-mom-test.md](pack-e-mom-test.md) | Пакет E (остаток): Клиенты + CSV — Отзывы/Интервью уже в #17 | 1 |
 | [pack-f-lean-activity.md](pack-f-lean-activity.md) | Пакет F: Lean Activity — идеи, задачи, цели, рефлексия | 2 |
 | [pack-g-mvp-offer.md](pack-g-mvp-offer.md) | Пакет G: MVP / оффер / must-have до ценного среза | 3 |
 | [pack-h-sprint-launches.md](pack-h-sprint-launches.md) | Пакет H: Sprint / learning launches — календарь и кампании | 4 |
