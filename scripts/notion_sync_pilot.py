@@ -247,6 +247,8 @@ def md_to_blocks(
         return md_inline_to_rich(s, pages, title_index, italic=italic)
 
     buf_para: list[str] = []
+    lines_list = text.splitlines()
+    i_line = 0
 
     def flush_para() -> None:
         nonlocal buf_para
@@ -257,10 +259,37 @@ def md_to_blocks(
             blocks.append(nc.paragraph_rt(rich_text))
         buf_para = []
 
-    for raw in text.splitlines():
+    def is_md_table_row(s: str) -> bool:
+        t = s.strip()
+        return t.startswith("|") and t.endswith("|") and t.count("|") >= 2
+
+    def is_md_table_sep(s: str) -> bool:
+        t = s.strip().strip("|").replace(":", "").replace("-", "").replace("|", "").strip()
+        return is_md_table_row(s) and t == ""
+
+    def split_md_row(s: str) -> list[str]:
+        parts = s.strip().strip("|").split("|")
+        return [p.strip() for p in parts]
+
+    while i_line < len(lines_list):
+        raw = lines_list[i_line]
         line = raw.rstrip()
+        i_line += 1
         if not line.strip():
             flush_para()
+            continue
+
+        # Markdown table → Notion table
+        if is_md_table_row(line):
+            flush_para()
+            table_lines = [line]
+            while i_line < len(lines_list) and is_md_table_row(lines_list[i_line].rstrip()):
+                table_lines.append(lines_list[i_line].rstrip())
+                i_line += 1
+            data_rows = [split_md_row(r) for r in table_lines if not is_md_table_sep(r)]
+            if data_rows:
+                cells = [[rt(c) for c in row] for row in data_rows]
+                blocks.append(nc.table(cells, has_column_header=True))
             continue
 
         m_aside = re.match(r"@@ASIDE_(\d+)@@$", line.strip())

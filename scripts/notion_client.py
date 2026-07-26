@@ -278,6 +278,29 @@ def divider() -> dict:
     return {"object": "block", "type": "divider", "divider": {}}
 
 
+def table(rows: list[list[list[dict]]], *, has_column_header: bool = True) -> dict:
+    """Notion table block. rows = list of cells; each cell = rich_text list."""
+    if not rows:
+        raise ValueError("table needs rows")
+    width = max(len(r) for r in rows)
+    norm: list[dict] = []
+    for r in rows:
+        cells = list(r) + [[] for _ in range(width - len(r))]
+        # empty cell still needs a rich_text list
+        cells = [c if c else [{"type": "text", "text": {"content": ""}}] for c in cells]
+        norm.append({"type": "table_row", "table_row": {"cells": cells}})
+    return {
+        "object": "block",
+        "type": "table",
+        "table": {
+            "table_width": width,
+            "has_column_header": has_column_header,
+            "has_row_header": False,
+            "children": norm,
+        },
+    }
+
+
 def callout(
     text: str,
     emoji: str = "💡",
