@@ -1,9 +1,14 @@
-# New competitor
+# Шаблон альтернативы
 
-- What is Their Unique Value Proposition?
-- How are They Advertising/Marketing?
-- What Are Their Weaknesses?
-- What Are Their Strengths?
-- What Are Their Values?
-- How Do They Engage With Their Customers?
-- Do They Have a Social Media Presence?
+> Прямой конкурент, косвенный инструмент или status quo («ничего не делать» / Excel / ручной процесс).
+
+- **Тип:** прямая / косвенная / status quo
+- **Для кого хороши:** _
+- **Какой outcome обещают / дают:** _
+- **За что клиент уже платит** (деньги / время / нервы): _
+- **Сильные стороны:** _
+- **Слабые стороны / где страдает клиент:** _
+- **Почему переключатся на нас — или почему нет:** _
+- **Где мы проигрываем по outcome:** _
+
+Вторично: как рекламируются, соцсети — только если помогает понять ценность.

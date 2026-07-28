@@ -1,33 +1,27 @@
-# New customer persona
+# Шаблон портрета сегмента
 
-**Questions about customer:**
+> Пустая карточка. Демография — внизу, по желанию. Сначала поведение и контекст.
 
----
+## Ядро
 
-- Short bio about this [customer]
-- What are [customer] interests?
-- Where [customer] mostly can be found?
-- What are [customer] goals?
-- What are [customer] needs?
-- What are [customer] pains?
-- What are [customer] fears?
-- How [customer] makes his buying decision?
-- What brands [customer] likes?
-- What is [customer] story?
+- **Название сегмента:** _
+- **Контекст / роль / этап:** _
+- **Боль (что ломается):** _
+- **Как часто / чем платит** (время, деньги, нервы): _
+- **Workaround сейчас:** _
+- **Что уже пробовали и почему не зашло:** _
+- **Обязательства / сильный сигнал** (платил, intro, повтор, предоплата — или «пока нет»): _
+- **Статус доказательств:** гипотеза / частично подтверждено / подтверждено
+- **Что ещё нужно проверить** (разговор / отзыв / использование): _
 
-**Customer journey map:**
+## Вторично (демография)
 
----
+- Возраст: _
+- Пол: _
+- Язык: _
+- Локация: _
+- Занятость / роль: _
 
-| Phase | Need | Momment | Emotion |
-| --- | --- | --- | --- |
-| Phase 1 |  |  |  |
-| Phase 2 |  |  |  |
-| Phase 3 |  |  |  |
-| Phase 4 |  |  |  |
-| Phase 5 |  |  |  |
-| Phase 6 |  |  |  |
-| Phase 7 |  |  |  |
-| Phase 8 |  |  |  |
+## Краткий вывод для продукта
 
-Customer journey mapping is the process of creating a customer journey map, a visual story of your customer's interactions with your brand. Customer journey mapping is important because it is a strategic approach to better understanding customer expectations and is crucial for optimizing the customer experience.
+_Как этот сегмент влияет на оффер и минимальный срез_
