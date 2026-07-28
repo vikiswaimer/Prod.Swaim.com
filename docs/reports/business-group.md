@@ -66,4 +66,8 @@
 
 - Позиционирование бренда — отдельный чат при необходимости.
 - Каналы обратной связи (#19), Активность (#22).
-- В этом прогоне Notion API не писали.
+
+## Notion
+
+Синхронизировано 2026-07-28: `scripts/notion_sync_business.py --apply`.  
+Отчёт: [`notion-sync-business.md`](notion-sync-business.md).
