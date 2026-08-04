@@ -118,6 +118,36 @@ def get_page(token: str, page_id: str) -> dict:
     return _request("GET", f"/pages/{page_id}", token)
 
 
+def create_page(
+    token: str,
+    *,
+    parent_page_id: str,
+    title: str,
+    children: list[dict] | None = None,
+    icon_emoji: str | None = None,
+) -> dict:
+    """Создать дочернюю страницу под page parent."""
+    body: dict[str, Any] = {
+        "parent": {"page_id": parent_page_id},
+        "properties": {
+            "title": {
+                "title": [{"type": "text", "text": {"content": title[:2000]}}]
+            }
+        },
+    }
+    if icon_emoji:
+        body["icon"] = {"type": "emoji", "emoji": icon_emoji}
+    if children:
+        # Notion allows up to 100 children on create
+        body["children"] = children[:100]
+    page = _request("POST", "/pages", token, body=body)
+    time.sleep(0.35)
+    leftover = (children or [])[100:]
+    if leftover:
+        append_children(token, page["id"], leftover)
+    return page
+
+
 def get_block_children(token: str, block_id: str) -> list[dict]:
     results: list[dict] = []
     params = "page_size=100"
