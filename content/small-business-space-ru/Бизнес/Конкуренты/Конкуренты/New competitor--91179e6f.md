@@ -1,9 +1,28 @@
-# New competitor
+# Новая альтернатива (шаблон)
 
-- What is Their Unique Value Proposition?
-- How are They Advertising/Marketing?
-- What Are Their Weaknesses?
-- What Are Their Strengths?
-- What Are Their Values?
-- How Do They Engage With Their Customers?
-- Do They Have a Social Media Presence?
+Копируйте на каждую альтернативу. Помните про три типа: прямая / косвенная / status quo.
+
+- **Тип альтернативы:** _прямая / косвенная / status quo_
+- **Для кого она хороша:**
+    
+    _
+    
+- **Какой outcome даёт клиенту сейчас:**
+    
+    _
+    
+- **За что клиент уже платит** (деньги / время / нервы):
+    
+    _
+    
+- **Почему клиент переключится на вас — или почему нет:**
+    
+    _
+    
+- **Где вы проигрываете по outcome** (честно):
+    
+    _
+
+<aside>
+Если не можете назвать, за что клиент уже платит этой альтернативе, — вы ещё не поняли, с чем на самом деле конкурируете.
+</aside>

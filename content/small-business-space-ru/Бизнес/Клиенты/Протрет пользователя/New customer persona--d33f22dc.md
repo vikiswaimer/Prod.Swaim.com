@@ -1,33 +1,48 @@
-# New customer persona
+# Новый портрет сегмента
 
-**Questions about customer:**
+Заполняйте по прошлому поведению человека, а не по догадкам. Одного–двух сегментов достаточно.
 
----
+**Кто это (кратко)**
 
-- Short bio about this [customer]
-- What are [customer] interests?
-- Where [customer] mostly can be found?
-- What are [customer] goals?
-- What are [customer] needs?
-- What are [customer] pains?
-- What are [customer] fears?
-- How [customer] makes his buying decision?
-- What brands [customer] likes?
-- What is [customer] story?
+- Сегмент / роль:
+- Контекст жизни или работы (этап, ограничения):
 
-**Customer journey map:**
+**Вопросы о прошлом**
 
 ---
 
-| Phase | Need | Momment | Emotion |
-| --- | --- | --- | --- |
-| Phase 1 |  |  |  |
-| Phase 2 |  |  |  |
-| Phase 3 |  |  |  |
-| Phase 4 |  |  |  |
-| Phase 5 |  |  |  |
-| Phase 6 |  |  |  |
-| Phase 7 |  |  |  |
-| Phase 8 |  |  |  |
+- В какой ситуации возникает задача? Когда это было в последний раз?
+    
+    _
+    
+- Что именно болит или ломается? Как часто?
+    
+    _
+    
+- Чем ему обходится эта боль — время, деньги, нервы?
+    
+    _
+    
+- Как он решает задачу сейчас (Excel, чаты, фрилансер, «ничего»)?
+    
+    _
+    
+- Что уже пробовал раньше и почему бросил?
+    
+    _
+    
+- Какие обязательства были: платил, вернулся, дал intro, просил счёт?
+    
+    _
 
-Customer journey mapping is the process of creating a customer journey map, a visual story of your customer's interactions with your brand. Customer journey mapping is important because it is a strategic approach to better understanding customer expectations and is crucial for optimizing the customer experience.
+**Оценка сигнала**
+
+---
+
+- Сила сигнала: 🔴 слабый / 🟡 средний / 🟢 сильный
+- Статус гипотезы: гипотеза / нужно интервью / подтверждено / опровергнуто
+- Следующий шаг по этому сегменту:
+
+<aside>
+«Круто» и «я бы купил» — слабый сигнал. Время, деньги, повтор, intro, предоплата — сильный. Пишите то, что человек уже сделал, а не то, что обещает.
+</aside>

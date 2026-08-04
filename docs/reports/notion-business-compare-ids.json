@@ -1,0 +1,28 @@
+{
+  "created": {
+    "Сравнение прогонов Бизнес": "3ac207ca-d379-81d4-b1bd-fc87af852092",
+    "Твой продукт · Claude (сравнение)": "3ac207ca-d379-81d7-874d-d614e418f930",
+    "Клиенты · Claude (сравнение)": "3ac207ca-d379-8128-8fd2-daa23899e7b3",
+    "Продукты/Услуги · Claude (сравнение)": "3ac207ca-d379-813d-812c-ccbb4b716b10",
+    "Конкуренты · Claude (сравнение)": "3ac207ca-d379-8160-a5c5-ff35d890951a",
+    "Маркетинг · Claude (сравнение)": "3ac207ca-d379-810b-a925-fbc2cd1bbfb4",
+    "Необходимые шаги · Claude (сравнение)": "3ac207ca-d379-81ec-89cf-f963805c7075"
+  },
+  "urls": {
+    "Твой продукт · Claude (сравнение)": "https://app.notion.com/p/Claude-3ac207cad37981d7874dd614e418f930",
+    "Клиенты · Claude (сравнение)": "https://app.notion.com/p/Claude-3ac207cad37981288fd2daa23899e7b3",
+    "Продукты/Услуги · Claude (сравнение)": "https://app.notion.com/p/Claude-3ac207cad379813d812cccbb4b716b10",
+    "Конкуренты · Claude (сравнение)": "https://app.notion.com/p/Claude-3ac207cad3798160a5c5ff35d890951a",
+    "Маркетинг · Claude (сравнение)": "https://app.notion.com/p/Claude-3ac207cad379810ba925fbc2cd1bbfb4",
+    "Необходимые шаги · Claude (сравнение)": "https://app.notion.com/p/Claude-3ac207cad37981ec89cff963805c7075"
+  },
+  "originals": {
+    "Твой продукт": "569207ca-d379-82e0-8734-816a22514351",
+    "Клиенты": "3f3207ca-d379-8390-9851-01d7d8b26890",
+    "Продукты/Услуги": "f6f207ca-d379-829d-9967-81d11cfb9822",
+    "Конкуренты": "35b207ca-d379-835c-9758-016bbc0fa248",
+    "Маркетинг": "669207ca-d379-8215-8aa4-0126aeb2a2c2",
+    "Необходимые шаги": "9db207ca-d379-83be-a6ca-01a1943ec547"
+  },
+  "note": "Claude duplicates for comparison; originals untouched"
+}
