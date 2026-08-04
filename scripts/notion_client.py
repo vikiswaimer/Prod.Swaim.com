@@ -308,6 +308,65 @@ def divider() -> dict:
     return {"object": "block", "type": "divider", "divider": {}}
 
 
+def code_block(text: str, language: str = "plain text") -> dict:
+    return {
+        "object": "block",
+        "type": "code",
+        "code": {
+            "rich_text": rich(text[:2000] if len(text) <= 2000 else text[:1990] + "…"),
+            "language": language,
+        },
+    }
+
+
+def table(rows: list[list[str]], *, has_column_header: bool = True) -> dict:
+    """Простая таблица: rows[0] обычно заголовок. max 100 rows, width из первой строки."""
+    if not rows:
+        raise ValueError("table requires rows")
+    width = max(len(r) for r in rows)
+    norm: list[list[str]] = []
+    for r in rows:
+        cells = list(r) + [""] * (width - len(r))
+        norm.append(cells[:width])
+    children = []
+    for r in norm:
+        children.append(
+            {
+                "object": "block",
+                "type": "table_row",
+                "table_row": {
+                    "cells": [
+                        [{"type": "text", "text": {"content": (c or "")[:2000]}}]
+                        for c in r
+                    ]
+                },
+            }
+        )
+    return {
+        "object": "block",
+        "type": "table",
+        "table": {
+            "table_width": width,
+            "has_column_header": has_column_header,
+            "has_row_header": False,
+            "children": children,
+        },
+    }
+
+
+def clear_content_blocks(token: str, page_id: str) -> int:
+    """Удаляет блоки страницы, сохраняя child_page / child_database."""
+    kids = get_block_children(token, page_id)
+    n = 0
+    for b in kids:
+        if b.get("type") in ("child_page", "child_database"):
+            continue
+        delete_block(token, b["id"])
+        time.sleep(0.35)
+        n += 1
+    return n
+
+
 def callout(
     text: str,
     emoji: str = "💡",
