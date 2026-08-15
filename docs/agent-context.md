@@ -38,6 +38,8 @@
 
 ## Бэклог контента
 
+**Paperclip / Product Lead (2026-08-15):** решение SWA-9 (WIP=1 после risk-map) — [`docs/reports/swa9-wip1-after-risk-map.md`](reports/swa9-wip1-after-risk-map.md); sync — [`docs/reports/paperclip-team-sync.md`](reports/paperclip-team-sync.md); W1 playbook — [`docs/reports/w1-mom-test-brief.md`](reports/w1-mom-test-brief.md). Активный слот: **W1 Mom Test** (PRO-2 / PRO-3); W2/W3 hold.
+
 **Актуальный процесс (issue #20):** новый чат = **одна группа** (блоки внутри) + **диалог**.  
 [`roadmap-v2.md`](roadmap-v2.md) — **карта идей / архив**, не очередь «делай E→J».
 
