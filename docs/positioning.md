@@ -8,7 +8,8 @@
 - Те, кто **не хочет** с нуля искать фреймворки под каждую ситуацию.
 - Те, кто хочет **укрепить навыки**, работая в паре с ИИ: проверять, править, не отдавать всё «на автомате».
 
-Рабочие истории аудитории (гипотезы → проверка): [`docs/reports/customer-stories-audience.md`](reports/customer-stories-audience.md).
+Рабочие истории аудитории (гипотезы → проверка): [`docs/reports/customer-stories-audience.md`](reports/customer-stories-audience.md).  
+JTBD / outcome stories ядра (Старт + Клиенты): [`docs/reports/jtbd-start-clients-core.md`](reports/jtbd-start-clients-core.md).
 
 ## Какую работу выполняет
 
