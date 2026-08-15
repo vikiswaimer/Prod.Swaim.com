@@ -41,6 +41,20 @@ Paperclip recovery wake на SWA-8 (assigned issue stranded after adapter retry)
 
 **Среда:** ~40+ IDLE cloud agents на репо — перед любым новым cloud-run Researcher/Discovery освободить concurrency или Ultra. Локальная установка Paperclip у владельца (`bc-41a47e6f…`) не блокирует W1.
 
+### Recovery SWA-9 (WIP=1 после risk-map → LOCKED)
+
+Paperclip **SWA-9** (*«следующий шаг после risk-map, только Product Lead»*) — assignment recovery.
+
+| Вопрос | Ответ PL |
+|--------|----------|
+| Что после risk-map? | **W1 Mom Test** → патч H1/H4/H5 |
+| Пересматривать W2/W3? | Нет — **hold**, пока W1 не дал Learn |
+| Scope SWA-9 | Решение + WIP-замок; поле = Discovery **PRO-3** + CEO-рекрут |
+
+Memo: [`swa9-next-after-risk-map.md`](swa9-next-after-risk-map.md).
+
+**На доске Paperclip (когда API жив):** SWA-9 → `done`. Не держать `in_progress` как «ещё думаем» — решение уже принято. Параллельные PL-recovery не должны открывать второй ACTIVE outcome.
+
 ---
 
 ## Что команда уже поставила (draft)
@@ -142,3 +156,4 @@ Growth B/C, пилот v2 (#30), холодный аудит (#33), каналы
 | 2026-08-15 | Первый sync после прогона SWA-3…8: вердикт evidence → W1 active, merge order, роли |
 | 2026-08-15 | Wake с доски: W1 brief + PRO-3; API still down; команде не стартовать фичи |
 | 2026-08-15 | Recovery SWA-8: Ultra-stranded ≠ fail; PR #37 принят; WIP остаётся W1 / PRO-3 |
+| 2026-08-15 | Recovery SWA-9: next-after-risk-map = W1 LOCKED; memo + Paperclip → done когда API up |
