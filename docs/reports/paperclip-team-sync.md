@@ -28,6 +28,19 @@
 - Команда IDLE после SWA-3…8; **не** запускать новый feature-прогон.
 - Следующий шаг исполнения: Discovery берёт W1 brief, CEO — рекрут + ICP.
 
+### SWA-9 closed (PL decision: next after risk-map)
+
+Paperclip **SWA-9** — «WIP=1: следующий шаг после risk-map (только Product Lead)».
+
+| Решение | Следствие |
+|---------|-----------|
+| После risk-map + evidence → **один** активный outcome | W1 Mom Test; W2/W3 HOLD |
+| Decision log | [`swa9-next-after-risk-map.md`](swa9-next-after-risk-map.md) |
+| Risk-map §8 обновлён | WIP-пул схлопнут с ≤3 «активных» до **WIP=1** |
+| Исполнение | Discovery **PRO-3** + CEO рекрут; PL не стартует feature-wake |
+
+На доске Paperclip (когда API жив): SWA-9 → `done`. Много параллельных PL cloud-runs на тот же heartbeat — **не** плодить новые; этот PR = SoT решения.
+
 ### Recovery SWA-8 (stranded → resolved as outcome)
 
 Paperclip recovery wake на SWA-8 (assigned issue stranded after adapter retry):
@@ -47,14 +60,15 @@ Paperclip recovery wake на SWA-8 (assigned issue stranded after adapter retry)
 
 | SWA | Роль | PR | Артефакт | Тип |
 |-----|------|-----|----------|-----|
-| SWA-3 | Product Lead | [#34](https://github.com/vikiswaimer/Prod.Swaim.com/pull/34) | `docs/risk-map-hypotheses.md` | карта рисков + WIP W1–W3 |
+| SWA-3 | Product Lead | [#34](https://github.com/vikiswaimer/Prod.Swaim.com/pull/34) | `docs/risk-map-hypotheses.md` | карта рисков (база) |
+| SWA-9 | Product Lead | этот PR | `swa9-next-after-risk-map.md` + патч risk-map §8 | **WIP=1** после risk-map |
 | SWA-7 | Delivery | [#35](https://github.com/vikiswaimer/Prod.Swaim.com/pull/35) | `docs/delivery-checklist-git-to-notion.md` | ops Git→Notion |
 | SWA-5 | UX | [#36](https://github.com/vikiswaimer/Prod.Swaim.com/pull/36) | `00-index` + треки «сегодня» | usable / onboarding |
 | SWA-8 | Researcher | [#37](https://github.com/vikiswaimer/Prod.Swaim.com/pull/37) | `docs/reports/evidence-pack-clients.md` | ✅ outcome принят PL (retry Ultra ≠ fail research) |
 | SWA-6 | Growth | [#38](https://github.com/vikiswaimer/Prod.Swaim.com/pull/38) | `docs/reports/growth-lean-experiments-swa6.md` | 3 GTM BML, WIP=1 |
 | SWA-4 | Discovery PM | [#39](https://github.com/vikiswaimer/Prod.Swaim.com/pull/39) | JTBD + точечные правки Клиенты/Старт | outcomes в ядре |
 
-Карта рисков и WIP-пул: [`docs/risk-map-hypotheses.md`](../risk-map-hypotheses.md) (на ветке PR #34, пока не в `main`).
+Карта рисков и WIP=1: [`docs/risk-map-hypotheses.md`](../risk-map-hypotheses.md) (в этом PR поверх #34).
 
 ---
 
@@ -90,12 +104,14 @@ Growth B/C, пилот v2 (#30), холодный аудит (#33), каналы
 
 Рекомендуемый порядок:
 
-1. **#34** risk-map (PL SoT)  
+1. **Этот PR / #34** risk-map + SWA-9 WIP=1 (PL SoT)  
 2. **#37** evidence pack (усиливает valuable-диагноз)  
 3. **#35** delivery checklist (инфра команды)  
 4. **#38** growth experiments (docs-only)  
 5. **#36** UX nav — после CEO OK; затем **ручной перенос в Notion** по чеклисту #35  
 6. **#39** JTBD + точечный контент — после #36 (оба трогают Старт); Notion sync
+
+> PR #40 / #41 — предшествующие PL sync; этот PR их продолжение + risk-map. Мержить **этот** вместо отдельных #40/#41, либо rebase #34 → этот tip.
 
 Не мержить пачкой. Не открывать новый контент-пакет (Активность / v2 rich), пока W1 в полёте.
 
@@ -111,7 +127,7 @@ Growth B/C, пилот v2 (#30), холодный аудит (#33), каналы
 | **Growth Lead** | Поддержать W1 списком/outreach; оффер пилота готов к столу | Запускать B/C или «охваты» |
 | **UX** | Держать #36 готовым; после merge — один CTA «сегодня» в Notion | Новые экраны / галереи |
 | **Delivery** | После merge UX/JTBD — манифест поставки по #35 | ZIP-импорт целого пространства |
-| **Product Lead** | Следить WIP≤3; обновлять этот sync + risk-map после Learn | Feature factory, второй активный GTM |
+| **Product Lead** | SWA-9 done: держать **WIP=1**; sync + risk-map после Learn | Feature factory, второй активный GTM, новые PL-прогоны без сигнала |
 
 ---
 
@@ -142,3 +158,4 @@ Growth B/C, пилот v2 (#30), холодный аудит (#33), каналы
 | 2026-08-15 | Первый sync после прогона SWA-3…8: вердикт evidence → W1 active, merge order, роли |
 | 2026-08-15 | Wake с доски: W1 brief + PRO-3; API still down; команде не стартовать фичи |
 | 2026-08-15 | Recovery SWA-8: Ultra-stranded ≠ fail; PR #37 принят; WIP остаётся W1 / PRO-3 |
+| 2026-08-15 | **SWA-9:** next after risk-map = W1 only; risk-map §8 → WIP=1; decision log |
