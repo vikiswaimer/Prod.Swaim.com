@@ -17,7 +17,16 @@
 
 > Провести 4–6 Mom Test-разговоров (кластеры «жёг kit» + ложный сигнал) и обновить светофор H1 / H4 / H5.
 
+Исполняемый playbook: [`w1-mom-test-brief.md`](w1-mom-test-brief.md).
+
 Всё остальное — очередь или подготовка к merge после решения CEO.
+
+### Heartbeat (2026-08-15, wake с доски Paperclip)
+
+- Paperclip API (`127.0.0.1:3101`) по-прежнему **unreachable** из cloud; ключ API не инжектирован → inbox/checkout недоступны.
+- Координация: GitHub draft PR + Linear **PRO-2** + этот sync.
+- Команда IDLE после SWA-3…8; **не** запускать новый feature-прогон.
+- Следующий шаг исполнения: Discovery берёт W1 brief, CEO — рекрут + ICP.
 
 ---
 
@@ -118,3 +127,4 @@ Growth B/C, пилот v2 (#30), холодный аудит (#33), каналы
 | Дата | Изменение |
 |------|-----------|
 | 2026-08-15 | Первый sync после прогона SWA-3…8: вердикт evidence → W1 active, merge order, роли |
+| 2026-08-15 | Wake с доски: W1 brief + PRO-3; API still down; команде не стартовать фичи |

@@ -38,7 +38,7 @@
 
 ## Бэклог контента
 
-**Paperclip / Product Lead (2026-08-15):** актуальный sync команды и WIP — [`docs/reports/paperclip-team-sync.md`](reports/paperclip-team-sync.md). Карта рисков — draft PR #34 (`docs/risk-map-hypotheses.md`). Активный слот: **W1 Mom Test интервью**; не раздувать параллельный feature-бэклог.
+**Paperclip / Product Lead (2026-08-15):** sync — [`docs/reports/paperclip-team-sync.md`](reports/paperclip-team-sync.md); исполняемый W1 — [`docs/reports/w1-mom-test-brief.md`](reports/w1-mom-test-brief.md). Карта рисков — draft PR #34. Активный слот: **W1 Mom Test**; не раздувать feature-бэклог.
 
 
 **Актуальный процесс (issue #20):** новый чат = **одна группа** (блоки внутри) + **диалог**.  
