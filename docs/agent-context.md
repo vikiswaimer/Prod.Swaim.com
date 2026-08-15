@@ -72,6 +72,10 @@
 - #6 Notion MCP / `NOTION_TOKEN` — ✅; перенос по мере групповых чатов.
 - #4 ZIP Git→Notion — won't do (см. `notion-reimport.md`).
 
+### Growth / GTM самого Prod.Swaim (не шаблон)
+
+- SWA-6: lean-эксперименты продвижения — [`docs/reports/growth-lean-experiments-swa6.md`](reports/growth-lean-experiments-swa6.md) (3 варианта, WIP=1, без vanity-метрик).
+
 ## Правила правок контента
 
 1. **Один чат = одна группа + один issue** (по умолчанию). Scope согласовать диалогом; не смешивать группы и не исполнять roadmap как скрипт.
