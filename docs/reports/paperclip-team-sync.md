@@ -28,6 +28,23 @@
 - Команда IDLE после SWA-3…8; **не** запускать новый feature-прогон.
 - Следующий шаг исполнения: Discovery берёт W1 brief, CEO — рекрут + ICP.
 
+### SWA-10 productivity review → SWA-9 **ACCEPT**
+
+Paperclip **SWA-10** («Review productivity for SWA-9»).
+
+| Поле | Вердикт |
+|------|---------|
+| Outcome SWA-9 | **ACCEPT** — WIP=1 = W1 Mom Test зафиксирован |
+| Смысл | Продуктивно (valuable-first, не feature factory) |
+| Процесс | Thrashing: параллельные PL heartbeats → draft **#42 / #43 / #44** с одним LOCK |
+| Retry SWA-9 | **Нет** |
+| Канон merge | **#44** (sync + memo + risk-map); **#42/#43** → close as duplicate |
+| Дальше | Discovery **PRO-3** + CEO-рекрут; не новый PL-документ |
+
+Полный review: [`swa10-productivity-review-swa9.md`](swa10-productivity-review-swa9.md).
+
+На доске Paperclip (когда API жив): SWA-9 → `done`, SWA-10 → `done`.
+
 ### SWA-9 closed (PL decision: next after risk-map)
 
 Paperclip **SWA-9** — «WIP=1: следующий шаг после risk-map (только Product Lead)».
@@ -39,7 +56,7 @@ Paperclip **SWA-9** — «WIP=1: следующий шаг после risk-map (
 | Risk-map §8 обновлён | WIP-пул схлопнут с ≤3 «активных» до **WIP=1** |
 | Исполнение | Discovery **PRO-3** + CEO рекрут; PL не стартует feature-wake |
 
-На доске Paperclip (когда API жив): SWA-9 → `done`. Много параллельных PL cloud-runs на тот же heartbeat — **не** плодить новые; этот PR = SoT решения.
+На доске Paperclip (когда API жив): SWA-9 → `done`. Много параллельных PL cloud-runs на тот же heartbeat — **не** плодить новые; канон tip = PR **#44** (+ SWA-10 review).
 
 ### Recovery SWA-8 (stranded → resolved as outcome)
 
@@ -127,7 +144,7 @@ Growth B/C, пилот v2 (#30), холодный аудит (#33), каналы
 | **Growth Lead** | Поддержать W1 списком/outreach; оффер пилота готов к столу | Запускать B/C или «охваты» |
 | **UX** | Держать #36 готовым; после merge — один CTA «сегодня» в Notion | Новые экраны / галереи |
 | **Delivery** | После merge UX/JTBD — манифест поставки по #35 | ZIP-импорт целого пространства |
-| **Product Lead** | SWA-9 done: держать **WIP=1**; sync + risk-map после Learn | Feature factory, второй активный GTM, новые PL-прогоны без сигнала |
+| **Product Lead** | SWA-10: SWA-9 **ACCEPT**; держать **WIP=1**; sync после Learn | Feature factory, второй активный GTM, новые PL-прогоны без сигнала, retry SWA-9 |
 
 ---
 
@@ -159,3 +176,4 @@ Growth B/C, пилот v2 (#30), холодный аудит (#33), каналы
 | 2026-08-15 | Wake с доски: W1 brief + PRO-3; API still down; команде не стартовать фичи |
 | 2026-08-15 | Recovery SWA-8: Ultra-stranded ≠ fail; PR #37 принят; WIP остаётся W1 / PRO-3 |
 | 2026-08-15 | **SWA-9:** next after risk-map = W1 only; risk-map §8 → WIP=1; decision log |
+| 2026-08-15 | **SWA-10:** productivity review → ACCEPT SWA-9; merge #44; close #42/#43; WIP остаётся W1 |

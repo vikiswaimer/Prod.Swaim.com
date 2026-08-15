@@ -48,6 +48,7 @@ Evidence pack честно сказал: архетипы ≠ validated demand. 
 - [x] WIP схлопнут до 1 активного слота
 - [x] Команда знает, кто исполняет (Discovery) и что на hold
 - [ ] Paperclip SWA-9 → `done` (вручную: API `127.0.0.1:3101` из cloud unreachable)
+- [x] Productivity review SWA-10 → **ACCEPT** ([`swa10-productivity-review-swa9.md`](swa10-productivity-review-swa9.md))
 
 ---
 
