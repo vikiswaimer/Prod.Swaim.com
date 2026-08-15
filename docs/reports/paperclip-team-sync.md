@@ -28,6 +28,19 @@
 - Команда IDLE после SWA-3…8; **не** запускать новый feature-прогон.
 - Следующий шаг исполнения: Discovery берёт W1 brief, CEO — рекрут + ICP.
 
+### Recovery SWA-8 (stranded → resolved as outcome)
+
+Paperclip recovery wake на SWA-8 (assigned issue stranded after adapter retry):
+
+| Что казалось | Что на самом деле |
+|--------------|-------------------|
+| Researcher «упал», issue `blocked` | Retry heartbeat упал с **Cursor Ultra** (лимит одновременных Cloud Agents) |
+| Нужен новый research-прогон | Deliverable **уже есть**: draft [PR #37](https://github.com/vikiswaimer/Prod.Swaim.com/pull/37) |
+
+**Решение PL:** принять evidence pack как outcome SWA-8. **Не** перезапускать Researcher. На доске Paperclip (когда API жив) → `done` / `in_review`, не `blocked`.
+
+**Среда:** ~40+ IDLE cloud agents на репо — перед любым новым cloud-run Researcher/Discovery освободить concurrency или Ultra. Локальная установка Paperclip у владельца (`bc-41a47e6f…`) не блокирует W1.
+
 ---
 
 ## Что команда уже поставила (draft)
@@ -37,7 +50,7 @@
 | SWA-3 | Product Lead | [#34](https://github.com/vikiswaimer/Prod.Swaim.com/pull/34) | `docs/risk-map-hypotheses.md` | карта рисков + WIP W1–W3 |
 | SWA-7 | Delivery | [#35](https://github.com/vikiswaimer/Prod.Swaim.com/pull/35) | `docs/delivery-checklist-git-to-notion.md` | ops Git→Notion |
 | SWA-5 | UX | [#36](https://github.com/vikiswaimer/Prod.Swaim.com/pull/36) | `00-index` + треки «сегодня» | usable / onboarding |
-| SWA-8 | Researcher | [#37](https://github.com/vikiswaimer/Prod.Swaim.com/pull/37) | `docs/reports/evidence-pack-clients.md` | честный сигнал vs шум |
+| SWA-8 | Researcher | [#37](https://github.com/vikiswaimer/Prod.Swaim.com/pull/37) | `docs/reports/evidence-pack-clients.md` | ✅ outcome принят PL (retry Ultra ≠ fail research) |
 | SWA-6 | Growth | [#38](https://github.com/vikiswaimer/Prod.Swaim.com/pull/38) | `docs/reports/growth-lean-experiments-swa6.md` | 3 GTM BML, WIP=1 |
 | SWA-4 | Discovery PM | [#39](https://github.com/vikiswaimer/Prod.Swaim.com/pull/39) | JTBD + точечные правки Клиенты/Старт | outcomes в ядре |
 
@@ -128,3 +141,4 @@ Growth B/C, пилот v2 (#30), холодный аудит (#33), каналы
 |------|-----------|
 | 2026-08-15 | Первый sync после прогона SWA-3…8: вердикт evidence → W1 active, merge order, роли |
 | 2026-08-15 | Wake с доски: W1 brief + PRO-3; API still down; команде не стартовать фичи |
+| 2026-08-15 | Recovery SWA-8: Ultra-stranded ≠ fail; PR #37 принят; WIP остаётся W1 / PRO-3 |
