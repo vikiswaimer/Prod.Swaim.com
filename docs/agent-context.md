@@ -71,6 +71,7 @@
 
 - #6 Notion MCP / `NOTION_TOKEN` — ✅; перенос по мере групповых чатов.
 - #4 ZIP Git→Notion — won't do (см. `notion-reimport.md`).
+- Чеклист поставки Git→Notion (команда / Delivery): [`delivery-checklist-git-to-notion.md`](delivery-checklist-git-to-notion.md).
 
 ## Правила правок контента
 
@@ -87,7 +88,7 @@
 - Владелец в новом чате называет **группу** (или блок). Агент уточняет гипотезы и критерии в диалоге, затем правит.
 - Один issue на чат (создаёт/привязывает под группу). Отдельные issues из одного чата — только по явной просьбе.
 - Агент правит Git; по договорённости — `main` или ветка `cursor/<name>-ffef` + PR (**один** draft PR на чат/issue).
-- В конце: список файлов + что перенести в Notion (или что уже записано через Integration/MCP).
+- В конце: список файлов + поставка в Notion по [`delivery-checklist-git-to-notion.md`](delivery-checklist-git-to-notion.md) (манифест: что уже записано / что руками в UI).
 - Посадочная страница и маркетинг-стратегия — **другие** чаты/issues.
 - Подключение к Notion: [`notion-integration.md`](notion-integration.md). Без токена/MCP агент в Notion не пишет.
 

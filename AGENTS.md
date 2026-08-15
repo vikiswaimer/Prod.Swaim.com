@@ -41,7 +41,7 @@ https://swaim.notion.site/Small-Business-Space-v-1-0-RU-22a207cad37981ddbd72d4d9
 | GitHub Issues | Тикеты на существенные изменения |
 | Лендинг / маркетинг-стратегия | **Отдельные** чаты и issues — не смешивать сюда без явного запроса |
 
-Агент **не пишет в Notion напрямую**, пока нет подключения (MCP или Internal Integration). Как включить: [`docs/notion-integration.md`](docs/notion-integration.md). ZIP-импорт целого пространства — **не** используем (лимит ~5 MB, ломается разметка/картинки). После правок в Git без Integration — чеклист «перенести в Notion» вручную.
+Агент **не пишет в Notion напрямую**, пока нет подключения (MCP или Internal Integration). Как включить: [`docs/notion-integration.md`](docs/notion-integration.md). ZIP-импорт целого пространства — **не** используем (лимит ~5 MB, ломается разметка/картинки). После правок в Git — поставка по [`docs/delivery-checklist-git-to-notion.md`](docs/delivery-checklist-git-to-notion.md) (API/MCP или ручной манифест).
 
 ## Карта репозитория
 
@@ -66,6 +66,7 @@ docs/
   positioning.md          — позиционирование продукта
   methodology.md          — Каган / Рис / Mom Test / Спринт / Olsen MVP
   agent-context.md        — детальный бэклог логики и правила работы
+  delivery-checklist-git-to-notion.md — чеклист поставки Git→Notion (команда)
   notion-integration.md   — подключение агента к Notion (MCP / NOTION_TOKEN)
   notion-reimport.md      — ZIP-эксперимент (не рекомендуем)
   reports/                — отчёты по пакетам
@@ -122,4 +123,4 @@ Foundation A–D ✅; группа Other ✅ (#17). Следующую груп�
 3. Привязать чат к **одному** GitHub Issue под эту группу. Не открывать второй issue и не смешивать группы без явной просьбы.
 4. Смотреть файлы через `00-index.md` / `INDEX.md`, не через «сырой» zip.
 5. Править в духе методологии; минимальный diff под согласованный scope.
-6. В конце: commit/push, обновить **этот** issue, кратко по-русски что сделано, что перенести в Notion.
+6. В конце: commit/push, обновить **этот** issue, кратко по-русски что сделано; поставка в Notion — по [`docs/delivery-checklist-git-to-notion.md`](docs/delivery-checklist-git-to-notion.md).
