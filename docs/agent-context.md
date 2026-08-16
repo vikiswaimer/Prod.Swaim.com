@@ -71,6 +71,7 @@
 
 - #6 Notion MCP / `NOTION_TOKEN` — ✅; перенос по мере групповых чатов.
 - #4 ZIP Git→Notion — won't do (см. `notion-reimport.md`).
+- **Команда ИИ (Paperclip):** одна product team, не C-suite. Аудит + найм: [`reports/paperclip-product-team.md`](reports/paperclip-product-team.md). WIP гипотез **1–3** (сейчас замок **1** = W1 Mom Test). Живой API из cloud без `PAPERCLIP_API_KEY` недоступен.
 
 ## Правила правок контента
 

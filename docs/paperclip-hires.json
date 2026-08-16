@@ -1,0 +1,104 @@
+{
+  "version": 1,
+  "companyGoal": {
+    "title": "Подтвердить valuable узкого ICP честным сигналом",
+    "level": "company",
+    "status": "active",
+    "description": "Исход цикла: ≥5 Mom Test ≥20 мин (кластер «жгли kit») → светофор H4/H1/H5. Успех: pre-order/intro или ≥3 карточки с суммой+неделей+workaround или отказ с причиной. Не цель: фичи шаблона, охваты, «круто»."
+  },
+  "wip": {
+    "hypothesesInWork": { "min": 1, "max": 3 },
+    "companyExperimentSlots": 3,
+    "currentActiveSlots": 1,
+    "activeNow": "W1 Mom Test (PRO-3)",
+    "hold": ["W2 Activity #22", "W3 smoke-offer"],
+    "weeklyGoals": { "min": 1, "max": 3 },
+    "growthExperimentsParallel": 1,
+    "heartbeatMaxConcurrentRuns": 1
+  },
+  "doNotHire": [
+    "cto",
+    "cmo",
+    "cfo",
+    "qa",
+    "devops",
+    "Researcher as separate always-on agent",
+    "content writer under marketing silo"
+  ],
+  "matchExistingByName": [
+    "Product Lead",
+    "Discovery",
+    "Discovery PM",
+    "UX Designer",
+    "Delivery Engineer",
+    "Growth Lead",
+    "CEO"
+  ],
+  "agents": [
+    {
+      "slug": "ceo",
+      "name": "CEO",
+      "role": "ceo",
+      "title": "CEO / Board proxy",
+      "reportsTo": null,
+      "optional": true,
+      "heartbeatEnabled": false,
+      "budgetMonthlyCents": 40000,
+      "permissions": { "canCreateAgents": true },
+      "capabilities": "ICP-гейты (Артём vs Саша; v1 vs v2). Approve hire. Бюджет. Не стартует feature-прогон и не будит всю команду. Исходы > фичи."
+    },
+    {
+      "slug": "product-lead",
+      "name": "Product Lead",
+      "role": "pm",
+      "title": "Product Lead",
+      "reportsToSlug": "ceo",
+      "heartbeatEnabled": true,
+      "heartbeatIntervalSec": 3600,
+      "budgetMonthlyCents": 30000,
+      "capabilities": "Одна product team Prod.Swaim. Страж WIP: гипотезы в работе 1–3, сейчас слот W1=1. 4 риска Cagan. Не открывает второй ACTIVE outcome. Не пишет модули параллельно Discovery. SoT: docs/reports/paperclip-product-team.md, Linear PRO-2."
+    },
+    {
+      "slug": "discovery",
+      "name": "Discovery",
+      "role": "pm",
+      "title": "Discovery PM",
+      "reportsToSlug": "product-lead",
+      "aliases": ["Discovery PM"],
+      "heartbeatEnabled": true,
+      "heartbeatIntervalSec": 1800,
+      "budgetMonthlyCents": 20000,
+      "capabilities": "Единственный ACTIVE на W1: Mom Test, карточки сигнала, патч H1/H4/H5. Поглощает Researcher: evidence pack после ≥3 карточек. Не новые страницы шаблона. Playbook: docs/reports/w1-mom-test-brief.md. Linear PRO-3."
+    },
+    {
+      "slug": "ux",
+      "name": "UX Designer",
+      "role": "designer",
+      "title": "Product Designer",
+      "reportsToSlug": "product-lead",
+      "heartbeatEnabled": false,
+      "budgetMonthlyCents": 20000,
+      "capabilities": "Usable: навигация, «сегодня», онбординг. Работает только в слоте команды, не свой backlog. HOLD, пока W1 в поле."
+    },
+    {
+      "slug": "delivery",
+      "name": "Delivery Engineer",
+      "role": "engineer",
+      "title": "Delivery / Git→Notion",
+      "reportsToSlug": "product-lead",
+      "heartbeatEnabled": false,
+      "budgetMonthlyCents": 20000,
+      "capabilities": "Feasible: поставка Git→Notion по чеклисту. Не ZIP-импорт целого пространства. HOLD, пока нет CEO-OK на merge UX/JTBD."
+    },
+    {
+      "slug": "growth",
+      "name": "Growth Lead",
+      "role": "general",
+      "title": "Growth (внутри product team)",
+      "reportsToSlug": "product-lead",
+      "heartbeatEnabled": false,
+      "budgetMonthlyCents": 20000,
+      "capabilities": "Viable-эксперименты той же команды. Параллельно не больше 1 эксперимента (A/B/C). Сейчас HOLD; W3 / эксперимент A после ICP. Не отдел маркетинга, не охваты как outcome."
+    }
+  ]
+}
