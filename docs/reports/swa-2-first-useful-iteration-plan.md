@@ -1,8 +1,8 @@
 # SWA-2 — план первой полезной итерации
 
 **Issue:** Paperclip SWA-2 · **Роль:** Product Lead · **Дата:** 2026-08-16  
-**Ревизия:** v1.1 (retry после failed disposition)  
-**Статус:** план в Git готов · формальный Paperclip `request_confirmation` — **blocked** (нет API)  
+**Ревизия:** v1.2 (handoff `finish_successful_run` — открыт draft PR + запрошен `PAPERCLIP_API_KEY`)  
+**Статус:** план в Git готов · зеркало Linear doc на [PRO-2](https://linear.app/swaim/issue/PRO-2) · формальный Paperclip `request_confirmation` — **blocked** (нет API key)  
 **Опора:** [`methodology.md`](../methodology.md) · risk-map SWA-3 (PR #34) · evidence pack SWA-8 (PR #37) · WIP-lock SWA-9 (PR #42 / #43) · sync (PR #40)
 
 > Внутренний план координации. **Не** копировать в пользовательский Notion целиком. Лендинг / маркетинг-стратегию Prod.Swaim не трогаем.
@@ -90,8 +90,10 @@ MVP Olsen здесь = **уже полезный срез обучения с р
 - [x] 1 outcome назван
 - [x] 3 гипотезы названы (H4, H1, H5)
 - [x] Один первый issue назван (Discovery W1 / PRO-3); команда не разбужена пачкой
-- [x] План зафиксирован в Git (`docs/reports/swa-2-first-useful-iteration-plan.md`) + draft PR
-- [ ] Plan записан в Paperclip document + `request_confirmation` (**блокер: API**)
+- [x] План зафиксирован в Git (`docs/reports/swa-2-first-useful-iteration-plan.md`)
+- [x] Draft PR на ветке `cursor/swa-2-first-iteration-plan-35ee` (этот handoff)
+- [x] Зеркало плана в Linear document на PRO-2
+- [ ] Plan записан в Paperclip document + `request_confirmation` (**блокер: API key**)
 - [ ] Board accepted → SWA-2 → `done`; исполнение остаётся у Discovery (PRO-3), не новый PL-research
 
 **Interim review path (пока нет Paperclip API):** CEO / board читает этот файл в draft PR и отвечает комментарием на Linear [PRO-2](https://linear.app/swaim/issue/PRO-2) («accept W1 plan» / правки). После появления API — повторить через `request_confirmation`.
@@ -114,13 +116,13 @@ MVP Olsen здесь = **уже полезный срез обучения с р
 
 | Что | Статус |
 |-----|--------|
-| Содержательный deliverable SWA-2 (outcome + 3 гипотезы + 1 ACTIVE issue) | ✅ готов в Git |
+| Содержательный deliverable SWA-2 (outcome + 3 гипотезы + 1 ACTIVE issue) | ✅ готов в Git + Linear mirror |
 | Paperclip control plane из Cursor Cloud | ❌ loopback `PAPERCLIP_API_URL` → connection refused; `https://paperclip.inc/api` → 401 без ключа |
-| Запрошено в Cloud env | `PAPERCLIP_API_KEY` (required) · `PAPERCLIP_API_BASE_URL` (optional) |
+| Запрошено в Cloud env (этот handoff) | `PAPERCLIP_API_KEY` (required) · `PAPERCLIP_API_BASE_URL` (optional) |
 
 **Disposition этого heartbeat:** `blocked`
 
-**Unblock owner:** Board / Paperclip ops + владелец Cloud Agent environment.  
-**Action:** инжект `PAPERCLIP_API_KEY` (+ опционально `PAPERCLIP_API_BASE_URL=https://paperclip.inc`) или рабочий bridge → re-wake Product Lead → PUT plan document → `request_confirmation` (idempotencyKey `confirmation:{SWA-2}:plan:{revision}`) → status `in_review` → после accept → `done`.
+**Unblock owner:** Board / Paperclip ops + владелец Cloud Agent environment (Alex Kostevich).  
+**Action:** инжект `PAPERCLIP_API_KEY` (+ опционально `PAPERCLIP_API_BASE_URL=https://paperclip.inc`) → re-wake Product Lead → PUT plan document → `request_confirmation` (idempotencyKey `confirmation:{SWA-2}:plan:v1.2`) → status `in_review` → после accept → `done`.
 
-Не оставлять `in_progress` без live path: live path = появление API / ключа, не «ещё один research-раунд».
+Не оставлять `in_progress` без live path: live path = появление API / ключа, не «ещё один research-раунд» и не wake всей команды.
