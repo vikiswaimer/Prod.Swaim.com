@@ -1,8 +1,9 @@
 # SWA-2 — план первой полезной итерации
 
 **Issue:** Paperclip SWA-2 · **Роль:** Product Lead · **Дата:** 2026-08-16  
-**Статус:** v1 — ждёт подтверждения board (`request_confirmation`)  
-**Опора:** [`methodology.md`](../methodology.md) · risk-map SWA-3 (PR #34) · evidence pack SWA-8 (PR #37) · WIP-lock SWA-9 (PR #42)
+**Ревизия:** v1.1 (retry после failed disposition)  
+**Статус:** план в Git готов · формальный Paperclip `request_confirmation` — **blocked** (нет API)  
+**Опора:** [`methodology.md`](../methodology.md) · risk-map SWA-3 (PR #34) · evidence pack SWA-8 (PR #37) · WIP-lock SWA-9 (PR #42 / #43) · sync (PR #40)
 
 > Внутренний план координации. **Не** копировать в пользовательский Notion целиком. Лендинг / маркетинг-стратегию Prod.Swaim не трогаем.
 
@@ -10,7 +11,7 @@
 
 ## Вердикт в одном абзаце
 
-Первая полезная итерация — **не** новый модуль шаблона, а **полевой цикл Mom Test**: снять главный риск **valuable** дешёвым честным экспериментом. Foundation A–D + Other + группа Бизнес уже дают usable срез; evidence pack показывает, что «знание аудитории» ≈ гипотезы без первичных обязательств. Поэтому WIP=1 = W1 интервью; контент-пакеты и GTM — HOLD.
+Первая полезная итерация — **не** новый модуль шаблона, а **полевой цикл Mom Test**: снять главный риск **valuable** дешёвым честным экспериментом. Foundation A–D + Other + группа Бизнес уже дают usable срез; evidence pack показывает, что «знание аудитории» ≈ гипотезы без первичных обязательств. Поэтому WIP=1 = W1 интервью; контент-пакеты и GTM — HOLD. Команда целиком не будится.
 
 ---
 
@@ -26,7 +27,7 @@
 
 **Не outcome:** «круто», лайки, новые страницы шаблона, параллельный старт Активности / v2 rich / лендинга.
 
-Playbook исполнения: [`w1-mom-test-brief.md`](w1-mom-test-brief.md) (ветка SWA-9 / PR #42; при отсутствии на `main` — взять оттуда).
+Playbook исполнения: [`w1-mom-test-brief.md`](w1-mom-test-brief.md) (draft PR [#40](https://github.com/vikiswaimer/Prod.Swaim.com/pull/40), [#42](https://github.com/vikiswaimer/Prod.Swaim.com/pull/42)).
 
 ---
 
@@ -40,7 +41,7 @@ Playbook исполнения: [`w1-mom-test-brief.md`](w1-mom-test-brief.md) (�
 | **H1** | Готовый RU-маршрут «клиент → продукт → оффер» + пример → за первую неделю **заполнены ≥2 раздела** и есть **2-я сессия** | Саша (если есть часы на самосбор) | Наблюдение онбординга после разговора; не «обещал заполнить» |
 | **H5** | Светофор сильный/слабый сигнал + вопросы про прошлое → **отсечение шума** до большой поставки | Марина (+ антипример Игорь) | Доля 🔴-карточек в отчёте; после «круто» — что сделали за 7 дней |
 
-Источник реестра: [`docs/risk-map-hypotheses.md`](../risk-map-hypotheses.md) (PR #34). Анти-ICP: интерес без обязательств (Игорь) — **не** звать в ядро выборки.
+Источник реестра: risk-map (PR [#34](https://github.com/vikiswaimer/Prod.Swaim.com/pull/34)). Анти-ICP: интерес без обязательств (Игорь) — **не** звать в ядро выборки.
 
 ---
 
@@ -48,14 +49,14 @@ Playbook исполнения: [`w1-mom-test-brief.md`](w1-mom-test-brief.md) (�
 
 | Приоритет | Issue | Owner | Зачем |
 |-----------|-------|-------|-------|
-| **1 · ACTIVE** | **Discovery: W1 Mom Test** — Linear [PRO-3](https://linear.app/swaim/issue/PRO-3) (или дочерний Paperclip issue на Discovery после accept этого plan) | Discovery PM + CEO (рекрут) | Единственный слот WIP=1; снимает valuable |
+| **1 · ACTIVE** | **Discovery: W1 Mom Test** — Linear [PRO-3](https://linear.app/swaim/issue/PRO-3/discovery-ispolnit-w1-mom-test-brief) (уже In Progress) · parent [PRO-2](https://linear.app/swaim/issue/PRO-2) | Discovery PM + CEO (рекрут) | Единственный слот WIP=1; снимает valuable |
 | HOLD | GH [#22](https://github.com/vikiswaimer/Prod.Swaim.com/issues/22) Активность / Lean | Content | W2 — после вывода W1 |
 | HOLD | Smoke-оффер / pre-order как отдельный Growth-прогон | Growth | W3 — после ICP (Артём vs Саша) |
 | OUT | Лендинг / маркетинг-стратегия Prod.Swaim | — | Отдельный чат; не этот цикл |
 
 **Правило команды:** не будить CTO / UX / Growth / Researcher параллельно. После accept plan — **один** wake: Discovery (CEO помогает с рекрутом). Остальные IDLE, пока W1 не дал вывод.
 
-Координационный SoT: Linear [PRO-2](https://linear.app/swaim/issue/PRO-2) + [`paperclip-team-sync.md`](paperclip-team-sync.md) (когда смержен).
+Координационный SoT: Linear [PRO-2](https://linear.app/swaim/issue/PRO-2) + [`paperclip-team-sync.md`](paperclip-team-sync.md) (draft PR #40 / #42).
 
 ---
 
@@ -89,8 +90,11 @@ MVP Olsen здесь = **уже полезный срез обучения с р
 - [x] 1 outcome назван
 - [x] 3 гипотезы названы (H4, H1, H5)
 - [x] Один первый issue назван (Discovery W1 / PRO-3); команда не разбужена пачкой
-- [ ] Plan записан в Paperclip document + `request_confirmation` (блокер: API)
-- [ ] Board accepted → SWA-2 → `done`; исполнение уходит в Discovery, не в новый PL-research
+- [x] План зафиксирован в Git (`docs/reports/swa-2-first-useful-iteration-plan.md`) + draft PR
+- [ ] Plan записан в Paperclip document + `request_confirmation` (**блокер: API**)
+- [ ] Board accepted → SWA-2 → `done`; исполнение остаётся у Discovery (PRO-3), не новый PL-research
+
+**Interim review path (пока нет Paperclip API):** CEO / board читает этот файл в draft PR и отвечает комментарием на Linear [PRO-2](https://linear.app/swaim/issue/PRO-2) («accept W1 plan» / правки). После появления API — повторить через `request_confirmation`.
 
 ---
 
@@ -106,15 +110,17 @@ MVP Olsen здесь = **уже полезный срез обучения с р
 
 ---
 
-## 8. Blocker disposition (runtime)
+## 8. Disposition (runtime)
 
-Paperclip control plane из Cursor Cloud:
+| Что | Статус |
+|-----|--------|
+| Содержательный deliverable SWA-2 (outcome + 3 гипотезы + 1 ACTIVE issue) | ✅ готов в Git |
+| Paperclip control plane из Cursor Cloud | ❌ loopback `PAPERCLIP_API_URL` → connection refused; `https://paperclip.inc/api` → 401 без ключа |
+| Запрошено в Cloud env | `PAPERCLIP_API_KEY` (required) · `PAPERCLIP_API_BASE_URL` (optional) |
 
-- loopback `PAPERCLIP_API_URL` из VM → Connection refused
-- gateway-хост того же порта → TCP open, HTTP reset
-- публичный `paperclip.inc` API → 401 без `PAPERCLIP_API_KEY`
+**Disposition этого heartbeat:** `blocked`
 
-**Unblock owner:** Board / Paperclip ops + владелец среды Cloud Agent.  
-**Action:** инжект `PAPERCLIP_API_KEY` (+ опционально `PAPERCLIP_API_BASE_URL`) или рабочий bridge → re-wake Product Lead → `PUT` plan → `request_confirmation` → status `in_review`.
+**Unblock owner:** Board / Paperclip ops + владелец Cloud Agent environment.  
+**Action:** инжект `PAPERCLIP_API_KEY` (+ опционально `PAPERCLIP_API_BASE_URL=https://paperclip.inc`) или рабочий bridge → re-wake Product Lead → PUT plan document → `request_confirmation` (idempotencyKey `confirmation:{SWA-2}:plan:{revision}`) → status `in_review` → после accept → `done`.
 
-Пока API мёртв: канон плана = **этот файл** + draft PR; на доске SWA-2 формально `blocked` с unblock выше (не оставлять `in_progress` без live path).
+Не оставлять `in_progress` без live path: live path = появление API / ключа, не «ещё один research-раунд».
