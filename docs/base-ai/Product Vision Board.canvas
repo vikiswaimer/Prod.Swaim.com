@@ -1,0 +1,235 @@
+{
+  "nodes": [
+    {
+      "id": "grp-vision",
+      "type": "group",
+      "label": "1 · Vision",
+      "x": -700,
+      "y": -400,
+      "width": 1400,
+      "height": 120,
+      "color": "6"
+    },
+    {
+      "id": "grp-target",
+      "type": "group",
+      "label": "2 · Target Group",
+      "x": -700,
+      "y": -260,
+      "width": 690,
+      "height": 150,
+      "color": "5"
+    },
+    {
+      "id": "grp-competitors",
+      "type": "group",
+      "label": "2 · Competitors",
+      "x": -10,
+      "y": -260,
+      "width": 690,
+      "height": 150,
+      "color": "5"
+    },
+    {
+      "id": "grp-needs",
+      "type": "group",
+      "label": "3 · Needs",
+      "x": -700,
+      "y": -95,
+      "width": 690,
+      "height": 150,
+      "color": "4"
+    },
+    {
+      "id": "grp-revenue",
+      "type": "group",
+      "label": "3 · Revenue Streams",
+      "x": -10,
+      "y": -95,
+      "width": 690,
+      "height": 150,
+      "color": "4"
+    },
+    {
+      "id": "grp-product",
+      "type": "group",
+      "label": "4 · Product",
+      "x": -700,
+      "y": 70,
+      "width": 690,
+      "height": 150,
+      "color": "3"
+    },
+    {
+      "id": "grp-cost",
+      "type": "group",
+      "label": "4 · Cost Factors",
+      "x": -10,
+      "y": 70,
+      "width": 690,
+      "height": 150,
+      "color": "3"
+    },
+    {
+      "id": "grp-goals",
+      "type": "group",
+      "label": "5 · Business Goals",
+      "x": -700,
+      "y": 235,
+      "width": 690,
+      "height": 150,
+      "color": "2"
+    },
+    {
+      "id": "grp-channels",
+      "type": "group",
+      "label": "5 · Channels",
+      "x": -10,
+      "y": 235,
+      "width": 690,
+      "height": 150,
+      "color": "2"
+    },
+    {
+      "id": "f-vision",
+      "type": "file",
+      "file": "product-vision-board/01-vision.md",
+      "x": -680,
+      "y": -380,
+      "width": 1360,
+      "height": 90
+    },
+    {
+      "id": "f-target",
+      "type": "file",
+      "file": "product-vision-board/02-target-group.md",
+      "x": -680,
+      "y": -240,
+      "width": 660,
+      "height": 120
+    },
+    {
+      "id": "f-competitors",
+      "type": "file",
+      "file": "product-vision-board/03-competitors.md",
+      "x": 10,
+      "y": -240,
+      "width": 660,
+      "height": 120
+    },
+    {
+      "id": "f-needs",
+      "type": "file",
+      "file": "product-vision-board/04-needs.md",
+      "x": -680,
+      "y": -75,
+      "width": 660,
+      "height": 120
+    },
+    {
+      "id": "f-revenue",
+      "type": "file",
+      "file": "product-vision-board/05-revenue-streams.md",
+      "x": 10,
+      "y": -75,
+      "width": 660,
+      "height": 120
+    },
+    {
+      "id": "f-product",
+      "type": "file",
+      "file": "product-vision-board/06-product.md",
+      "x": -680,
+      "y": 90,
+      "width": 660,
+      "height": 120
+    },
+    {
+      "id": "f-cost",
+      "type": "file",
+      "file": "product-vision-board/07-cost-factors.md",
+      "x": 10,
+      "y": 90,
+      "width": 660,
+      "height": 120
+    },
+    {
+      "id": "f-goals",
+      "type": "file",
+      "file": "product-vision-board/08-business-goals.md",
+      "x": -680,
+      "y": 255,
+      "width": 660,
+      "height": 120
+    },
+    {
+      "id": "f-channels",
+      "type": "file",
+      "file": "product-vision-board/09-channels.md",
+      "x": 10,
+      "y": 255,
+      "width": 660,
+      "height": 120
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-v-tg",
+      "fromNode": "f-vision",
+      "fromSide": "bottom",
+      "toNode": "f-target",
+      "toSide": "top",
+      "toEnd": "arrow",
+      "color": "6",
+      "label": "кому"
+    },
+    {
+      "id": "e-v-comp",
+      "fromNode": "f-vision",
+      "fromSide": "bottom",
+      "toNode": "f-competitors",
+      "toSide": "top",
+      "toEnd": "arrow",
+      "color": "6"
+    },
+    {
+      "id": "e-tg-needs",
+      "fromNode": "f-target",
+      "fromSide": "bottom",
+      "toNode": "f-needs",
+      "toSide": "top",
+      "toEnd": "arrow",
+      "color": "5",
+      "label": "боль"
+    },
+    {
+      "id": "e-needs-prod",
+      "fromNode": "f-needs",
+      "fromSide": "bottom",
+      "toNode": "f-product",
+      "toSide": "top",
+      "toEnd": "arrow",
+      "color": "4",
+      "label": "решение"
+    },
+    {
+      "id": "e-rev-goals",
+      "fromNode": "f-revenue",
+      "fromSide": "bottom",
+      "toNode": "f-goals",
+      "toSide": "top",
+      "toEnd": "arrow",
+      "color": "4",
+      "label": "исход"
+    },
+    {
+      "id": "e-prod-ch",
+      "fromNode": "f-product",
+      "fromSide": "bottom",
+      "toNode": "f-channels",
+      "toSide": "top",
+      "toEnd": "arrow",
+      "color": "3"
+    }
+  ]
+}
