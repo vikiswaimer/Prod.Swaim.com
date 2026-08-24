@@ -8,7 +8,8 @@
 - Те, кто **не хочет** с нуля искать фреймворки под каждую ситуацию.
 - Те, кто хочет **укрепить навыки**, работая в паре с ИИ: проверять, править, не отдавать всё «на автомате».
 
-Рабочие истории аудитории (гипотезы → проверка): [`docs/reports/customer-stories-audience.md`](reports/customer-stories-audience.md).
+Рабочие истории аудитории (гипотезы → проверка): [`docs/reports/customer-stories-audience.md`](reports/customer-stories-audience.md).  
+Честный срез «что уже известно» (сигнал vs гипотеза vs шум): [`docs/reports/evidence-pack-clients.md`](reports/evidence-pack-clients.md).
 
 ## Какую работу выполняет
 
