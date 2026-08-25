@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tool Map — карта для фаундеров</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="badge">Tool Map · v0 · бесплатный срез</div>
+      <h1>Карта инструментов</h1>
+      <p>
+        Портрет: <strong id="portrait-label">фаундеры и предприниматели</strong>.
+        Ниша в тесте: <strong id="niche-label">…</strong>
+        (<span id="niche-status">testing</span>).
+        Узлы — инструменты, линии — связки. Ниши добавляем и убираем по сигналу тестов.
+      </p>
+    </header>
+
+    <div class="map-shell">
+      <svg id="map-svg" class="map" viewBox="0 0 840 500" role="img" aria-label="Карта инструментов и связок"></svg>
+    </div>
+    <p class="legend">
+      <span>● инструмент</span>
+      <span>— связка (клик = пример)</span>
+    </p>
+
+    <section class="panel" aria-live="polite">
+      <h2 id="detail-title">Кликните узел или связь</h2>
+      <p id="detail-body">Узлы — инструменты. Линии — как стыковать в этой нише. Платный слой — подробные плейбуки.</p>
+      <p class="hint">PostHog EU: map_viewed, node_clicked, edge_clicked, paid_cta_clicked · niche + portrait.</p>
+    </section>
+
+    <div class="cta-row">
+      <a class="cta" id="paid-cta" href="playbook.html">Подробный плейбук этой ниши</a>
+      <span class="cta-note">$60 · тест цены, будем менять по рынку</span>
+    </div>
+  </div>
+
+  <script src="config.local.js"></script>
+  <script src="niches.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

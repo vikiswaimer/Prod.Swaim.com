@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tool Map — схемы</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0f1419;
+      --text: #e7ecf1;
+      --muted: #8b9aab;
+      --line: #2a3542;
+      --a: #3ecfbf;
+      --b: #e8a838;
+      --font-d: "Syne", sans-serif;
+      --font-b: "Source Sans 3", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-b);
+      padding: 2rem 1.25rem 4rem;
+    }
+    .wrap { max-width: 860px; margin: 0 auto; }
+    h1 {
+      font-family: var(--font-d);
+      font-size: 1.75rem;
+      margin: 0 0 0.4rem;
+      letter-spacing: -0.02em;
+    }
+    .lead { color: var(--muted); margin: 0 0 2rem; line-height: 1.45; }
+    h2 {
+      font-family: var(--font-d);
+      font-size: 1.15rem;
+      margin: 2.25rem 0 0.75rem;
+    }
+    .frame {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1rem;
+      background: #141a22;
+      overflow-x: auto;
+    }
+    svg { display: block; width: 100%; height: auto; max-width: 800px; }
+    .note { font-size: 0.9rem; color: var(--muted); margin-top: 0.6rem; line-height: 1.45; }
+    a.back { color: var(--a); text-decoration: none; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p><a class="back" href="index.html">← варианты посадочной</a></p>
+    <h1>Схемы продукта</h1>
+    <p class="lead">Для UX (SWA-38) и PO: путь оплаты, портрет vs ниши, портфель keep/kill.</p>
+
+    <h2>1. Free map → Paid playbook</h2>
+    <div class="frame">
+      <svg viewBox="0 0 780 200" role="img" aria-label="Путь от map к плейбуку">
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#3ecfbf"/>
+          </marker>
+        </defs>
+        <rect x="20" y="60" width="130" height="70" rx="10" fill="#1a2430" stroke="#3ecfbf"/>
+        <text x="85" y="92" text-anchor="middle" fill="#e7ecf1" font-family="Syne,sans-serif" font-size="14" font-weight="700">Landing</text>
+        <text x="85" y="112" text-anchor="middle" fill="#8b9aab" font-size="11">UTM · PostHog</text>
+
+        <line x1="150" y1="95" x2="200" y2="95" stroke="#3ecfbf" stroke-width="2" marker-end="url(#arrow)"/>
+
+        <rect x="200" y="60" width="130" height="70" rx="10" fill="#1a2430" stroke="#3a4a5c"/>
+        <text x="265" y="92" text-anchor="middle" fill="#e7ecf1" font-family="Syne,sans-serif" font-size="14" font-weight="700">Map</text>
+        <text x="265" y="112" text-anchor="middle" fill="#8b9aab" font-size="11">nodes · edges</text>
+
+        <line x1="330" y1="95" x2="380" y2="95" stroke="#3ecfbf" stroke-width="2" marker-end="url(#arrow)"/>
+
+        <rect x="380" y="60" width="140" height="70" rx="10" fill="#1a2430" stroke="#3a4a5c"/>
+        <text x="450" y="92" text-anchor="middle" fill="#e7ecf1" font-family="Syne,sans-serif" font-size="14" font-weight="700">CTA click</text>
+        <text x="450" y="112" text-anchor="middle" fill="#8b9aab" font-size="11">paid_cta_clicked</text>
+
+        <line x1="520" y1="95" x2="570" y2="95" stroke="#e8a838" stroke-width="2" marker-end="url(#arrow)"/>
+
+        <rect x="570" y="60" width="170" height="70" rx="10" fill="#2a2210" stroke="#e8a838"/>
+        <text x="655" y="92" text-anchor="middle" fill="#e7ecf1" font-family="Syne,sans-serif" font-size="14" font-weight="700">Playbook</text>
+        <text x="655" y="112" text-anchor="middle" fill="#c9a86a" font-size="11">$60 · файл</text>
+      </svg>
+    </div>
+    <p class="note">Сигнал цикла: не лайки, а map_viewed / edge_clicked / paid_cta / оплата.</p>
+
+    <h2>2. Портрет vs ниша</h2>
+    <div class="frame">
+      <svg viewBox="0 0 780 220" role="img" aria-label="Портрет и ниши">
+        <rect x="40" y="40" width="280" height="140" rx="12" fill="#1a2430" stroke="#3ecfbf" stroke-width="2"/>
+        <text x="180" y="85" text-anchor="middle" fill="#3ecfbf" font-family="Syne,sans-serif" font-size="15" font-weight="700">ПОРТРЕТ (стабильный)</text>
+        <text x="180" y="115" text-anchor="middle" fill="#e7ecf1" font-size="14">Фаундеры /</text>
+        <text x="180" y="138" text-anchor="middle" fill="#e7ecf1" font-size="14">предприниматели</text>
+        <text x="180" y="162" text-anchor="middle" fill="#8b9aab" font-size="11">не убиваем из‑за одной ниши</text>
+
+        <line x1="320" y1="110" x2="390" y2="110" stroke="#3a4a5c" stroke-width="2" stroke-dasharray="4 4"/>
+
+        <rect x="390" y="30" width="340" height="160" rx="12" fill="#141a22" stroke="#3a4a5c"/>
+        <text x="560" y="60" text-anchor="middle" fill="#e8a838" font-family="Syne,sans-serif" font-size="14" font-weight="700">НИШИ (тестируем)</text>
+        <rect x="420" y="80" width="280" height="28" rx="6" fill="#243040" stroke="#3ecfbf"/>
+        <text x="560" y="99" text-anchor="middle" fill="#e7ecf1" font-size="12">solo-digital-services · testing</text>
+        <rect x="420" y="118" width="280" height="28" rx="6" fill="#1a222c" stroke="#3a4a5c"/>
+        <text x="560" y="137" text-anchor="middle" fill="#8b9aab" font-size="12">micro-saas · backlog</text>
+        <rect x="420" y="156" width="280" height="28" rx="6" fill="#1a222c" stroke="#3a4a5c"/>
+        <text x="560" y="175" text-anchor="middle" fill="#8b9aab" font-size="12">agency-1-5 · backlog</text>
+      </svg>
+    </div>
+    <p class="note">WIP ≤ 1–2 ниши в testing. Add / kill по PostHog + 3 канала.</p>
+
+    <h2>3. Keep / iterate / kill</h2>
+    <div class="frame">
+      <svg viewBox="0 0 780 160" role="img" aria-label="Решение по нише">
+        <rect x="30" y="50" width="160" height="60" rx="8" fill="#1a2430" stroke="#3a4a5c"/>
+        <text x="110" y="85" text-anchor="middle" fill="#e7ecf1" font-size="13" font-family="Syne,sans-serif">3 теста + PH</text>
+
+        <line x1="190" y1="80" x2="250" y2="80" stroke="#3ecfbf" stroke-width="2"/>
+
+        <polygon points="250,50 310,80 250,110" fill="#243040" stroke="#3ecfbf"/>
+        <text x="268" y="84" fill="#e7ecf1" font-size="11">?</text>
+
+        <line x1="310" y1="80" x2="370" y2="40" stroke="#3ecfbf" stroke-width="1.5"/>
+        <line x1="310" y1="80" x2="370" y2="80" stroke="#e8a838" stroke-width="1.5"/>
+        <line x1="310" y1="80" x2="370" y2="120" stroke="#8b9aab" stroke-width="1.5"/>
+
+        <rect x="370" y="18" width="120" height="44" rx="8" fill="#0f2a26" stroke="#3ecfbf"/>
+        <text x="430" y="45" text-anchor="middle" fill="#3ecfbf" font-size="13" font-family="Syne,sans-serif">KEEP</text>
+
+        <rect x="370" y="58" width="120" height="44" rx="8" fill="#2a2210" stroke="#e8a838"/>
+        <text x="430" y="85" text-anchor="middle" fill="#e8a838" font-size="13" font-family="Syne,sans-serif">ITERATE</text>
+
+        <rect x="370" y="98" width="120" height="44" rx="8" fill="#1a1a1a" stroke="#8b9aab"/>
+        <text x="430" y="125" text-anchor="middle" fill="#8b9aab" font-size="13" font-family="Syne,sans-serif">KILL</text>
+
+        <text x="520" y="45" fill="#8b9aab" font-size="12">углубить плейбук / трафик</text>
+        <text x="520" y="85" fill="#8b9aab" font-size="12">править стек / copy / цену</text>
+        <text x="520" y="125" fill="#8b9aab" font-size="12">следующая ниша из портфеля</text>
+      </svg>
+    </div>
+  </div>
+</body>
+</html>
