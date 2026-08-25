@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tool Map — Variant C: Portfolio</title>
+  <style>
+    :root {
+      --bg: #f4f6f8;
+      --surface: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --accent: #6366f1;
+      --accent-hover: #4f46e5;
+      --border: #e5e7eb;
+      --chip-bg: #eef2ff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; }
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background: var(--surface); box-shadow: 0 1px 3px #0000000a; }
+    .logo { font-weight: 700; color: var(--accent); }
+    .hero { max-width: 960px; margin: 0 auto; padding: 3rem 2rem; }
+    h1 { font-size: clamp(1.5rem, 3.5vw, 2rem); font-weight: 700; text-align: center; margin-bottom: 0.5rem; }
+    .sub { text-align: center; color: var(--muted); margin-bottom: 2.5rem; max-width: 40ch; margin-left: auto; margin-right: auto; }
+    .niche-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+    .niche-card { background: var(--surface); border: 2px solid var(--border); border-radius: 12px; padding: 1.25rem; cursor: pointer; transition: border-color 0.15s, box-shadow 0.15s; }
+    .niche-card:hover, .niche-card.selected { border-color: var(--accent); box-shadow: 0 4px 12px #6366f122; }
+    .niche-card.selected { background: var(--chip-bg); }
+    .niche-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .niche-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.25rem; }
+    .niche-meta { font-size: 0.75rem; color: var(--muted); }
+    .niche-badge { display: inline-block; font-size: 0.65rem; background: var(--chip-bg); color: var(--accent); padding: 0.15rem 0.4rem; border-radius: 4px; margin-top: 0.5rem; }
+    .cta-block { text-align: center; background: var(--surface); border-radius: 12px; padding: 2rem; border: 1px solid var(--border); }
+    .cta-block p { color: var(--muted); font-size: 0.9rem; margin-bottom: 1rem; }
+    .btn-primary { background: var(--accent); color: #fff; border: none; padding: 0.875rem 2rem; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; }
+    .btn-primary:hover { background: var(--accent-hover); }
+    .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+    .tiers { display: flex; justify-content: center; gap: 2rem; margin-top: 1.5rem; font-size: 0.8rem; color: var(--muted); flex-wrap: wrap; }
+    .tiers span { display: flex; align-items: center; gap: 0.35rem; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; }
+    .dot.free { background: #34d399; }
+    .dot.paid { background: var(--accent); }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="logo">Tool Map</div>
+    <span style="font-size: 0.875rem; color: var(--muted);">портфель ниш</span>
+  </nav>
+
+  <main class="hero">
+    <h1>Выберите свою нишу — получите карту стека</h1>
+    <p class="sub">Каждая карта собрана под типичный путь фаундера в этой нише. Playbook — когда нужна последовательность, не список.</p>
+
+    <div class="niche-grid" role="listbox" aria-label="Выбор ниши">
+      <div class="niche-card selected" tabindex="0" role="option" aria-selected="true">
+        <div class="niche-icon">🚀</div>
+        <div class="niche-title">B2B SaaS</div>
+        <div class="niche-meta">seed → Series A</div>
+        <span class="niche-badge">Free map</span>
+      </div>
+      <div class="niche-card" tabindex="0" role="option">
+        <div class="niche-icon">🎨</div>
+        <div class="niche-title">Creator / Info</div>
+        <div class="niche-meta">solo → команда 3</div>
+        <span class="niche-badge">Free map</span>
+      </div>
+      <div class="niche-card" tabindex="0" role="option">
+        <div class="niche-icon">🛒</div>
+        <div class="niche-title">E-commerce D2C</div>
+        <div class="niche-meta">Shopify-first</div>
+        <span class="niche-badge">Free map</span>
+      </div>
+      <div class="niche-card" tabindex="0" role="option">
+        <div class="niche-icon">🏢</div>
+        <div class="niche-title">Agency / Services</div>
+        <div class="niche-meta">5–20 клиентов</div>
+        <span class="niche-badge">Free map</span>
+      </div>
+      <div class="niche-card" tabindex="0" role="option" style="opacity: 0.6;">
+        <div class="niche-icon">➕</div>
+        <div class="niche-title">Предложить нишу</div>
+        <div class="niche-meta">Mom Test сигнал</div>
+      </div>
+    </div>
+
+    <div class="cta-block">
+      <p>Выбрано: <strong>B2B SaaS</strong> · 24 инструмента · 6 зон</p>
+      <button class="btn-primary">Открыть карту B2B SaaS</button>
+      <div class="tiers">
+        <span><span class="dot free"></span> Free — карта + PDF</span>
+        <span><span class="dot paid"></span> Playbook — порядок, критерии, шаблоны</span>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

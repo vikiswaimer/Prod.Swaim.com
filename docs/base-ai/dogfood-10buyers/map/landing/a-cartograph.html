@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tool Map — A · Cartograph</title>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --surface: #1a2332;
+      --text: #e8edf4;
+      --muted: #8b9cb3;
+      --accent: #3d8bfd;
+      --accent-dim: #2563eb33;
+      --success: #34d399;
+      --border: #2a3544;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; }
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; border-bottom: 1px solid var(--border); }
+    .logo { font-weight: 700; font-size: 1.1rem; letter-spacing: -0.02em; }
+    .nav-link { color: var(--muted); font-size: 0.875rem; text-decoration: none; }
+    .hero { display: grid; grid-template-columns: 1fr 1.2fr; gap: 2rem; max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; align-items: center; min-height: calc(100vh - 60px); }
+    .eyebrow { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 0.75rem; }
+    h1 { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 1rem; }
+    .sub { color: var(--muted); font-size: 1.05rem; max-width: 28ch; margin-bottom: 1.5rem; }
+    .cta-row { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; }
+    .btn-primary { background: var(--accent); color: #fff; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; }
+    .btn-ghost { background: transparent; color: var(--muted); border: 1px solid var(--border); padding: 0.75rem 1.25rem; border-radius: 8px; font-size: 0.9rem; cursor: pointer; }
+    .trust { font-size: 0.8rem; color: var(--muted); margin-top: 1rem; }
+    .map-frame { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; position: relative; }
+    .map-label { position: absolute; top: -0.6rem; left: 1rem; background: var(--bg); padding: 0 0.5rem; font-size: 0.7rem; color: var(--success); text-transform: uppercase; letter-spacing: 0.06em; }
+    .map-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+    .node { background: var(--accent-dim); border: 1px solid var(--border); border-radius: 8px; padding: 0.75rem; font-size: 0.8rem; text-align: center; }
+    .node.core { border-color: var(--accent); background: #3d8bfd22; }
+    .node span { display: block; font-size: 0.65rem; color: var(--muted); margin-top: 0.25rem; }
+    .arrow-row { display: flex; justify-content: center; gap: 2rem; margin: 0.5rem 0; color: var(--muted); font-size: 0.75rem; }
+    .badge-free { display: inline-block; background: #34d39922; color: var(--success); font-size: 0.7rem; padding: 0.2rem 0.5rem; border-radius: 4px; margin-left: 0.5rem; vertical-align: middle; }
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; }
+      .map-frame { order: -1; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="logo">Tool Map</div>
+    <a class="nav-link" href="#playbook">Playbook →</a>
+  </nav>
+
+  <main class="hero">
+    <div class="copy">
+      <p class="eyebrow">Для фаундеров · SaaS-ниша</p>
+      <h1>Стек инструментов — на одной карте<span class="badge-free">Free</span></h1>
+      <p class="sub">Не список из 50 табов. Карта: что за чем, где дыры, что можно выкинуть.</p>
+      <div class="cta-row">
+        <button class="btn-primary">Открыть карту</button>
+        <button class="btn-ghost">Как устроен playbook</button>
+      </div>
+      <p class="trust">Без регистрации · PDF экспорт · обновляется раз в квартал</p>
+    </div>
+
+    <div class="map-frame" aria-label="Превью карты инструментов">
+      <span class="map-label">Live preview</span>
+      <div class="map-grid">
+        <div class="node core">Discovery<span>Notion / FigJam</span></div>
+        <div class="node">Build<span>Cursor / Vercel</span></div>
+        <div class="node">Measure<span>PostHog</span></div>
+        <div class="node">Sell<span>Stripe</span></div>
+        <div class="node core">Support<span>Intercom</span></div>
+        <div class="node">Ops<span>Linear</span></div>
+      </div>
+      <div class="arrow-row">← связи и пробелы видны на полной карте →</div>
+    </div>
+  </main>
+</body>
+</html>
