@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Плейбук ниши — Tool Map</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="badge">Paid layer · stub</div>
+      <h1 id="title">Плейбук ниши</h1>
+      <p id="lead">
+        Подробный сценарий для фаундеров: порядок внедрения, альтернативы, «что не брать».
+        Оплата ещё не подключена — клик фиксируем в PostHog.
+      </p>
+    </header>
+
+    <section class="panel">
+      <h2>Что будет в платном срезе</h2>
+      <p id="body">
+        1) Пошаговый стек под нишу · 2) 5–8 связок с «как настроить» · 3) антипаттерны ·
+        4) чеклист запуска за неделю. Цена теста: <strong>$60</strong> (меняем, если рынок скажет дорого/дёшево).
+      </p>
+      <p class="hint" id="niche-line">niche: …</p>
+    </section>
+
+    <div class="cta-row">
+      <button type="button" class="cta" id="pay-interest">Хочу купить (интерес)</button>
+      <a class="cta-note" href="index.html">← назад к map</a>
+    </div>
+  </div>
+
+  <script src="config.local.js"></script>
+  <script src="niches.js"></script>
+  <script>
+    (function () {
+      const params = new URLSearchParams(location.search);
+      const slug =
+        params.get("niche") ||
+        (window.TOOLMAP_NICHES && window.TOOLMAP_NICHES.activeSlug) ||
+        "solo-digital-services";
+      const niche =
+        (window.TOOLMAP_NICHES &&
+          window.TOOLMAP_NICHES.items.find((n) => n.slug === slug)) ||
+        null;
+
+      document.getElementById("niche-line").textContent = "niche: " + slug + (niche ? " · " + niche.status : "");
+      if (niche) {
+        document.getElementById("title").textContent = "Плейбук: " + niche.label;
+        document.getElementById("lead").textContent =
+          (niche.audience || "") + " Портрет: фаундеры и предприниматели.";
+      }
+
+      function capture(event, props) {
+        if (window.posthog && typeof window.posthog.capture === "function") {
+          window.posthog.capture(event, { niche: slug, portrait: "founders-entrepreneurs", ...props });
+        } else {
+          console.debug("[posthog stub]", event, props);
+        }
+      }
+
+      const cfg = window.TOOLMAP_CONFIG || {};
+      if (cfg.posthogKey && !cfg.posthogKey.includes("YOUR_KEY")) {
+        !(function (t, e) {
+          var o, n, p, r;
+          e.__SV ||
+            ((window.posthog = e),
+            (e._i = []),
+            (e.init = function (i, s, a) {
+              function g(t, e) {
+                var o = e.split(".");
+                2 == o.length && ((t = t[o[0]]), (e = o[1]));
+                t[e] = function () {
+                  t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
+                };
+              }
+              ((p = t.createElement("script")).type = "text/javascript"),
+                (p.crossOrigin = "anonymous"),
+                (p.async = !0),
+                (p.src = s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") + "/static/array.js"),
+                (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r);
+              var u = e;
+              void 0 !== a ? (u = e[a] = []) : (a = "posthog");
+              u.people = u.people || [];
+              o = "init capture".split(" ");
+              for (n = 0; n < o.length; n++) g(u, o[n]);
+              e._i.push([i, s, a]);
+            }),
+            (e.__SV = 1));
+        })(document, window.posthog || []);
+        window.posthog.init(cfg.posthogKey, {
+          api_host: cfg.posthogHost || "https://eu.i.posthog.com",
+          person_profiles: "identified_only",
+        });
+      }
+
+      capture("playbook_viewed", { surface: "playbook_stub" });
+      document.getElementById("pay-interest").addEventListener("click", function () {
+        capture("paid_cta_clicked", { surface: "playbook_stub", intent: "buy_interest" });
+        document.getElementById("body").textContent =
+          "Интерес записан. Когда подключим оплату — пришлём плейбук. Сейчас сигнал для PO: спрос на paid.";
+      });
+    })();
+  </script>
+</body>
+</html>

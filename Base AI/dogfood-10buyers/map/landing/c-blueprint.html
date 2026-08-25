@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tool Map — blueprint для фаундера</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="c-blueprint.css" />
+</head>
+<body class="variant-c">
+  <div class="grid-bg" aria-hidden="true"></div>
+
+  <header class="top">
+    <a class="brand" href="index.html">TOOL&nbsp;MAP</a>
+    <span class="chip">REV 0.2 · LANDING C</span>
+  </header>
+
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="brand-mark">TOOL MAP</p>
+      <h1>Чертёж стека: узлы, рёбра, платёжный слой</h1>
+      <p class="sub">
+        Спека для фаундеров: free map одной ниши → paid playbook.
+        Ниши в портфеле — гипотезы; keep / kill по тестам.
+      </p>
+      <div class="cta-group">
+        <a class="btn primary" href="../index.html" data-cta="open_map">LOAD MAP</a>
+        <a class="btn ghost" href="../playbook.html" data-cta="playbook">PLAYBOOK · $60</a>
+      </div>
+    </div>
+    <aside class="spec" aria-label="Спека">
+      <pre>PORTRAIT  founders / entrepreneurs
+NICHE     solo-digital-services [testing]
+NODES     8
+EDGES     8
+SIGNAL    map_viewed → paid_cta
+PRICE     $60 (test · adjustable)</pre>
+    </aside>
+  </section>
+
+  <section class="diagram-block">
+    <h2>// flow</h2>
+    <svg viewBox="0 0 720 120" class="flow" role="img" aria-label="Поток free to paid">
+      <rect x="10" y="35" width="140" height="50" fill="none" stroke="#5ec8ff" stroke-width="1.5"/>
+      <text x="80" y="65" text-anchor="middle" fill="#9ad7ff" font-size="13" font-family="IBM Plex Mono,monospace">FREE MAP</text>
+      <line x1="150" y1="60" x2="210" y2="60" stroke="#3a6a88" stroke-width="1.5" marker-end="url(#arr)"/>
+      <rect x="210" y="35" width="160" height="50" fill="none" stroke="#5ec8ff" stroke-width="1.5"/>
+      <text x="290" y="65" text-anchor="middle" fill="#9ad7ff" font-size="13" font-family="IBM Plex Mono,monospace">EDGE CLICK</text>
+      <line x1="370" y1="60" x2="430" y2="60" stroke="#3a6a88" stroke-width="1.5"/>
+      <rect x="430" y="35" width="140" height="50" fill="none" stroke="#5ec8ff" stroke-width="1.5"/>
+      <text x="500" y="65" text-anchor="middle" fill="#9ad7ff" font-size="13" font-family="IBM Plex Mono,monospace">CTA</text>
+      <line x1="570" y1="60" x2="630" y2="60" stroke="#3a6a88" stroke-width="1.5"/>
+      <rect x="630" y="35" width="80" height="50" fill="#0d3a52" stroke="#7ad4ff" stroke-width="1.5"/>
+      <text x="670" y="65" text-anchor="middle" fill="#e8f6ff" font-size="12" font-family="IBM Plex Mono,monospace">PAID</text>
+    </svg>
+  </section>
+
+  <footer class="foot">
+    <span>Variant C · Blueprint</span>
+    <a href="index.html">INDEX</a>
+  </footer>
+
+  <script src="../config.local.js"></script>
+  <script src="landing-track.js"></script>
+</body>
+</html>
