@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tool Map — B · Foundry</title>
+  <style>
+    :root {
+      --bg: #faf9f7;
+      --surface: #ffffff;
+      --text: #1a1a1a;
+      --muted: #5c5c5c;
+      --accent: #c45d3e;
+      --accent-light: #c45d3e14;
+      --border: #e8e4df;
+      --success: #2d6a4f;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    .sans { font-family: system-ui, -apple-system, sans-serif; }
+    .nav { display: flex; justify-content: space-between; padding: 1.25rem 2rem; background: var(--surface); border-bottom: 1px solid var(--border); }
+    .logo { font-family: system-ui; font-weight: 600; }
+    .hero { max-width: 680px; margin: 0 auto; padding: 4rem 2rem 2rem; text-align: center; }
+    .pain { font-size: clamp(1.5rem, 4vw, 2.25rem); font-weight: 400; line-height: 1.25; margin-bottom: 1.5rem; }
+    .pain em { font-style: italic; color: var(--accent); }
+    .lead { font-size: 1.1rem; color: var(--muted); max-width: 42ch; margin: 0 auto 2rem; }
+    .cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
+    .btn-primary { background: var(--accent); color: #fff; border: none; padding: 0.875rem 2rem; border-radius: 4px; font-size: 1rem; font-weight: 600; cursor: pointer; font-family: system-ui; }
+    .btn-text { background: none; border: none; color: var(--muted); font-size: 0.9rem; cursor: pointer; text-decoration: underline; font-family: system-ui; }
+    .proof { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 2rem; text-align: left; margin-bottom: 2rem; }
+    .proof-label { font-family: system-ui; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--success); margin-bottom: 1rem; }
+    .stack-list { list-style: none; font-family: system-ui; font-size: 0.95rem; }
+    .stack-list li { padding: 0.5rem 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; }
+    .stack-list li:last-child { border: none; }
+    .tag { font-size: 0.75rem; color: var(--muted); background: var(--accent-light); padding: 0.15rem 0.5rem; border-radius: 3px; }
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-family: system-ui; font-size: 0.85rem; margin-top: 2rem; }
+    .compare div { padding: 1rem; border-radius: 6px; }
+    .compare .free { background: #2d6a4f11; border: 1px solid #2d6a4f33; }
+    .compare .paid { background: var(--accent-light); border: 1px solid #c45d3e33; }
+    .compare h3 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.5rem; }
+    @media (max-width: 600px) { .compare { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <nav class="nav sans">
+    <div class="logo">Tool Map</div>
+    <span style="color: var(--muted); font-size: 0.875rem;">для фаундеров</span>
+  </nav>
+
+  <main class="hero">
+    <h1 class="pain">Вы уже платите за <em>12 инструментов</em>.<br>Никто не показал, как они связаны.</h1>
+    <p class="lead sans">Tool Map — не ещё один «топ-50 SaaS». Карта вашего стека: что за что отвечает и где дыра.</p>
+
+    <div class="cta-row sans">
+      <button class="btn-primary">Получить карту бесплатно</button>
+      <button class="btn-text">Посмотреть пример (SaaS)</button>
+    </div>
+
+    <div class="proof">
+      <p class="proof-label">Пример: SaaS-фаундер, seed</p>
+      <ul class="stack-list">
+        <li><span>Discovery &amp; PRD</span><span class="tag">Notion</span></li>
+        <li><span>Код &amp; деплой</span><span class="tag">Cursor → Vercel</span></li>
+        <li><span>Аналитика</span><span class="tag">PostHog</span></li>
+        <li><span style="color: var(--accent);">← пробел: onboarding email</span><span class="tag">?</span></li>
+      </ul>
+    </div>
+
+    <div class="compare">
+      <div class="free">
+        <h3>Free · Карта</h3>
+        <p>Инструменты, связи, пробелы. Экспорт PDF.</p>
+      </div>
+      <div class="paid">
+        <h3>Paid · Playbook</h3>
+        <p>Последовательность внедрения, критерии «пора менять», шаблоны.</p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

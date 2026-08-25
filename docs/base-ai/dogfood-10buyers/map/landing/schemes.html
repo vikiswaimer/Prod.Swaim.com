@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tool Map — Schemes (SWA-38)</title>
+  <style>
+    :root { --bg: #fafafa; --surface: #fff; --text: #111; --muted: #666; --border: #ddd; --keep: #059669; --iter: #d97706; --kill: #dc2626; --accent: #2563eb; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.55; padding: 2rem; max-width: 900px; margin: 0 auto; }
+    h1 { font-size: 1.35rem; margin-bottom: 0.25rem; }
+    .meta { color: var(--muted); font-size: 0.85rem; margin-bottom: 2rem; }
+    h2 { font-size: 1rem; margin: 2rem 0 1rem; padding-bottom: 0.35rem; border-bottom: 1px solid var(--border); }
+    pre { background: var(--surface); border: 1px solid var(--border); padding: 1rem; overflow-x: auto; font-size: 0.75rem; line-height: 1.4; margin: 0.75rem 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.75rem 0; }
+    th, td { border: 1px solid var(--border); padding: 0.6rem 0.75rem; text-align: left; vertical-align: top; }
+    th { background: #f3f4f6; font-weight: 600; }
+    .keep { color: var(--keep); font-weight: 700; }
+    .iter { color: var(--iter); font-weight: 700; }
+    .kill { color: var(--kill); font-weight: 700; }
+    .verdict-box { background: #eff6ff; border: 1px solid #bfdbfe; padding: 1rem 1.25rem; margin-top: 2rem; border-radius: 6px; }
+    a { color: var(--accent); }
+    nav { margin-bottom: 1.5rem; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <nav><a href="index.html">← Hub</a></nav>
+  <h1>Tool Map · Schemes</h1>
+  <p class="meta">SWA-38 · схемы для board · keep / iterate / kill</p>
+
+  <h2>1. Free map → Paid playbook</h2>
+  <pre>
+Landing (A Cartograph)
+    │
+    ├─ niche chips (не hardcode SaaS)
+    │
+    ▼
+Free Tool Map  ──── PDF export, full map, no paywall
+    │
+    │  signals: return 2×/week · export · gap click
+    ▼
+Paid Playbook  ──── sequence · criteria · templates
+                     (upsell after intent, not on entry)
+  </pre>
+
+  <h2>2. Портрет vs портфель ниш</h2>
+  <pre>
+                    ┌─────────────────────────────┐
+  ПОРТРЕТ (SWA-35) │ фаундер / предприниматель   │
+  один человек      │ «мой стек разъехался»       │
+                    └──────────────┬──────────────┘
+                                   │
+                    ┌──────────────▼──────────────┐
+  ПОРТФЕЛЬ НИШ     │ [SaaS] [Creator] [D2C] [Agency]│
+  entry on landing │  каждая → /map/{slug}         │
+                    └─────────────────────────────┘
+
+Правило UX: landing говорит с портретом (боль),
+            первый клик — выбор ниши (portfolio).
+  </pre>
+
+  <h2>3. Keep / Iterate / Kill</h2>
+  <table>
+    <thead>
+      <tr><th>Вариант</th><th>Вердикт</th><th>Обоснование</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>A · Cartograph</strong></td>
+        <td class="keep">KEEP → public URL</td>
+        <td>Карта = hero за 2 с; согласен с eng default. Нужны 3 правки ниже.</td>
+      </tr>
+      <tr>
+        <td><strong>B · Foundry</strong></td>
+        <td class="iter">ITERATE → borrow</td>
+        <td>Compare Free/Paid + Mom Test H1 — перенести в A, не отдельный URL.</td>
+      </tr>
+      <tr>
+        <td><strong>C · Blueprint</strong></td>
+        <td class="kill">KILL v1 public</td>
+        <td>Чертёж = доверие craft, но нет niche router; mono B2B SaaS. Archive для v2 brand play.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>4. Три правки до live (A Cartograph)</h2>
+  <ol style="margin-left: 1.25rem; font-size: 0.9rem;">
+    <li><strong>Niche chips</strong> под eyebrow — 3–4 ниши + default; не «SaaS only».</li>
+    <li><strong>Compare strip</strong> Free map / Paid playbook — из Foundry, above fold desktop.</li>
+    <li><strong>One CTA:</strong> «Посмотреть карту — бесплатно»; playbook → footer/text link.</li>
+  </ol>
+
+  <div class="verdict-box">
+    <strong>UX-вердикт:</strong> публичный URL = <strong>A Cartograph</strong> (не C Blueprint, не B alone).<br>
+    Handoff: <strong>FoundingEngineer</strong> — 3 правки + скрин rendered UI.<br>
+    Copy: <strong>GrowthMarketer</strong> — Mom Test H1 из Foundry как A/B на Cartograph shell.
+  </div>
+</body>
+</html>

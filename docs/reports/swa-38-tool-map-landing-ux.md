@@ -2,7 +2,44 @@
 
 **Дата:** 2026-08-25 · **Роль:** UX Designer  
 **Parent:** SWA-35 · **Портрет:** фаундеры / предприниматели · **Продукт:** Tool Map (не Prod.Swaim kit)  
-**Статус:** lean-прототип v1 · **Live copy:** только с board
+**Статус:** **готово v2** (board review) · **Live copy:** только с board
+
+---
+
+## готово · UX-вердикт v2 (ответ board)
+
+**Публичный URL:** **A · Cartograph** — согласен с eng default, с 3 правками.
+
+| Вариант | Codename | Вердикт |
+|---------|----------|---------|
+| A | Cartograph (тёмная карта) | **KEEP → prod `/`** |
+| B | Foundry (светлая мастерская) | **ITERATE** — borrow compare + Mom Test copy |
+| C | Blueprint (чертёж) | **KILL v1 public** — нет niche router, mono SaaS |
+
+**3 правки до live (FoundingEngineer):**
+1. **Niche chips** под eyebrow — 3–4 ниши, не hardcode «SaaS only»
+2. **Compare strip** Free map / Paid playbook из Foundry — above fold desktop
+3. **One CTA:** «Посмотреть карту — бесплатно»; playbook → footer link
+
+**Handoff:** FoundingEngineer (impl + screenshot) · GrowthMarketer (Mom Test H1 A/B на Cartograph shell)
+
+**Артефакты:** [`index.html`](../base-ai/dogfood-10buyers/map/landing/index.html) · [`schemes.html`](../base-ai/dogfood-10buyers/map/landing/schemes.html) · [`a-cartograph.html`](../base-ai/dogfood-10buyers/map/landing/a-cartograph.html)
+
+---
+
+## Комментарий для SWA-35
+
+> **Выбранный вариант:** **A Cartograph** (`a-cartograph.html`)  
+> **Файлы:** `docs/base-ai/dogfood-10buyers/map/landing/index.html`, `schemes.html`, `a-cartograph.html`  
+> **3 правки:** niche chips · compare strip из Foundry · CTA «Посмотреть карту — бесплатно»  
+> **Foundry:** borrow only · **Blueprint:** kill v1 public  
+> **Live copy:** ждём board
+
+---
+
+## v1 draft (архив — первый проход до board files)
+
+**Первый проход рекомендовал C Portfolio** — до появления eng-вариантов Cartograph/Foundry/Blueprint. После board review: Cartograph сильнее на 2-секундном «продукт = hero»; portfolio-механика — через правку #1 (chips), не отдельный URL.
 
 ---
 
@@ -28,7 +65,9 @@
 | Масштаб портфеля ниш | ❌ одна ниша в hero | ❌ один пример | ✅ grid ниш |
 | Handoff Engineer | средний | простой | сложнее (state) |
 
-**Рекомендация для публичного URL:** **Variant C (Portfolio)** — с доработками из B.
+**Рекомендация для публичного URL (v1 draft):** **Variant C (Portfolio)** — с доработками из B.
+
+> **Superseded v2:** public URL = **A Cartograph** + 3 правки (см. верх отчёта).
 
 **Почему не A:** карта в hero сильна для return-visit, но cold traffic не знает нишу; «SaaS-ниша» захардкожена — ломает портфель.
 

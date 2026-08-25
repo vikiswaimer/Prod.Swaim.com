@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tool Map — Landing Hub (dogfood SWA-38)</title>
+  <style>
+    :root { --bg: #0c0e12; --surface: #161b22; --text: #e6edf3; --muted: #8b949e; --accent: #58a6ff; --border: #30363d; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; padding: 2rem; max-width: 720px; margin: 0 auto; }
+    h1 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .meta { color: var(--muted); font-size: 0.875rem; margin-bottom: 2rem; }
+    .question { background: var(--surface); border-left: 3px solid var(--accent); padding: 1rem 1.25rem; margin-bottom: 2rem; font-size: 0.95rem; }
+    ul { list-style: none; }
+    li { margin-bottom: 0.75rem; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .tag { display: inline-block; font-size: 0.7rem; padding: 0.15rem 0.5rem; border-radius: 4px; margin-left: 0.5rem; vertical-align: middle; }
+    .tag-a { background: #3d8bfd33; color: #58a6ff; }
+    .tag-b { background: #c45d3e33; color: #f0883e; }
+    .tag-c { background: #6366f133; color: #a5b4fc; }
+    .tag-schemes { background: #34d39933; color: #34d399; }
+    .verdict { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.875rem; color: var(--muted); }
+    .verdict strong { color: var(--text); }
+  </style>
+</head>
+<body>
+  <h1>Tool Map · Landing Hub</h1>
+  <p class="meta">SWA-38 · dogfood · не Prod.Swaim kit</p>
+
+  <div class="question">
+    <strong>Вопрос прототипа:</strong> за ≤2 с фаундер понимает free map под нишу, следующий шаг и отличие paid playbook.
+  </div>
+
+  <ul>
+    <li><a href="a-cartograph.html">A · Cartograph</a><span class="tag tag-a">тёмная карта · eng default</span></li>
+    <li><a href="b-foundry.html">B · Foundry</a><span class="tag tag-b">светлая мастерская</span></li>
+    <li><a href="c-blueprint.html">C · Blueprint</a><span class="tag tag-c">чертёж</span></li>
+    <li><a href="schemes.html">schemes.html</a><span class="tag tag-schemes">Free→Paid · портрет vs ниши</span></li>
+  </ul>
+
+  <p class="verdict">
+    <strong>UX-вердикт (v2):</strong> публичный URL → <strong>A Cartograph</strong> + 3 правки (ниши · compare · CTA).
+    Отчёт: <a href="../../../reports/swa-38-tool-map-landing-ux.md">swa-38-tool-map-landing-ux.md</a>
+  </p>
+</body>
+</html>
