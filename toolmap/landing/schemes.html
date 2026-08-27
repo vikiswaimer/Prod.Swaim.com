@@ -49,13 +49,59 @@
     svg { display: block; width: 100%; height: auto; max-width: 800px; }
     .note { font-size: 0.9rem; color: var(--muted); margin-top: 0.6rem; line-height: 1.45; }
     a.back { color: var(--a); text-decoration: none; font-size: 0.9rem; }
+    .tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--a);
+      border: 1px solid var(--a);
+      border-radius: 999px;
+      padding: 0.12rem 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .spec {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+      background: #121820;
+      margin-top: 0.75rem;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+    .spec h3 {
+      font-family: var(--font-d);
+      font-size: 0.95rem;
+      margin: 0 0 0.5rem;
+      color: var(--a);
+    }
+    .spec ul, .spec ol { margin: 0.35rem 0 0; padding-left: 1.2rem; }
+    .spec li { margin: 0.25rem 0; color: var(--muted); }
+    .spec li strong { color: var(--text); }
+    table.ac {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin-top: 0.75rem;
+    }
+    table.ac th, table.ac td {
+      border: 1px solid var(--line);
+      padding: 0.45rem 0.6rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    table.ac th { background: #1a2430; color: var(--a); font-family: var(--font-d); font-weight: 600; }
+    table.ac td { color: var(--muted); }
+    .warn { color: #e8a838; }
+    .ok { color: var(--a); }
   </style>
 </head>
 <body>
   <div class="wrap">
     <p><a class="back" href="index.html">← варианты посадочной</a></p>
     <h1>Схемы продукта</h1>
-    <p class="lead">Для UX (SWA-38) и PO: путь оплаты, портрет vs ниши, портфель keep/kill.</p>
+    <p class="lead">Для UX (SWA-38 / SWA-42) и Engineer: путь оплаты, портрет vs ниши, портфель keep/kill, спека landing A Cartograph.</p>
 
     <h2>1. Free map → Paid playbook</h2>
     <div class="frame">
@@ -142,6 +188,166 @@
         <text x="520" y="125" fill="#8b9aab" font-size="12">следующая ниша из портфеля</text>
       </svg>
     </div>
+
+    <h2>4. Landing A · Cartograph — wireframe (публичный URL)</h2>
+    <p class="note"><span class="tag">SWA-42</span> Один вариант для продакшена. Не A/B/C-хаб на корне. Файл: <code>a-cartograph.html</code>.</p>
+    <div class="frame">
+      <svg viewBox="0 0 820 680" role="img" aria-label="Wireframe landing A Cartograph">
+        <!-- Top bar -->
+        <rect x="0" y="0" width="820" height="48" fill="#10141a"/>
+        <text x="24" y="30" fill="#e7ecf1" font-family="Syne,sans-serif" font-size="14" font-weight="700">Tool Map</text>
+        <text x="720" y="30" text-anchor="end" fill="#8b9aab" font-size="12">Открыть карту →</text>
+        <line x1="0" y1="48" x2="820" y2="48" stroke="#2a3542"/>
+
+        <!-- Hero grid -->
+        <rect x="0" y="48" width="820" height="340" fill="#10141a"/>
+        <!-- Left copy -->
+        <text x="28" y="100" fill="#3ecfbf" font-family="Syne,sans-serif" font-size="28" font-weight="800">Tool Map</text>
+        <text x="28" y="138" fill="#e7ecf1" font-family="Syne,sans-serif" font-size="15" font-weight="700">Стек виден целиком —</text>
+        <text x="28" y="158" fill="#e7ecf1" font-family="Syne,sans-serif" font-size="15" font-weight="700">не списком из пятидесяти сервисов</text>
+        <text x="28" y="188" fill="#8b9aab" font-size="11">Для фаундеров: карта под нишу solo digital-услуги</text>
+        <text x="28" y="206" fill="#8b9aab" font-size="11">и как инструменты стыкуются. Плейбук — за плату.</text>
+        <!-- CTAs -->
+        <rect x="28" y="228" width="168" height="36" rx="8" fill="#3ecfbf"/>
+        <text x="112" y="251" text-anchor="middle" fill="#062a28" font-size="12" font-weight="700">Смотреть map бесплатно</text>
+        <rect x="208" y="228" width="118" height="36" rx="8" fill="none" stroke="#2a3542"/>
+        <text x="267" y="251" text-anchor="middle" fill="#e7ecf1" font-size="12">Плейбук · $60</text>
+        <text x="28" y="282" fill="#3ecfbf" font-size="10" font-weight="600">PRIMARY</text>
+        <text x="208" y="282" fill="#8b9aab" font-size="10">secondary</text>
+
+        <!-- Right: LIVE preview (not wireframe) -->
+        <rect x="380" y="68" width="420" height="300" rx="12" fill="#0c1016" stroke="#3ecfbf" stroke-width="2" stroke-dasharray="6 4"/>
+        <text x="590" y="98" text-anchor="middle" fill="#3ecfbf" font-family="Syne,sans-serif" font-size="13" font-weight="700">LIVE PREVIEW MAP</text>
+        <text x="590" y="118" text-anchor="middle" fill="#8b9aab" font-size="11">niches.js · solo-digital-services</text>
+        <!-- mini map nodes (real labels, illustrative positions) -->
+        <g stroke="#2a3a48" stroke-width="1.2" fill="none">
+          <line x1="430" y1="170" x2="520" y2="150"/>
+          <line x1="520" y1="150" x2="640" y2="170"/>
+          <line x1="640" y1="170" x2="680" y2="240"/>
+          <line x1="430" y1="170" x2="450" y2="260"/>
+          <line x1="450" y1="260" x2="560" y2="250"/>
+          <line x1="560" y1="250" x2="680" y2="240"/>
+        </g>
+        <line x1="520" y1="150" x2="640" y2="170" stroke="#3ecfbf" stroke-width="2.5"/>
+        <g fill="#1a2430" stroke="#3ecfbf" stroke-width="1.2">
+          <rect x="400" y="152" width="72" height="24" rx="6"/>
+          <rect x="484" y="132" width="72" height="24" rx="6"/>
+          <rect x="604" y="152" width="72" height="24" rx="6"/>
+          <rect x="414" y="248" width="72" height="24" rx="6"/>
+          <rect x="524" y="238" width="72" height="24" rx="6"/>
+          <rect x="644" y="228" width="72" height="24" rx="6"/>
+        </g>
+        <text x="590" y="310" text-anchor="middle" fill="#8b9aab" font-size="10">клик → ../index.html · без detail-panel</text>
+
+        <!-- Trust strip -->
+        <rect x="0" y="388" width="820" height="52" fill="#141a22"/>
+        <line x1="0" y1="388" x2="820" y2="388" stroke="#2a3542"/>
+        <line x1="0" y1="440" x2="820" y2="440" stroke="#2a3542"/>
+        <text x="410" y="420" text-anchor="middle" fill="#e7ecf1" font-size="13" font-weight="600">8 инструментов · 8 связок · ниша solo digital-услуги</text>
+
+        <!-- Block: value -->
+        <rect x="0" y="440" width="820" height="120" fill="#10141a"/>
+        <text x="28" y="478" fill="#e7ecf1" font-family="Syne,sans-serif" font-size="16" font-weight="700">Не каталог. Карта связок.</text>
+        <text x="28" y="504" fill="#8b9aab" font-size="11">Ниша в тесте → узлы и линии «как использовать вместе» →</text>
+        <text x="28" y="520" fill="#8b9aab" font-size="11">плейбук: порядок, альтернативы, что не брать.</text>
+
+        <!-- Block: path -->
+        <rect x="0" y="560" width="820" height="88" fill="#10141a"/>
+        <line x1="0" y1="560" x2="820" y2="560" stroke="#2a3542"/>
+        <text x="28" y="596" fill="#e7ecf1" font-family="Syne,sans-serif" font-size="14" font-weight="700">Путь</text>
+        <text x="28" y="624" fill="#3ecfbf" font-size="12" font-weight="600">01 Free map → 02 Клик по связке → 03 Плейбук</text>
+
+        <!-- Footer -->
+        <rect x="0" y="648" width="820" height="32" fill="#10141a"/>
+        <line x1="0" y1="648" x2="820" y2="648" stroke="#2a3542"/>
+        <text x="28" y="668" fill="#8b9aab" font-size="10">Вариант A · Cartograph</text>
+      </svg>
+    </div>
+    <p class="note">Иерархия за 2 с: слева обещание + primary CTA; справа — живая map, не декоративный SVG.</p>
+
+    <h2>5. Hero · live preview map (Engineer)</h2>
+    <div class="spec">
+      <h3>Заменить статический hero-svg</h3>
+      <ul>
+        <li><strong>Данные:</strong> <code>../niches.js</code>, slug <code>solo-digital-services</code> (8 nodes, 8 edges). Не generic wireframe.</li>
+        <li><strong>Рендер:</strong> переиспользовать логику <code>app.js → render()</code> в контейнер <code>#hero-map-preview</code> (вынести shared module или дублировать минимально).</li>
+        <li><strong>Read-only:</strong> без detail-panel; hover на узле/ребре — только highlight. Любой клик → <code>../index.html?utm_source=landing&amp;utm_medium=hero_preview</code>.</li>
+        <li><strong>On load:</strong> подсветить ребро <code>e2</code> (Telegram → Tilda) как пример связки.</li>
+        <li><strong>Стили:</strong> accent <code>#3ecfbf</code> (Cartograph), фон <code>#0c1016</code>. Node/edge размеры как на map, viewBox масштабируется в <code>.hero-visual</code>.</li>
+        <li><strong>a11y:</strong> <code>role="img"</code> + <code>aria-label="Превью карты solo digital-услуги"</code>.</li>
+        <li><strong>Analytics:</strong> опционально <code>landing_hero_map_clicked</code> (variant=a, cta=hero_preview).</li>
+        <li><strong>Fallback:</strong> если <code>niches.js</code> не загрузился — текст «Карта загружается…» + primary CTA остаётся. Не пустой блок.</li>
+      </ul>
+    </div>
+
+    <h2>6. Trust strip</h2>
+    <div class="spec">
+      <h3>Один элемент — число (рекомендация UX)</h3>
+      <p style="margin:0;color:var(--muted);">Между hero и блоком «Не каталог». Центр, одна строка, без логотипов партнёров.</p>
+      <ul>
+        <li><strong>Copy (A):</strong> «8 инструментов · 8 связок · ниша solo digital-услуги»</li>
+        <li><strong>Alt (B, если Growth попросит цитату):</strong> «Списки топ-50 не показывают, как сервисы стыкуются в одном сценарии»</li>
+        <li><strong>Стиль:</strong> фон <code>#141a22</code>, текст <code>#e7ecf1</code>, padding ~1rem, border-top/bottom <code>#2a3542</code>.</li>
+        <li><strong>Не делать:</strong> карусель отзывов, логотипы Setapp/TAAFT, Product Hunt feed.</li>
+      </ul>
+    </div>
+
+    <h2>7. CTA hierarchy</h2>
+    <table class="ac">
+      <thead>
+        <tr>
+          <th>CTA</th>
+          <th>Роль</th>
+          <th>Target</th>
+          <th>Визуал</th>
+          <th>data-cta</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Смотреть map бесплатно</strong></td>
+          <td class="ok">Primary</td>
+          <td><code>../index.html</code></td>
+          <td><code>.btn.primary</code> — fill #3ecfbf, тёмный текст, первый в DOM</td>
+          <td><code>open_map</code></td>
+        </tr>
+        <tr>
+          <td><strong>Плейбук · $60</strong></td>
+          <td>Secondary</td>
+          <td><code>../playbook.html</code></td>
+          <td><code>.btn.ghost</code> — outline, без fill, меньше visual weight</td>
+          <td><code>playbook</code></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="note">Цена только на secondary. Primary не дублирует «$60». Существующие классы в <code>a-cartograph.css</code> — OK, менять порядок/копирайт не нужно.</p>
+
+    <h2>8. Acceptance criteria (Engineer · FoundingEngineer)</h2>
+    <table class="ac">
+      <thead>
+        <tr><th>#</th><th>Критерий</th><th>Проверка</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Hero рендерит реальную map solo-digital-services</td><td>8 узлов с labels из niches.js; не статический SVG</td></tr>
+        <tr><td>2</td><td>Trust strip между hero и «Не каталог»</td><td>Одна строка copy A или B</td></tr>
+        <tr><td>3</td><td>Primary CTA доминирует</td><td>Teal fill; secondary — ghost; порядок DOM сохранён</td></tr>
+        <tr><td>4</td><td>Клик по hero-preview → full map</td><td>UTM landing/hero_preview</td></tr>
+        <tr><td>5</td><td>PostHog landing events</td><td><code>landing_viewed</code>, <code>landing_cta_clicked</code> (variant=a)</td></tr>
+        <tr><td>6</td><td>Mobile ≤900px</td><td>Hero-visual сверху (order:-1), map readable ≥42vh</td></tr>
+        <tr><td>7</td><td>Out of scope не добавлен</td><td class="warn">Нет TAAFT, Setapp-bundle, PH feed, bootcamp CTA</td></tr>
+      </tbody>
+    </table>
+
+    <h2>9. Copy · GrowthMarketer (если правит)</h2>
+    <div class="spec">
+      <ul>
+        <li><strong>H1:</strong> «Стек виден целиком — не списком из пятидесяти сервисов» — оставить (Mom Test: боль списков).</li>
+        <li><strong>Sub:</strong> уточнить нишу: «…карта инструментов под <em>solo digital-услуги</em> и как они стыкуются».</li>
+        <li><strong>Не добавлять:</strong> «лучший стек 2026», «все инструменты мира», bootcamp/курс.</li>
+      </ul>
+    </div>
+
+    <p class="note" style="margin-top:2rem;"><strong>Residual risk:</strong> live preview требует выноса render из app.js — без рефактора возможен дубль логики. iframe на map — fallback, но хуже по perf/стилям.</p>
   </div>
 </body>
 </html>
