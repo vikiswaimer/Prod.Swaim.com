@@ -18,7 +18,7 @@ npx --yes serve -p 5173
 
 ## Задача UX
 
-Paperclip **SWA-38**: выбрать 1 вариант для публичного URL + до 3 правок.
+Paperclip **SWA-42** (цикл 3): landing **A Cartograph** — live preview map, trust strip, CTA hierarchy. Спека: `schemes.html`.
 
 ## Рекомендация (черновик Eng, не финал UX)
 
