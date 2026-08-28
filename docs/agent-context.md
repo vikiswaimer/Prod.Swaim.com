@@ -71,6 +71,7 @@
 
 - #6 Notion MCP / `NOTION_TOKEN` — ✅; перенос по мере групповых чатов.
 - #4 ZIP Git→Notion — won't do (см. `notion-reimport.md`).
+- **Paperclip:** только ПК владельца («локально»). Cloud Agent VM ≠ локальный ПК. Канон и чеклист перехода: [`paperclip-local.md`](paperclip-local.md). Не ставить Paperclip на VM под видом локальной установки.
 
 ## Правила правок контента
 
@@ -102,6 +103,7 @@
 4. Починены битые ссылки; добавлены `00-index.md`, `INDEX.md`.
 5. Пакеты A→C через Issues; D — в бэклоге.
 6. Обратный импорт ZIP Git→Notion — **эксперимент отклонён** (лимит 5 MB, разметка/картинки). Актуальный путь: [`notion-integration.md`](notion-integration.md) (Notion MCP и/или `NOTION_TOKEN`).
+7. **Paperclip (2026-08):** агент ошибочно развернул инстанс на Cloud Agent VM, пока владелец просил «локально» (ПК). UI через port forward выглядел как `127.0.0.1`. Решение владельца — рабочий Paperclip на **ПК**; правило зафиксировано в [`paperclip-local.md`](paperclip-local.md) и `AGENTS.md`.
 
 ## Полезные команды проверки ссылок
 
