@@ -1,20 +1,18 @@
 # Child — GrowthMarketer: UTM + 3 теста (+ бэклог→100)
 
-## Статус бэклога
-Список **~100** под нишу `solo-digital-services` уже в `Маркетинг/100-тестов-бэклог.md`.  
-В срезе цикла 2: запустить **ровно 3** (см. таблицу внизу файла бэклога) после публичного URL.
+**Paperclip:** SWA-37 · Parent SWA-35
+
+## Статус
+**running** (board publish ok 2026-08-30). Лог: `Маркетинг/лог-3-теста-SWA-37.md`.
 
 ## Гипотеза (viable)
-Бесплатные размещения с UTM дадут первые `map_viewed`; каналы отделим в PostHog.
+Верим, что соло digital-услуг тонут в списках без связок; value-first UTM на посадочную → `landing_viewed` / `paid_cta_clicked` по `utm_content`.
 
 ## Срез
-1. Дождаться URL map от Engineer / PO.
-2. UTM: `utm_campaign=toolmap_solo_ds` + таблица в бэклоге.
-3. Запустить **ровно 3** теста.
-4. Лог learned в dogfood.
+1. URL посадочной: https://vikiswaimer.github.io/Prod.Swaim.com/
+2. UTM: `utm_campaign=toolmap_solo_ds` · content: `seo_freelancer_stack` / `tg_nocode_value` / `li_notion_tg`
+3. Ровно 3 теста из бэклога (#34, #14, #29).
+4. Лог → сигнал keep/kill для PO.
 
 ## Done
-3 теста running/learned. Не покупать рекламу. Live publish только с ок board.
-
-## Помощь
-Нет URL map → один комментарий, ждать; не выдумывать трафик.
+3 теста running/learned. Не покупать рекламу. Live publish — с ок board (получено).
