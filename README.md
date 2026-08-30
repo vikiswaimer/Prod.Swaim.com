@@ -17,6 +17,10 @@ npx --yes serve -p 5173
 ## Секреты
 `config.local.js` / `.env.local` — не в git. PostHog EU.
 
+## Growth (SWA-37)
+Посадочная: https://vikiswaimer.github.io/Prod.Swaim.com/  
+SEO-заметка теста: `/notes/stek-freelancer.html` · campaign `toolmap_solo_ds`.
+
 ## Публичный URL (цикл 2 / SWA-36)
 Варианты: Cloudflare Pages / GitHub Pages на папку `map/` / любой static host.  
 Landing: `landing/` (A/B/C + схемы) — выбор UX **SWA-38**.  
