@@ -39,10 +39,13 @@ jobs:
         run: python scripts/build_toolmap_pages.py --toolmap-dir toolmap --output-dir dist/toolmap-pages
 
       - name: Apply PostHog key (optional)
-        if: ${{ secrets.TOOLMAP_POSTHOG_KEY != '' }}
         env:
           TOOLMAP_POSTHOG_KEY: ${{ secrets.TOOLMAP_POSTHOG_KEY }}
         run: |
+          if [ -z "$TOOLMAP_POSTHOG_KEY" ]; then
+            echo "TOOLMAP_POSTHOG_KEY is empty, skip replacement."
+            exit 0
+          fi
           python - <<'PY'
           import os
           from pathlib import Path
