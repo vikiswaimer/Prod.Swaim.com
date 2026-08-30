@@ -109,7 +109,8 @@
 
     window.posthog.init(cfg.posthogKey, {
       api_host: cfg.posthogHost || "https://eu.i.posthog.com",
-      person_profiles: "identified_only",
+      // Growth funnel starts on a public landing, so anonymous events must be captured.
+      person_profiles: "always",
       persistence: "localStorage+cookie",
     });
   }
