@@ -2,9 +2,6 @@
  * Tool Map — loads active niche from niches.js (portrait: founders/entrepreneurs).
  */
 (function () {
-  const params = new URLSearchParams(window.location.search);
-  const embedPreview = params.get("embed") === "1";
-
   function getActiveNiche() {
     const pack = window.TOOLMAP_NICHES;
     if (!pack || !pack.items) return null;
@@ -171,13 +168,10 @@
       showDetail("Нет данных ниши", "Добавьте nodes/edges в niches.js для activeSlug.");
       return;
     }
-    if (embedPreview) document.body.classList.add("embed-preview");
     fillMeta(niche, pack && pack.portrait);
-    if (!embedPreview) initPostHog();
+    initPostHog();
     render(niche);
     wireCta(niche);
-    if (!embedPreview) {
-      capture("map_viewed", { surface: "toolmap_v0", niche_status: niche.status });
-    }
+    capture("map_viewed", { surface: "toolmap_v0", niche_status: niche.status });
   });
 })();

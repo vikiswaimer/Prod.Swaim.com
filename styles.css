@@ -157,25 +157,3 @@ svg.map {
 @media (max-width: 700px) {
   svg.map { height: 640px; }
 }
-
-body.embed-preview {
-  overflow: hidden;
-}
-body.embed-preview .wrap {
-  max-width: none;
-  padding: 0;
-}
-body.embed-preview header,
-body.embed-preview .legend,
-body.embed-preview .panel,
-body.embed-preview .cta-row {
-  display: none;
-}
-body.embed-preview .map-shell {
-  min-height: 100vh;
-  border: 0;
-  border-radius: 0;
-}
-body.embed-preview svg.map {
-  height: 100vh;
-}

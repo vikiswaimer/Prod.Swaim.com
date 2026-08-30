@@ -1,6 +1,7 @@
-// Copied from .env.local — gitignored. Do not commit.
+// Copied to config.local.js by GitHub Actions (or locally).
 window.TOOLMAP_CONFIG = {
-  posthogKey: "phc_tMbbsizWSd3ui3cUH2jUqsCAfUNUsD64RZX6ewGDcjDT",
+  posthogKey: "phc_YOUR_KEY",
   posthogHost: "https://eu.i.posthog.com",
   niche: "solo-digital-services",
+  priceUsd: 60,
 };
