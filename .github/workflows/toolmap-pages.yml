@@ -4,9 +4,9 @@ on:
   push:
     branches:
       - main
-      - cursor/**
+      - 'cursor/**'
     paths:
-      - toolmap/**
+      - 'toolmap/**'
       - scripts/build_toolmap_pages.py
       - .github/workflows/toolmap-pages.yml
   workflow_dispatch:
