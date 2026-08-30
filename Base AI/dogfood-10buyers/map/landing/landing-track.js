@@ -2,6 +2,46 @@
  * Light PostHog tracking for landing variants.
  */
 (function () {
+  const ATTR_KEY = "toolmap_attribution";
+
+  function readStoredAttribution() {
+    try {
+      return JSON.parse(sessionStorage.getItem(ATTR_KEY) || "{}");
+    } catch (err) {
+      return {};
+    }
+  }
+
+  function getCurrentAttribution() {
+    const params = new URLSearchParams(location.search);
+    const props = {};
+    ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"].forEach(function (key) {
+      const value = params.get(key);
+      if (value) props[key] = value;
+    });
+    if (document.referrer) props.referrer = document.referrer;
+    return props;
+  }
+
+  function getAttributionProps() {
+    const current = getCurrentAttribution();
+    const merged = { ...readStoredAttribution(), ...current };
+    try {
+      if (Object.keys(merged).length) sessionStorage.setItem(ATTR_KEY, JSON.stringify(merged));
+    } catch (err) {
+      // Ignore storage issues and keep the current request flowing.
+    }
+    return merged;
+  }
+
+  function appendQueryToHref(href, query) {
+    const url = new URL(href, location.href);
+    query.forEach(function (value, key) {
+      if (!url.searchParams.has(key)) url.searchParams.set(key, value);
+    });
+    return url.pathname + url.search + url.hash;
+  }
+
   function capture(event, props) {
     if (window.posthog && typeof window.posthog.capture === "function") {
       window.posthog.capture(event, {
@@ -46,22 +86,30 @@
     })(document, window.posthog || []);
     window.posthog.init(cfg.posthogKey, {
       api_host: cfg.posthogHost || "https://eu.i.posthog.com",
-      person_profiles: "identified_only",
+      // Growth funnel starts on a public landing, so anonymous events must be captured.
+      person_profiles: "always",
+      bootstrap: { defaultIdentifiedOnly: false },
     });
   }
 
   document.addEventListener("DOMContentLoaded", function () {
     initPostHog();
+    const attribution = getAttributionProps();
+    const currentQuery = new URLSearchParams(location.search);
     const variant =
       (document.body.className.match(/variant-([a-c])/) || [])[1] ||
       document.body.getAttribute("data-variant") ||
       "hub";
-    capture("landing_viewed", { variant: variant, path: location.pathname });
+    document.querySelectorAll("a[data-cta]").forEach(function (el) {
+      el.setAttribute("href", appendQueryToHref(el.getAttribute("href"), currentQuery));
+    });
+    capture("landing_viewed", { variant: variant, path: location.pathname, ...attribution });
     document.querySelectorAll("[data-cta]").forEach(function (el) {
       el.addEventListener("click", function () {
         capture("landing_cta_clicked", {
           variant: variant,
           cta: el.getAttribute("data-cta"),
+          ...attribution,
         });
       });
     });

@@ -2,6 +2,8 @@
  * Tool Map — loads active niche from niches.js (portrait: founders/entrepreneurs).
  */
 (function () {
+  const ATTR_KEY = "toolmap_attribution";
+
   function getActiveNiche() {
     const pack = window.TOOLMAP_NICHES;
     if (!pack || !pack.items) return null;
@@ -9,10 +11,54 @@
     return pack.items.find((n) => n.slug === slug) || null;
   }
 
+  function readStoredAttribution() {
+    try {
+      return JSON.parse(sessionStorage.getItem(ATTR_KEY) || "{}");
+    } catch (err) {
+      return {};
+    }
+  }
+
+  function getCurrentAttribution() {
+    const params = new URLSearchParams(location.search);
+    const props = {};
+    ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"].forEach((key) => {
+      const value = params.get(key);
+      if (value) props[key] = value;
+    });
+    if (document.referrer) props.referrer = document.referrer;
+    return props;
+  }
+
+  function getAttributionProps() {
+    const current = getCurrentAttribution();
+    const merged = { ...readStoredAttribution(), ...current };
+    try {
+      if (Object.keys(merged).length) sessionStorage.setItem(ATTR_KEY, JSON.stringify(merged));
+    } catch (err) {
+      // Keep tracking resilient when storage is unavailable.
+    }
+    return merged;
+  }
+
+  function buildPlaybookHref(niche) {
+    const url = new URL("playbook.html", location.href);
+    url.searchParams.set("niche", niche.slug);
+    Object.entries(getAttributionProps()).forEach(([key, value]) => {
+      if (key.startsWith("utm_")) url.searchParams.set(key, value);
+    });
+    return url.pathname + url.search + url.hash;
+  }
+
   function capture(event, props) {
     const niche = (window.TOOLMAP_NICHES && window.TOOLMAP_NICHES.activeSlug) || "unknown";
     if (window.posthog && typeof window.posthog.capture === "function") {
-      window.posthog.capture(event, { niche, portrait: "founders-entrepreneurs", ...props });
+      window.posthog.capture(event, {
+        niche,
+        portrait: "founders-entrepreneurs",
+        ...getAttributionProps(),
+        ...props,
+      });
     } else {
       console.debug("[posthog stub]", event, { niche, ...props });
     }
@@ -63,7 +109,9 @@
 
     window.posthog.init(cfg.posthogKey, {
       api_host: cfg.posthogHost || "https://eu.i.posthog.com",
-      person_profiles: "identified_only",
+      // Growth funnel starts on a public landing, so anonymous events must be captured.
+      person_profiles: "always",
+      bootstrap: { defaultIdentifiedOnly: false },
       persistence: "localStorage+cookie",
     });
   }
@@ -145,7 +193,7 @@
 
   function wireCta(niche) {
     const btn = document.getElementById("paid-cta");
-    const href = "playbook.html?niche=" + encodeURIComponent(niche.slug);
+    const href = buildPlaybookHref(niche);
     if (btn.tagName === "A") btn.setAttribute("href", href);
     btn.addEventListener("click", () => {
       capture("paid_cta_clicked", { surface: "map_footer", niche: niche.slug });
