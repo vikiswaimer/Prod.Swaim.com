@@ -12,16 +12,16 @@
       <div class="badge">Paid layer · stub</div>
       <h1 id="title">Плейбук ниши</h1>
       <p id="lead">
-        Подробный сценарий для фаундеров: порядок внедрения, альтернативы, «что не брать».
-        Оплата ещё не подключена — клик фиксируем в PostHog.
+        Для соло-специалистов в digital: переходите от карты к понятному порядку внедрения.
+        Оплата ещё не подключена — пока проверяем интерес к paid-срезу.
       </p>
     </header>
 
     <section class="panel">
       <h2>Что будет в платном срезе</h2>
       <p id="body">
-        1) Пошаговый стек под нишу · 2) 5–8 связок с «как настроить» · 3) антипаттерны ·
-        4) чеклист запуска за неделю. Цена теста: <strong>$60</strong> (меняем, если рынок скажет дорого/дёшево).
+        1) Порядок внедрения без лишних подписок · 2) 5–8 рабочих связок под нишу ·
+        3) альтернативы, если один сервис не подходит · 4) что не брать в v0. Цена теста: <strong>$60</strong>.
       </p>
       <p class="hint" id="niche-line">niche: …</p>
     </section>
@@ -36,6 +36,7 @@
   <script src="niches.js"></script>
   <script>
     (function () {
+      const ATTR_KEY = "toolmap_attribution";
       const params = new URLSearchParams(location.search);
       const slug =
         params.get("niche") ||
@@ -50,12 +51,45 @@
       if (niche) {
         document.getElementById("title").textContent = "Плейбук: " + niche.label;
         document.getElementById("lead").textContent =
-          (niche.audience || "") + " Портрет: фаундеры и предприниматели.";
+          "Для " + niche.label.toLowerCase() + ": получите порядок внедрения, альтернативы и границы v0 до покупки лишнего.";
+      }
+
+      function readStoredAttribution() {
+        try {
+          return JSON.parse(sessionStorage.getItem(ATTR_KEY) || "{}");
+        } catch (err) {
+          return {};
+        }
+      }
+
+      function getCurrentAttribution() {
+        const props = {};
+        ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"].forEach(function (key) {
+          const value = params.get(key);
+          if (value) props[key] = value;
+        });
+        if (document.referrer) props.referrer = document.referrer;
+        return props;
+      }
+
+      function getAttributionProps() {
+        const merged = { ...readStoredAttribution(), ...getCurrentAttribution() };
+        try {
+          if (Object.keys(merged).length) sessionStorage.setItem(ATTR_KEY, JSON.stringify(merged));
+        } catch (err) {
+          // Storage may be unavailable in some browsers.
+        }
+        return merged;
       }
 
       function capture(event, props) {
         if (window.posthog && typeof window.posthog.capture === "function") {
-          window.posthog.capture(event, { niche: slug, portrait: "founders-entrepreneurs", ...props });
+          window.posthog.capture(event, {
+            niche: slug,
+            portrait: "founders-entrepreneurs",
+            ...getAttributionProps(),
+            ...props,
+          });
         } else {
           console.debug("[posthog stub]", event, props);
         }
@@ -100,7 +134,7 @@
       document.getElementById("pay-interest").addEventListener("click", function () {
         capture("paid_cta_clicked", { surface: "playbook_stub", intent: "buy_interest" });
         document.getElementById("body").textContent =
-          "Интерес записан. Когда подключим оплату — пришлём плейбук. Сейчас сигнал для PO: спрос на paid.";
+          "Интерес записан. Для PO это сигнал спроса: канал привёл человека к paid-интересу, хотя оплата ещё не открыта.";
       });
     })();
   </script>
