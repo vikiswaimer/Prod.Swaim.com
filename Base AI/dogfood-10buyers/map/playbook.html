@@ -127,6 +127,7 @@
         window.posthog.init(cfg.posthogKey, {
           api_host: cfg.posthogHost || "https://eu.i.posthog.com",
           person_profiles: "always",
+          bootstrap: { defaultIdentifiedOnly: false },
         });
       }
 

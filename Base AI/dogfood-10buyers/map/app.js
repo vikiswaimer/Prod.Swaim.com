@@ -111,6 +111,7 @@
       api_host: cfg.posthogHost || "https://eu.i.posthog.com",
       // Growth funnel starts on a public landing, so anonymous events must be captured.
       person_profiles: "always",
+      bootstrap: { defaultIdentifiedOnly: false },
       persistence: "localStorage+cookie",
     });
   }
