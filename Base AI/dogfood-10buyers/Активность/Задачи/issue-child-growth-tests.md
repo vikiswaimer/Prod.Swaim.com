@@ -30,19 +30,23 @@
 ## Проверка
 - Browser test: `tg_nocode_value`, `li_notion_tg`, `seo_freelancer_stack` прошли путь `landing A → map → playbook`.
 - Во всех 3 сценариях сохранились `utm_campaign=toolmap_solo_ds` и соответствующий `utm_content`.
+- PostHog SDK грузится, но backend requests для анонимного трафика не уходят.
 
 ## CRITICAL
-Реальный PostHog backend-signal для **этой ветки** нельзя честно подтвердить в текущем heartbeat:
-- локальная ветка работает без `config.local.js`, поэтому события идут только в console stub;
-- MCP `Posthog` недоступен без auth;
-- live publish остаётся за board / PO.
+Реальный PostHog backend-signal для публичного anonymous traffic **заблокирован внешней настройкой проекта**:
+- remote config PostHog возвращает `defaultIdentifiedOnly: true`;
+- из-за этого `landing_viewed`, `map_viewed` и `paid_cta_clicked` не отправляются на backend для анонимного пользователя;
+- локальный код уже усилен (`person_profiles: "always"` + `bootstrap.defaultIdentifiedOnly = false`), но blocker остаётся вне репозитория.
+
+**Owner unblock:** PO / PostHog admin.  
+**Action unblock:** выключить режим identified-only в настройках проекта PostHog и повторить 3 UTM-теста после обновления remote config.
 
 ## Одна сильная идея
 Если первые `map_viewed` придут, следующий тест делать не про “tool map вообще”, а про **одну конкретную связку с прошлым поведением**:
 `Notion ↔ Telegram для соло digital-услуг` как более узкое обещание, чем общий каталог стека.
 
 ## Done
-Готово, когда 3 теста в `running`, оффер на лендинге говорит с нишей напрямую, а `map_viewed` не теряет UTM.
+Готово, когда 3 теста в `running`, оффер на лендинге говорит с нишей напрямую, `map_viewed` не теряет UTM и PostHog принимает anonymous events.
 
 ## Помощь
 Live publish и реальные размещения — только через board / PO. Не выдумывать внешний запуск.
