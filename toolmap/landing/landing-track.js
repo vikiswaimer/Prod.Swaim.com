@@ -59,10 +59,11 @@
     capture("landing_viewed", { variant: variant, path: location.pathname });
     document.querySelectorAll("[data-cta]").forEach(function (el) {
       el.addEventListener("click", function () {
-        capture("landing_cta_clicked", {
-          variant: variant,
-          cta: el.getAttribute("data-cta"),
-        });
+        const cta = el.getAttribute("data-cta");
+        capture("landing_cta_clicked", { variant: variant, cta: cta });
+        if (cta === "playbook") {
+          capture("paid_cta_clicked", { variant: variant, surface: "landing", cta: cta });
+        }
       });
     });
   });

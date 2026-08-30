@@ -17,12 +17,15 @@
 ## События v0
 | Event | Когда |
 |-------|--------|
-| `map_viewed` | открыли map |
+| `landing_viewed` | открыли посадочную (корень Pages) |
+| `map_viewed` | открыли free map |
 | `node_clicked` | клик по инструменту |
 | `edge_clicked` | клик по связке |
 | `paid_cta_clicked` | CTA на платный плейбук |
 
-Проверка: PostHog → **Activity** / Live events после открытия map.
+**SWA-37 (сигнал канала):** смотреть `landing_viewed` + `paid_cta_clicked` в разрезе UTM (`utm_campaign=toolmap_solo_ds`, `utm_content`).
+
+Проверка: PostHog → **Activity** / Live events после открытия посадочной.
 
 ## Cursor MCP
 Пока не используем (ошибка в Desktop). Аналитику смотрите в **веб PostHog**.

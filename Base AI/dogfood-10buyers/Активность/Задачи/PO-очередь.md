@@ -17,7 +17,7 @@ WIP: ≤1 родительский цикл (+ дети). Ниши — гипо�
 
 Дети Paperclip:
 - **SWA-36** Engineer — публичный URL + data-слой ниш + stub плейбука (`todo`)
-- **SWA-37** Growth — 3 теста UTM `toolmap_solo_ds` (`backlog` до URL)
+- **SWA-37** Growth — 3 теста UTM `toolmap_solo_ds` (**running** · `Маркетинг/лог-3-теста-SWA-37.md`)
 - **SWA-38** UX — посадочная A/B/C + схемы → выбрать 1 (`todo`) · `map/landing/`
 - PO — цена **$60** (тест; меняем по рынку); портфель после 3 тестов
 - Хостинг: GitHub Pages → `toolmap/`; домен 3-го уровня swaimapp.com — позже (`Маркетинг/Хостинг-домен.md`)  
