@@ -1,0 +1,66 @@
+name: Toolmap Pages
+
+on:
+  push:
+    branches:
+      - main
+      - cursor/**
+    paths:
+      - toolmap/**
+      - scripts/build_toolmap_pages.py
+      - .github/workflows/toolmap-pages.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Build artifact (landing at root)
+        run: python scripts/build_toolmap_pages.py --toolmap-dir toolmap --output-dir dist/toolmap-pages
+
+      - name: Apply PostHog key (optional)
+        if: ${{ secrets.TOOLMAP_POSTHOG_KEY != '' }}
+        env:
+          TOOLMAP_POSTHOG_KEY: ${{ secrets.TOOLMAP_POSTHOG_KEY }}
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+
+          path = Path("dist/toolmap-pages/config.local.js")
+          text = path.read_text(encoding="utf-8")
+          text = text.replace("phc_YOUR_KEY", os.environ["TOOLMAP_POSTHOG_KEY"])
+          path.write_text(text, encoding="utf-8")
+          PY
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/toolmap-pages
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
