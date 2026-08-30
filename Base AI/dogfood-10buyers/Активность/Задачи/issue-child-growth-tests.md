@@ -23,8 +23,23 @@
 
 ## Что изменено в артефактах
 1. `toolmap/landing/` — copy переписан под покупателя: кто и что меняется.
-2. `toolmap/` — UTM сохраняются через landing → map → playbook, чтобы PO видел сигнал по тесту.
-3. `Маркетинг/100-тестов-бэклог.md` — ровно 3 теста переведены в `running`.
+2. `toolmap/landing/index.html` — default route ведёт на landing A.
+3. `toolmap/` — UTM сохраняются через landing → map → playbook, чтобы PO видел сигнал по тесту.
+4. `Маркетинг/100-тестов-бэклог.md` — ровно 3 теста переведены в `running`.
+
+## Проверка
+- Browser test: `tg_nocode_value`, `li_notion_tg`, `seo_freelancer_stack` прошли путь `landing A → map → playbook`.
+- Во всех 3 сценариях сохранились `utm_campaign=toolmap_solo_ds` и соответствующий `utm_content`.
+
+## CRITICAL
+Реальный PostHog backend-signal для **этой ветки** нельзя честно подтвердить в текущем heartbeat:
+- локальная ветка работает без `config.local.js`, поэтому события идут только в console stub;
+- MCP `Posthog` недоступен без auth;
+- live publish остаётся за board / PO.
+
+## Одна сильная идея
+Если первые `map_viewed` придут, следующий тест делать не про “tool map вообще”, а про **одну конкретную связку с прошлым поведением**:
+`Notion ↔ Telegram для соло digital-услуг` как более узкое обещание, чем общий каталог стека.
 
 ## Done
 Готово, когда 3 теста в `running`, оффер на лендинге говорит с нишей напрямую, а `map_viewed` не теряет UTM.
