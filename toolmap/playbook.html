@@ -12,22 +12,22 @@
       <div class="badge">Paid layer · stub</div>
       <h1 id="title">Плейбук ниши</h1>
       <p id="lead">
-        Подробный сценарий для фаундеров: порядок внедрения, альтернативы, «что не брать».
-        Оплата ещё не подключена — клик фиксируем в PostHog.
+        Если карта попала в вашу задачу, следующий слой — подробный плейбук: порядок внедрения, альтернативы и что не брать слишком рано.
+        Оплату ещё не открыли: сейчас честно собираем сигнал интереса.
       </p>
     </header>
 
     <section class="panel">
       <h2>Что будет в платном срезе</h2>
       <p id="body">
-        1) Пошаговый стек под нишу · 2) 5–8 связок с «как настроить» · 3) антипаттерны ·
-        4) чеклист запуска за неделю. Цена теста: <strong>$60</strong> (меняем, если рынок скажет дорого/дёшево).
+        1) Пошаговый стек под нишу · 2) 5–8 связок с "как настроить" · 3) антипаттерны ·
+        4) чеклист запуска без лишних подписок. Цена теста: <strong>$60</strong> (меняем по рыночному сигналу).
       </p>
       <p class="hint" id="niche-line">niche: …</p>
     </section>
 
     <div class="cta-row">
-      <button type="button" class="cta" id="pay-interest">Хочу купить (интерес)</button>
+      <button type="button" class="cta" id="pay-interest">Показать интерес к плейбуку</button>
       <a class="cta-note" href="index.html">← назад к map</a>
     </div>
   </div>
@@ -37,6 +37,11 @@
   <script>
     (function () {
       const params = new URLSearchParams(location.search);
+      const utmProps = {};
+      ["utm_source", "utm_medium", "utm_campaign", "utm_content"].forEach(function (key) {
+        const value = params.get(key);
+        if (value) utmProps[key] = value;
+      });
       const slug =
         params.get("niche") ||
         (window.TOOLMAP_NICHES && window.TOOLMAP_NICHES.activeSlug) ||
@@ -55,9 +60,9 @@
 
       function capture(event, props) {
         if (window.posthog && typeof window.posthog.capture === "function") {
-          window.posthog.capture(event, { niche: slug, portrait: "founders-entrepreneurs", ...props });
+          window.posthog.capture(event, { niche: slug, portrait: "founders-entrepreneurs", ...utmProps, ...props });
         } else {
-          console.debug("[posthog stub]", event, props);
+          console.debug("[posthog stub]", event, { niche: slug, ...utmProps, ...props });
         }
       }
 
@@ -100,7 +105,7 @@
       document.getElementById("pay-interest").addEventListener("click", function () {
         capture("paid_cta_clicked", { surface: "playbook_stub", intent: "buy_interest" });
         document.getElementById("body").textContent =
-          "Интерес записан. Когда подключим оплату — пришлём плейбук. Сейчас сигнал для PO: спрос на paid.";
+          "Интерес записан. Сейчас это сигнал спроса для PO: стоит ли открывать платный слой этой ниши.";
       });
     })();
   </script>
