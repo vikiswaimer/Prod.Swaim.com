@@ -3,44 +3,77 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tool Map — карта для фаундеров</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Tool Map — карта инструментов для фаундеров</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="landing/a-cartograph.css" />
 </head>
-<body>
-  <div class="wrap">
-    <header>
-      <div class="badge">Tool Map · v0 · бесплатный срез</div>
-      <h1>Карта инструментов</h1>
-      <p>
-        Портрет: <strong id="portrait-label">фаундеры и предприниматели</strong>.
-        Ниша в тесте: <strong id="niche-label">…</strong>
-        (<span id="niche-status">testing</span>).
-        Узлы — инструменты, линии — связки. Ниши добавляем и убираем по сигналу тестов.
+<body class="variant-a" data-variant="a">
+  <header class="top">
+    <a class="brand" href="index.html">Tool Map</a>
+    <a class="top-link" href="map.html">Открыть карту</a>
+  </header>
+
+  <section class="hero" aria-label="Hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Ниша в тесте · <span id="hero-niche-eyebrow">solo-digital-services</span></p>
+      <h1>Стек виден целиком — не списком из пятидесяти сервисов</h1>
+      <p class="sub">
+        Для фаундеров и предпринимателей: карта инструментов под нишу и как они стыкуются.
+        Подробный плейбук — разово за $60.
       </p>
-    </header>
-
-    <div class="map-shell">
-      <svg id="map-svg" class="map" viewBox="0 0 840 500" role="img" aria-label="Карта инструментов и связок"></svg>
+      <div class="cta-group">
+        <a class="btn primary" href="map.html" data-cta="open_map">Смотреть map бесплатно</a>
+        <a class="btn ghost" href="playbook.html" data-cta="playbook">Плейбук · $60</a>
+      </div>
     </div>
-    <p class="legend">
-      <span>● инструмент</span>
-      <span>— связка (клик = пример)</span>
+    <div class="hero-visual">
+      <div class="preview-shell" aria-label="Живая карта solo-digital-services">
+        <p class="preview-badge">Live preview · <span id="hero-niche-label">карта ниши</span></p>
+        <svg id="hero-map-preview" class="hero-map" viewBox="0 0 840 500" role="img" aria-label="Превью карты solo-digital-services"></svg>
+        <p class="hero-map-fallback" id="hero-map-fallback" hidden>Карта загружается…</p>
+        <a class="preview-link" href="map.html?utm_source=landing&utm_medium=hero_preview" data-cta="hero_preview">Открыть интерактивную карту →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust-strip" aria-label="Сигнал доверия">
+    <p class="trust-metric">
+      <strong data-map-count="nodes">8</strong> инструментов ·
+      <strong data-map-count="edges">8</strong> связок ·
+      ниша <strong id="hero-niche-slug">solo-digital-services</strong>
     </p>
+    <p class="trust-note">Цифры из той же карты, что открывается по primary CTA — не декоративный wireframe.</p>
+  </section>
 
-    <section class="panel" aria-live="polite">
-      <h2 id="detail-title">Кликните узел или связь</h2>
-      <p id="detail-body">Узлы — инструменты. Линии — как стыковать в этой нише. Платный слой — подробные плейбуки.</p>
-      <p class="hint">PostHog EU: map_viewed, node_clicked, edge_clicked, paid_cta_clicked · niche + portrait.</p>
-    </section>
+  <section class="block">
+    <h2>Не каталог. Карта связок.</h2>
+    <p>
+      Выбираете нишу в тесте → видите узлы и линии «как использовать вместе» →
+      если нужно глубже — берёте плейбук: порядок, альтернативы, что не брать.
+    </p>
+  </section>
 
-    <div class="cta-row">
-      <a class="cta" id="paid-cta" href="playbook.html">Подробный плейбук этой ниши</a>
-      <span class="cta-note">$60 · тест цены, будем менять по рынку</span>
+  <section class="block path">
+    <h2>Путь</h2>
+    <div class="path-row" role="list">
+      <div role="listitem"><em>01</em> Free map</div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div role="listitem"><em>02</em> Клик по связке</div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div role="listitem"><em>03</em> Плейбук · $60</div>
     </div>
-  </div>
+  </section>
+
+  <footer class="foot">
+    <span>Вариант A · Cartograph · production default</span>
+    <a href="landing/schemes.html">Спека для Engineer</a>
+  </footer>
 
   <script src="config.local.js"></script>
   <script src="niches.js"></script>
-  <script src="app.js"></script>
+  <script src="hero-preview.js"></script>
+  <script src="landing/landing-track.js"></script>
 </body>
 </html>
