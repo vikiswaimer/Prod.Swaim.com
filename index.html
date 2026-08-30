@@ -9,42 +9,37 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="landing/a-cartograph.css" />
 </head>
-<body class="variant-a" data-variant="a">
+<body class="variant-a">
   <header class="top">
     <a class="brand" href="index.html">Tool Map</a>
-    <a class="top-link" href="map.html">Открыть карту</a>
+    <a class="top-link" href="free-map.html">Открыть карту</a>
   </header>
 
   <section class="hero" aria-label="Hero">
     <div class="hero-copy">
-      <p class="eyebrow">Ниша в тесте · <span id="hero-niche-eyebrow">solo-digital-services</span></p>
+      <p class="brand-mark">Tool Map</p>
       <h1>Стек виден целиком — не списком из пятидесяти сервисов</h1>
       <p class="sub">
         Для фаундеров и предпринимателей: карта инструментов под нишу и как они стыкуются.
-        Подробный плейбук — разово за $60.
+        Подробный плейбук — за небольшую плату.
       </p>
       <div class="cta-group">
-        <a class="btn primary" href="map.html" data-cta="open_map">Смотреть map бесплатно</a>
+        <a class="btn primary" href="free-map.html" data-cta="open_map">Смотреть map бесплатно</a>
         <a class="btn ghost" href="playbook.html" data-cta="playbook">Плейбук · $60</a>
       </div>
     </div>
     <div class="hero-visual">
-      <div class="preview-shell" aria-label="Живая карта solo-digital-services">
-        <p class="preview-badge">Live preview · <span id="hero-niche-label">карта ниши</span></p>
-        <svg id="hero-map-preview" class="hero-map" viewBox="0 0 840 500" role="img" aria-label="Превью карты solo-digital-services"></svg>
-        <p class="hero-map-fallback" id="hero-map-fallback" hidden>Карта загружается…</p>
-        <a class="preview-link" href="map.html?utm_source=landing&utm_medium=hero_preview" data-cta="hero_preview">Открыть интерактивную карту →</a>
+      <div class="map-preview-shell">
+        <iframe
+          class="map-preview"
+          src="free-map.html?embed=1"
+          title="Живой превью карты Tool Map"
+          loading="lazy"
+          tabindex="-1"
+        ></iframe>
       </div>
+      <p class="preview-note">Живой превью активной ниши. Полная карта открывается отдельно, без фейковых placeholder-скринов.</p>
     </div>
-  </section>
-
-  <section class="trust-strip" aria-label="Сигнал доверия">
-    <p class="trust-metric">
-      <strong data-map-count="nodes">8</strong> инструментов ·
-      <strong data-map-count="edges">8</strong> связок ·
-      ниша <strong id="hero-niche-slug">solo-digital-services</strong>
-    </p>
-    <p class="trust-note">Цифры из той же карты, что открывается по primary CTA — не декоративный wireframe.</p>
   </section>
 
   <section class="block">
@@ -67,13 +62,11 @@
   </section>
 
   <footer class="foot">
-    <span>Вариант A · Cartograph · production default</span>
-    <a href="landing/schemes.html">Спека для Engineer</a>
+    <span>Production default · A Cartograph</span>
+    <a href="landing/index.html">Другие направления</a>
   </footer>
 
   <script src="config.local.js"></script>
-  <script src="niches.js"></script>
-  <script src="hero-preview.js"></script>
   <script src="landing/landing-track.js"></script>
 </body>
 </html>

@@ -49,43 +49,13 @@
     svg { display: block; width: 100%; height: auto; max-width: 800px; }
     .note { font-size: 0.9rem; color: var(--muted); margin-top: 0.6rem; line-height: 1.45; }
     a.back { color: var(--a); text-decoration: none; font-size: 0.9rem; }
-    table.spec {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
-    }
-    table.spec th, table.spec td {
-      border: 1px solid var(--line);
-      padding: 0.55rem 0.65rem;
-      text-align: left;
-      vertical-align: top;
-    }
-    table.spec th { background: #1a222c; color: var(--a); font-family: var(--font-d); }
-    .tag {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--a);
-      border: 1px solid var(--a);
-      border-radius: 999px;
-      padding: 0.1rem 0.45rem;
-      margin-left: 0.35rem;
-    }
-    .proto-link { color: var(--a); }
   </style>
 </head>
 <body>
   <div class="wrap">
     <p><a class="back" href="index.html">← варианты посадочной</a></p>
-    <h1>Схемы продукта и landing A</h1>
-    <p class="lead">
-      SWA-42 · вариант <strong>A Cartograph</strong> — единственная посадочная для публичного URL.
-      Прототип: <a class="proto-link" href="a-cartograph.html">a-cartograph.html</a>.
-      Engineer: достаточно секций 4–6 + прототип; product-flow 1–3 без изменений.
-    </p>
+    <h1>Схемы продукта</h1>
+    <p class="lead">Для UX (SWA-38) и PO: путь оплаты, портрет vs ниши, портфель keep/kill.</p>
 
     <h2>1. Free map → Paid playbook</h2>
     <div class="frame">
@@ -172,102 +142,6 @@
         <text x="520" y="125" fill="#8b9aab" font-size="12">следующая ниша из портфеля</text>
       </svg>
     </div>
-
-    <h2>4. Landing A · wireframe <span class="tag">SWA-42</span></h2>
-    <div class="frame">
-      <svg viewBox="0 0 780 520" role="img" aria-label="Wireframe landing A Cartograph">
-        <rect x="10" y="10" width="760" height="36" rx="6" fill="#1a2430" stroke="#3a4a5c"/>
-        <text x="30" y="33" fill="#8b9aab" font-size="12">header · Tool Map · link «Открыть карту»</text>
-
-        <rect x="10" y="56" width="360" height="250" rx="10" fill="#141a22" stroke="#3ecfbf" stroke-width="2"/>
-        <text x="30" y="82" fill="#3ecfbf" font-family="Syne,sans-serif" font-size="13" font-weight="700">HERO COPY</text>
-        <text x="30" y="108" fill="#e7ecf1" font-size="12">eyebrow: ниша solo-digital-services</text>
-        <text x="30" y="128" fill="#e7ecf1" font-size="12">H1: стек целиком, не список</text>
-        <text x="30" y="148" fill="#8b9aab" font-size="11">sub: портрет + плейбук $60</text>
-        <rect x="30" y="168" width="150" height="32" rx="8" fill="#3ecfbf"/>
-        <text x="105" y="188" text-anchor="middle" fill="#062a28" font-size="11" font-weight="700">PRIMARY · free map</text>
-        <rect x="190" y="168" width="120" height="32" rx="8" fill="none" stroke="#3a4a5c"/>
-        <text x="250" y="188" text-anchor="middle" fill="#e7ecf1" font-size="11">SECONDARY · $60</text>
-
-        <rect x="380" y="56" width="390" height="250" rx="10" fill="#0c1016" stroke="#3a4a5c"/>
-        <text x="400" y="82" fill="#3ecfbf" font-size="11" font-weight="700">HERO VISUAL · live preview map</text>
-        <text x="400" y="102" fill="#8b9aab" font-size="10">SVG from niches.js · same nodes/edges as /map.html</text>
-        <circle cx="460" cy="150" r="6" fill="#1a2430" stroke="#3ecfbf"/>
-        <circle cx="560" cy="120" r="6" fill="#1a2430" stroke="#3ecfbf"/>
-        <circle cx="680" cy="160" r="6" fill="#1a2430" stroke="#3ecfbf"/>
-        <circle cx="500" cy="220" r="6" fill="#1a2430" stroke="#3ecfbf"/>
-        <circle cx="620" cy="240" r="6" fill="#1a2430" stroke="#3ecfbf"/>
-        <line x1="460" y1="150" x2="560" y2="120" stroke="#2a3a48" stroke-width="1.5"/>
-        <line x1="560" y1="120" x2="680" y2="160" stroke="#2a3a48" stroke-width="1.5"/>
-        <line x1="500" y1="220" x2="620" y2="240" stroke="#2a3a48" stroke-width="1.5"/>
-        <line x1="560" y1="120" x2="500" y2="220" stroke="#2a3a48" stroke-width="1.5"/>
-        <text x="400" y="285" fill="#8b9aab" font-size="10">NOT wireframe rectangles · read-only preview</text>
-
-        <rect x="10" y="316" width="760" height="44" rx="8" fill="#122018" stroke="#3ecfbf" stroke-opacity="0.5"/>
-        <text x="30" y="343" fill="#3ecfbf" font-size="12" font-weight="600">TRUST STRIP · 8 инструментов · 8 связок · solo-digital-services</text>
-
-        <rect x="10" y="372" width="760" height="64" rx="8" fill="#141a22" stroke="#3a4a5c"/>
-        <text x="30" y="398" fill="#e7ecf1" font-size="12">block: «Не каталог. Карта связок.»</text>
-        <text x="30" y="418" fill="#8b9aab" font-size="11">path 01 free → 02 click edge → 03 playbook $60</text>
-
-        <rect x="10" y="448" width="760" height="28" rx="6" fill="#1a2430" stroke="#3a4a5c"/>
-        <text x="30" y="467" fill="#8b9aab" font-size="11">footer · A Cartograph · link schemes</text>
-      </svg>
-    </div>
-    <p class="note">Иерархия за 2 с: слева обещание + primary CTA; справа живая карта; под hero — одна строка trust.</p>
-
-    <h2>5. Спека правок A для Engineer</h2>
-    <table class="spec">
-      <thead>
-        <tr><th>Зона</th><th>Поведение / визуал</th><th>Сигнал / событие</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Hero visual</td>
-          <td>Рендер из <code>niches.js</code> activeSlug (<code>solo-digital-services</code>). Тот же graph, что <code>/map.html</code>. Read-only в hero; клик — «Открыть карту» или primary CTA.</td>
-          <td>Не wireframe SVG. При смене ниши preview обновляется из data.</td>
-        </tr>
-        <tr>
-          <td>Primary CTA</td>
-          <td>«Смотреть map бесплатно» → <code>/map.html</code>. Fill accent #3ecfbf, контрастный текст.</td>
-          <td><code>landing_cta_clicked</code> · cta=open_map</td>
-        </tr>
-        <tr>
-          <td>Secondary CTA</td>
-          <td>«Плейбук · $60» → <code>/playbook.html</code>. Ghost/outline, визуально слабее primary.</td>
-          <td><code>landing_cta_clicked</code> · cta=playbook</td>
-        </tr>
-        <tr>
-          <td>Trust strip</td>
-          <td>Одна метрика: <strong>N инструментов · M связок</strong> + slug ниши. Числа из graph data (сейчас 8·8).</td>
-          <td>Честный сигнал; без fake testimonials в v0.</td>
-        </tr>
-        <tr>
-          <td>Header link</td>
-          <td>«Открыть карту» дублирует primary, но вторичен по визуалу (muted text).</td>
-          <td>—</td>
-        </tr>
-        <tr>
-          <td>Не делать</td>
-          <td colspan="2">Каталог TAAFT, Setapp-bundle, PH feed, bootcamp CTA, hub 10 вариантов на prod URL.</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h2>6. Acceptance (UX · SWA-42)</h2>
-    <table class="spec">
-      <thead>
-        <tr><th>#</th><th>Критерий</th><th>Проверка</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>1</td><td>База A Cartograph, не 10 landing-вариантов на prod</td><td>PO выбирает A; B/C остаются в hub для сравнения</td></tr>
-        <tr><td>2</td><td>Hero = live preview map solo-digital-services</td><td>Узлы/labels совпадают с map; не статичный wireframe</td></tr>
-        <tr><td>3</td><td>Trust strip: 1 число (или цитата)</td><td>8·8 из data; подпись про честность</td></tr>
-        <tr><td>4</td><td>CTA: free primary · $60 secondary</td><td>Визуальный вес + порядок в DOM</td></tr>
-        <tr><td>5</td><td>schemes.html + прототип достаточны Engineer</td><td>Секции 4–6 + a-cartograph.html</td></tr>
-      </tbody>
-    </table>
-    <p class="note">Copy → GrowthMarketer · имплементация prod → FoundingEngineer.</p>
   </div>
 </body>
 </html>
