@@ -11,8 +11,8 @@
 </head>
 <body class="variant-a">
   <header class="top">
-    <a class="brand" href="index.html">Tool Map</a>
-    <a class="top-link" href="../index.html">Открыть карту</a>
+    <a class="brand" href="../index.html">Tool Map</a>
+    <a class="top-link" href="../free-map.html">Открыть карту</a>
   </header>
 
   <section class="hero" aria-label="Hero">
@@ -24,51 +24,21 @@
         Подробный плейбук — за небольшую плату.
       </p>
       <div class="cta-group">
-        <a class="btn primary" href="../index.html" data-cta="open_map">Смотреть map бесплатно</a>
+        <a class="btn primary" href="../free-map.html" data-cta="open_map">Смотреть map бесплатно</a>
         <a class="btn ghost" href="../playbook.html" data-cta="playbook">Плейбук · $60</a>
       </div>
     </div>
-    <div class="hero-visual" aria-hidden="true">
-      <svg viewBox="0 0 640 420" class="hero-svg">
-        <defs>
-          <radialGradient id="glow" cx="50%" cy="40%" r="60%">
-            <stop offset="0%" stop-color="#3ecfbf" stop-opacity="0.25"/>
-            <stop offset="100%" stop-color="#10141a" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-        <rect width="640" height="420" fill="#0c1016"/>
-        <rect width="640" height="420" fill="url(#glow)"/>
-        <g stroke="#2a3a48" stroke-width="1.5" fill="none">
-          <line x1="120" y1="110" x2="280" y2="90"/>
-          <line x1="280" y1="90" x2="460" y2="120"/>
-          <line x1="460" y1="120" x2="500" y2="240"/>
-          <line x1="120" y1="110" x2="160" y2="250"/>
-          <line x1="160" y1="250" x2="300" y2="220"/>
-          <line x1="300" y1="220" x2="500" y2="240"/>
-          <line x1="300" y1="220" x2="340" y2="340"/>
-          <line x1="460" y1="120" x2="420" y2="340"/>
-        </g>
-        <g fill="#1a2430" stroke="#3ecfbf" stroke-width="1.5">
-          <rect x="50" y="88" width="120" height="36" rx="8"/>
-          <rect x="220" y="68" width="120" height="36" rx="8"/>
-          <rect x="400" y="98" width="120" height="36" rx="8"/>
-          <rect x="100" y="228" width="120" height="36" rx="8"/>
-          <rect x="240" y="198" width="120" height="36" rx="8"/>
-          <rect x="440" y="218" width="120" height="36" rx="8"/>
-          <rect x="280" y="318" width="120" height="36" rx="8"/>
-          <rect x="360" y="318" width="120" height="36" rx="8"/>
-        </g>
-        <g fill="#d7e6ef" font-family="Syne,sans-serif" font-size="12" font-weight="600" text-anchor="middle">
-          <text x="110" y="110">Notion</text>
-          <text x="280" y="90">Telegram</text>
-          <text x="460" y="120">Tilda</text>
-          <text x="160" y="250">Sheets</text>
-          <text x="300" y="220">Оплата</text>
-          <text x="500" y="240">Canva</text>
-          <text x="340" y="340">Cal</text>
-          <text x="420" y="340">AI</text>
-        </g>
-      </svg>
+    <div class="hero-visual">
+      <div class="map-preview-shell">
+        <iframe
+          class="map-preview"
+          src="../free-map.html?embed=1"
+          title="Живой превью карты Tool Map"
+          loading="lazy"
+          tabindex="-1"
+        ></iframe>
+      </div>
+      <p class="preview-note">Живой превью активной ниши. Полная карта открывается отдельно, без фейковых placeholder-скринов.</p>
     </div>
   </section>
 
@@ -87,7 +57,7 @@
       <div class="arrow" aria-hidden="true">→</div>
       <div role="listitem"><em>02</em> Клик по связке</div>
       <div class="arrow" aria-hidden="true">→</div>
-      <div role="listitem"><em>03</em> Плейбук</div>
+      <div role="listitem"><em>03</em> Плейбук · $60</div>
     </div>
   </section>
 
