@@ -2,6 +2,16 @@
  * Tool Map — loads active niche from niches.js (portrait: founders/entrepreneurs).
  */
 (function () {
+  function getUtmProps() {
+    const params = new URLSearchParams(window.location.search);
+    const props = {};
+    ["utm_source", "utm_medium", "utm_campaign", "utm_content"].forEach((key) => {
+      const value = params.get(key);
+      if (value) props[key] = value;
+    });
+    return props;
+  }
+
   function getActiveNiche() {
     const pack = window.TOOLMAP_NICHES;
     if (!pack || !pack.items) return null;
@@ -11,10 +21,11 @@
 
   function capture(event, props) {
     const niche = (window.TOOLMAP_NICHES && window.TOOLMAP_NICHES.activeSlug) || "unknown";
+    const utm = getUtmProps();
     if (window.posthog && typeof window.posthog.capture === "function") {
-      window.posthog.capture(event, { niche, portrait: "founders-entrepreneurs", ...props });
+      window.posthog.capture(event, { niche, portrait: "founders-entrepreneurs", ...utm, ...props });
     } else {
-      console.debug("[posthog stub]", event, { niche, ...props });
+      console.debug("[posthog stub]", event, { niche, ...utm, ...props });
     }
   }
 
@@ -145,7 +156,9 @@
 
   function wireCta(niche) {
     const btn = document.getElementById("paid-cta");
-    const href = "playbook.html?niche=" + encodeURIComponent(niche.slug);
+    const params = new URLSearchParams(window.location.search);
+    params.set("niche", niche.slug);
+    const href = "playbook.html?" + params.toString();
     if (btn.tagName === "A") btn.setAttribute("href", href);
     btn.addEventListener("click", () => {
       capture("paid_cta_clicked", { surface: "map_footer", niche: niche.slug });
